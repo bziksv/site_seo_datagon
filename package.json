@@ -1,0 +1,48 @@
+{
+  "name": "redbox-su",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "node scripts/start-standalone.mjs",
+    "lint": "eslint",
+    "smoke": "node scripts/smoke-urls.mjs",
+    "compare:sitemap": "node scripts/compare-sitemap.mjs",
+    "check": "npm run lint && npm run build",
+    "scrape:news": "node scripts/scrape-news.mjs",
+    "scrape:modules": "node scripts/scrape-modules.mjs",
+    "scrape:site-pages": "node scripts/scrape-site-pages.mjs",
+    "scrape:services": "node scripts/scrape-services.mjs",
+    "scrape:tariffs": "node scripts/scrape-tariffs.mjs",
+    "audit:pages": "node scripts/audit-pages.mjs",
+    "scrape:all": "npm run scrape:modules && npm run scrape:site-pages && npm run scrape:services && npm run scrape:tariffs && npm run scrape:news && npm run scrape:legal && npm run scrape:module-videos",
+    "mirror:news-images": "node scripts/mirror-news-images.mjs",
+    "scrape:legal": "node scripts/scrape-legal.mjs",
+    "scrape:module-videos": "node scripts/scrape-module-videos.mjs",
+    "docker:build": "docker compose build",
+    "docker:up": "docker compose up --build -d"
+  },
+  "dependencies": {
+    "next": "^15.5.0",
+    "nodemailer": "^8.0.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^20",
+    "@types/nodemailer": "^8.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "cheerio": "^1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "^15.5.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5"
+  }
+}

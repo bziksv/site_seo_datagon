@@ -1,0 +1,33 @@
+---
+description: Соглашения Next.js / React для redbox.su
+globs: "{app,components,lib}/**/*.{ts,tsx,js,jsx}"
+alwaysApply: false
+---
+
+# Next.js
+
+## Версия и стиль
+
+- App Router (`app/`), TypeScript.
+- Server Components по умолчанию; `"use client"` только для интерактива (демо, формы, виджеты).
+
+## Демо и lk
+
+- Запросы к продукту — через **`app/api/`** (BFF), не напрямую с браузера на `lk`, если не настроен явный публичный CORS.
+- Секреты и токены — только server-side (`process.env`, не `NEXT_PUBLIC_*` для секретов).
+
+## Файлы
+
+- Страницы: `app/<segment>/page.tsx`
+- Общий layout: `app/layout.tsx`
+- Переиспользуемый UI: `components/`; перед новым блоком — **`docs/examples/`**.
+
+## SEO
+
+- `metadata` / `generateMetadata` на маркетинговых страницах.
+- При смене URL со старого Битрикса — редиректы в `next.config` + запись в `docs/pages.md`.
+
+## Не делать
+
+- Дублировать бизнес-логику модулей Датагон в Next.
+- Тянуть тяжёлый CMS на маркетинговый домен.

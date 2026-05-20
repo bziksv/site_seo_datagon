@@ -1,0 +1,542 @@
+[
+  {
+    "path": "/",
+    "status": "TEXT_LOW",
+    "ratio": 31,
+    "liveLen": 9636,
+    "localLen": 2967,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/about/",
+    "status": "TEXT_WARN",
+    "ratio": 42,
+    "liveLen": 5167,
+    "localLen": 2163,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/contact/",
+    "status": "TEXT_LOW",
+    "ratio": 25,
+    "liveLen": 4176,
+    "localLen": 1064,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/tarify/",
+    "status": "TEXT_LOW",
+    "ratio": 18,
+    "liveLen": 6192,
+    "localLen": 1087,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/services/",
+    "status": "TEXT_LOW",
+    "ratio": 33,
+    "liveLen": 5007,
+    "localLen": 1640,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/faq/",
+    "status": "TEXT_LOW",
+    "ratio": 18,
+    "liveLen": 5139,
+    "localLen": 926,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/",
+    "status": "OK",
+    "ratio": 90,
+    "liveLen": 5861,
+    "localLen": 5253,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/istoriya-kompanii/",
+    "status": "TEXT_LOW",
+    "ratio": 37,
+    "liveLen": 3717,
+    "localLen": 1357,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/legal/personal-data/",
+    "status": "OK",
+    "ratio": 162,
+    "liveLen": 1924,
+    "localLen": 3114,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/legal/privacy/",
+    "status": "OK",
+    "ratio": 593,
+    "liveLen": 1924,
+    "localLen": 11410,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/legal/offer/",
+    "status": "OK",
+    "ratio": 1542,
+    "liveLen": 1924,
+    "localLen": 29659,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/analiz-relevantnosti/",
+    "status": "TEXT_WARN",
+    "ratio": 53,
+    "liveLen": 14656,
+    "localLen": 7734,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/analiz-konkurentov/",
+    "status": "TEXT_WARN",
+    "ratio": 61,
+    "liveLen": 11512,
+    "localLen": 7045,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/monitoring-pozicii-sayta/",
+    "status": "TEXT_WARN",
+    "ratio": 50,
+    "liveLen": 12897,
+    "localLen": 6452,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/monitoring-saytov/",
+    "status": "OK",
+    "ratio": 73,
+    "liveLen": 11853,
+    "localLen": 8682,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/proverka-meta-tegov-online/",
+    "status": "TEXT_LOW",
+    "ratio": 15,
+    "liveLen": 13187,
+    "localLen": 1961,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/generator_slov/",
+    "status": "TEXT_WARN",
+    "ratio": 46,
+    "liveLen": 9660,
+    "localLen": 4406,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/podschet-dliny-teksta/",
+    "status": "OK",
+    "ratio": 77,
+    "liveLen": 8104,
+    "localLen": 6232,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/generator-paroley/",
+    "status": "TEXT_LOW",
+    "ratio": 34,
+    "liveLen": 6856,
+    "localLen": 2349,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/sravnenie-spiskov-klyuchevykh-fraz/",
+    "status": "TEXT_WARN",
+    "ratio": 55,
+    "liveLen": 7232,
+    "localLen": 4000,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/udalenie-dublikatov/",
+    "status": "TEXT_WARN",
+    "ratio": 55,
+    "liveLen": 4091,
+    "localLen": 2239,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/utm-metki/",
+    "status": "TEXT_LOW",
+    "ratio": 34,
+    "liveLen": 14404,
+    "localLen": 4926,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/kalkulyator-roi/",
+    "status": "TEXT_WARN",
+    "ratio": 55,
+    "liveLen": 14766,
+    "localLen": 8094,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/http-headers/",
+    "status": "TEXT_WARN",
+    "ratio": 46,
+    "liveLen": 16566,
+    "localLen": 7685,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/html-redaktor/",
+    "status": "TEXT_WARN",
+    "ratio": 51,
+    "liveLen": 8594,
+    "localLen": 4353,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/vydelenie-unikalnykh-slov-v-tekste/",
+    "status": "TEXT_LOW",
+    "ratio": 39,
+    "liveLen": 10874,
+    "localLen": 4251,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/otslezhivanie-ssylok/",
+    "status": "TEXT_WARN",
+    "ratio": 59,
+    "liveLen": 12546,
+    "localLen": 7432,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/otslezhivanie-sroka-registratsii-domenov/",
+    "status": "TEXT_LOW",
+    "ratio": 37,
+    "liveLen": 9737,
+    "localLen": 3614,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/analiz-teksta/",
+    "status": "TEXT_LOW",
+    "ratio": 38,
+    "liveLen": 11042,
+    "localLen": 4150,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/klasterizator-klyuchevykh-slov/",
+    "status": "TEXT_WARN",
+    "ratio": 51,
+    "liveLen": 15705,
+    "localLen": 8038,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/analizator-relevantnosti-stranitsy-dobavlena-vozmozhno-skachivat-spisok-tlps/",
+    "status": "TEXT_LOW",
+    "ratio": 25,
+    "liveLen": 2777,
+    "localLen": 686,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/analizator-relevantnosti-stranitsy-obnovleno-opisanie-v-proekte-funktsionala/",
+    "status": "TEXT_LOW",
+    "ratio": 24,
+    "liveLen": 2741,
+    "localLen": 651,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/bolshoe-obnovlenie-analiza-relevantnosti-stranitsy/",
+    "status": "TEXT_LOW",
+    "ratio": 17,
+    "liveLen": 2897,
+    "localLen": 485,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/bolee-70-klientov-uzhe-sotrudnichayut-s-kompaniey-i-chast-iz-nikh-s-momenta-osnovaniya/",
+    "status": "TEXT_LOW",
+    "ratio": 23,
+    "liveLen": 2731,
+    "localLen": 627,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/dobavlena-sistema-metok-dlya-analizatora-relevantnosti-stranitsy/",
+    "status": "TEXT_LOW",
+    "ratio": 25,
+    "liveLen": 2799,
+    "localLen": 709,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/dobavleny-obuchayushchie-roliki-k-nekotorym-servisami/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2769,
+    "localLen": 609,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/dorabotki-modulya-analiz-relevantnosti-stranitsy/",
+    "status": "TEXT_LOW",
+    "ratio": 19,
+    "liveLen": 2713,
+    "localLen": 523,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/god-osnovaniya-i-shtat-v-3-cheloveka/",
+    "status": "TEXT_LOW",
+    "ratio": 20,
+    "liveLen": 2618,
+    "localLen": 514,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/ispravlen-bag-s-oblakami-slov/",
+    "status": "TEXT_LOW",
+    "ratio": 23,
+    "liveLen": 2718,
+    "localLen": 631,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/izmenenie-politiki-otdachi-stranits-google/",
+    "status": "TEXT_LOW",
+    "ratio": 31,
+    "liveLen": 3026,
+    "localLen": 936,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/izmeneniya-usloviya-raboty-s-yandeks-api/",
+    "status": "TEXT_LOW",
+    "ratio": 36,
+    "liveLen": 3263,
+    "localLen": 1172,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/k-komande-prisoedinyaetsya-pervyy-programmist/",
+    "status": "TEXT_LOW",
+    "ratio": 19,
+    "liveLen": 2591,
+    "localLen": 487,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/monitoring-pozitsiy-novye-vozmozhnosti-redaktirovaniya-proektov/",
+    "status": "TEXT_LOW",
+    "ratio": 27,
+    "liveLen": 2876,
+    "localLen": 787,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/my-napisali-sistemu-ucheta-klientov-dlya-vnutrennikh-nuzhd/",
+    "status": "TEXT_LOW",
+    "ratio": 23,
+    "liveLen": 2719,
+    "localLen": 616,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/my-razrabatyvaem-sobstvennuyu-platformu-dlya-seo-spetsialistov-i-analitikov-i-zapuskaem-ee-pomodulno/",
+    "status": "TEXT_LOW",
+    "ratio": 23,
+    "liveLen": 2732,
+    "localLen": 629,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/novoe-video-v-module-analiz-relevantnosti/",
+    "status": "TEXT_LOW",
+    "ratio": 27,
+    "liveLen": 2846,
+    "localLen": 759,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/obnovlenie-modulya-analiz-teksta/",
+    "status": "TEXT_LOW",
+    "ratio": 27,
+    "liveLen": 3019,
+    "localLen": 810,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/obnovlenie-modulya-monitoring-pozitsiy-analiz-top-100/",
+    "status": "TEXT_WARN",
+    "ratio": 41,
+    "liveLen": 3578,
+    "localLen": 1483,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/obnovlenie-v-module-monitoring-poziciy/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2698,
+    "localLen": 607,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/obnovlenie-v-module-monitoring-pozitsiy/",
+    "status": "TEXT_LOW",
+    "ratio": 30,
+    "liveLen": 2974,
+    "localLen": 883,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/peredelan-modul-vydelenie-unikalnykh-slov-v-tekste/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2692,
+    "localLen": 603,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/poyavilos-video-v-servise-analiz-relevantnosti/",
+    "status": "TEXT_LOW",
+    "ratio": 24,
+    "liveLen": 2754,
+    "localLen": 667,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/prakticheskiy-kurs-v-module-analiz-relevantnosti/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2688,
+    "localLen": 601,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/pravki-v-module-analiz-teksta/",
+    "status": "TEXT_LOW",
+    "ratio": 24,
+    "liveLen": 2756,
+    "localLen": 669,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/problemy-s-videorolikami/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2688,
+    "localLen": 602,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/prodolzhaem-rabotu-nad-modulyami/",
+    "status": "TEXT_LOW",
+    "ratio": 23,
+    "liveLen": 3436,
+    "localLen": 782,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/sredniy-srok-sotrudnichestva-prevysil-3-5-goda-nas-uzhe-bolee-20-chelovek-v-komande/",
+    "status": "TEXT_LOW",
+    "ratio": 22,
+    "liveLen": 2686,
+    "localLen": 581,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/tarifnye-limity-v-module-monitoring-pozitsiy/",
+    "status": "TEXT_LOW",
+    "ratio": 24,
+    "liveLen": 2733,
+    "localLen": 645,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/u-kompanii-bolee-50-klientov-na-seo-prodvizhenii-i-bolee-10-proektov-po-kontekstnoy-reklame/",
+    "status": "TEXT_LOW",
+    "ratio": 21,
+    "liveLen": 2674,
+    "localLen": 570,
+    "extImg": 0,
+    "http": 200
+  },
+  {
+    "path": "/news/detail/vygruzka-rezultatov-v-module-http-headers/",
+    "status": "TEXT_LOW",
+    "ratio": 21,
+    "liveLen": 2639,
+    "localLen": 553,
+    "extImg": 0,
+    "http": 200
+  }
+]
