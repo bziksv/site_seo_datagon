@@ -153,6 +153,42 @@ a {
   color: rgb(191 219 254);
 }
 
+.monitoring-v3-insight-card {
+  border: 1px solid rgb(255 255 255 / 0.1);
+  background-color: rgb(255 255 255 / 0.04);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.monitoring-v3-insight-card:hover {
+  border-color: rgb(47 93 224 / 0.35);
+  background-color: rgb(47 93 224 / 0.06);
+}
+
+.monitoring-v3-flux-card--chaos {
+  border: 1px solid rgb(239 68 68 / 0.35);
+  background-color: rgb(69 10 10 / 0.45);
+  box-shadow: 0 20px 60px -20px rgb(239 68 68 / 0.25);
+}
+
+.monitoring-v3-flux-card--order {
+  border: 1px solid rgb(47 93 224 / 0.45);
+  background-color: rgb(15 26 51 / 0.65);
+  box-shadow: 0 20px 60px -20px rgb(47 93 224 / 0.3);
+}
+
+.monitoring-v3-stat-cell--hero {
+  border-color: rgb(47 93 224 / 0.5);
+  background: linear-gradient(135deg, rgb(30 63 158 / 0.25), rgb(139 92 246 / 0.12));
+  padding: 2.5rem 2rem;
+}
+
+.monitoring-v3-browser-frame {
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 1rem;
+  background-color: rgb(10 15 26 / 0.9);
+  box-shadow: 0 25px 60px -15px rgb(0 0 0 / 0.5);
+}
+
 @keyframes v3-marquee-left {
   from {
     transform: translateX(0);

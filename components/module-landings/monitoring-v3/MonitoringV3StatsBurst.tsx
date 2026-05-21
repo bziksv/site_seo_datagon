@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { MonitoringV3SceneGrid } from "@/components/module-landings/monitoring-v3/MonitoringV3SceneGrid";
 import { MonitoringV3SectionHeader } from "@/components/module-landings/monitoring-v3/MonitoringV3SectionHeader";
 
 type Stat = {
@@ -8,7 +9,6 @@ type Stat = {
   suffix: string;
   label: string;
   note?: string;
-  /** Не анимировать (ПК, текст) */
   static?: boolean;
 };
 
@@ -103,19 +103,41 @@ export function MonitoringV3StatsBurst({
     return () => obs.disconnect();
   }, []);
 
+  const [hero, ...rest] = stats;
+
   return (
-    <section ref={ref} className="monitoring-v3-tone-stats py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4">
-        <MonitoringV3SectionHeader eyebrow={section.eyebrow} title={section.title} lead={section.lead} align="center" className="mx-auto" />
+    <section ref={ref} className="monitoring-v3-tone-stats relative overflow-hidden py-20 md:py-28">
+      <MonitoringV3SceneGrid />
+      <div className="relative mx-auto max-w-7xl px-4 md:px-8">
+        <MonitoringV3SectionHeader
+          eyebrow={section.eyebrow}
+          title={section.title}
+          lead={section.lead}
+          align="center"
+          className="mx-auto"
+        />
       </div>
-      <ul className="mx-auto mt-14 grid max-w-6xl gap-6 px-4 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((s, i) => (
+      <ul className="mx-auto mt-14 grid max-w-7xl gap-4 px-4 md:px-8 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2">
+        {hero && (
+          <li
+            className={`monitoring-v3-stat-cell monitoring-v3-stat-cell--hero flex flex-col justify-center transition-opacity duration-700 sm:col-span-2 lg:row-span-2 ${
+              active ? "opacity-100" : "opacity-100"
+            }`}
+          >
+            <p className="font-mono text-6xl font-black text-brand-50 md:text-7xl lg:text-8xl">
+              <BurstValue value={hero.value} suffix={hero.suffix} active={active} static={hero.static} />
+            </p>
+            <p className="mt-4 text-base font-medium text-brand-100">{hero.label}</p>
+            {hero.note && <p className="mt-2 text-sm leading-relaxed text-slate-500">{hero.note}</p>}
+          </li>
+        )}
+        {rest.map((s, i) => (
           <li
             key={s.label}
             className={`monitoring-v3-stat-cell text-center transition-all duration-700 ${
-              active ? "translate-y-0 opacity-100" : "translate-y-4 opacity-100"
-            } ${i === 0 ? "ring-1 ring-brand-400/40" : ""}`}
-            style={{ transitionDelay: active ? `${i * 100}ms` : "0ms" }}
+              active ? "opacity-100" : "opacity-100"
+            }`}
+            style={{ transitionDelay: active ? `${(i + 1) * 100}ms` : "0ms" }}
           >
             <p className="font-mono text-4xl font-black text-brand-50 md:text-5xl">
               <BurstValue value={s.value} suffix={s.suffix} active={active} static={s.static} />

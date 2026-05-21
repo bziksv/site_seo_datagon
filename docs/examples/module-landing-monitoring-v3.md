@@ -17,12 +17,13 @@
 | `MonitoringV3ScrollProgress` | Прогресс-бар скролла сверху |
 | `MonitoringV3PulseIntro` | Full-viewport: **2 колонки** (копия + `MonitoringV3PulseHeroVisual`), сетка, hero CTA |
 | `MonitoringV3KeywordStreams` | Двойной marquee фраз |
-| `MonitoringV3DepthPin` | Sticky + шкала 1→100 от скролла |
-| `MonitoringV3FluxScene` | Crossfade «Ручной режим» → «Пульс Датагон» + glitch |
-| `MonitoringV3SignalRail` | Горизонтальный snap-scroll карточек |
-| `MonitoringV3ScreenshotStage` | Crossfade скринов (CSS carousel) |
+| `MonitoringV3DepthPin` | 2 колонки: текст + панель глубины, маркеры ТОП‑3…100 |
+| `MonitoringV3FluxScene` | 2 карточки хаос/порядок + прогресс-бар скролла |
+| `MonitoringV3SignalRail` | Горизонтальный snap-scroll карточек + точки-навигация |
+| `MonitoringV3InsightsWall` | Сетка «что в отчёте» + панель динамики (текст из классики) |
+| `MonitoringV3ScreenshotStage` | Скрины в рамке «браузер», 2 колонки на desktop |
 | `MonitoringV3StatsBurst` | Count-up (видны до скролла; «ПК» static) + подписи |
-| `MonitoringV3Essentials` | Параметры проверки + 4 карточки «простым языком» |
+| `MonitoringV3Essentials` | Параметры + 4 слоя «как устроен» + plain-карточки + ссылки на модули |
 | `MonitoringV3FaqDeck` | Аккордеон на тёмном фоне |
 | `MonitoringV3Outro` | CTA с лёгким magnetic-offset |
 

@@ -3,6 +3,7 @@ import { MonitoringV3PulseIntro } from "@/components/module-landings/monitoring-
 import { MonitoringV3KeywordStreams } from "@/components/module-landings/monitoring-v3/MonitoringV3KeywordStreams";
 import { MonitoringV3DepthPin } from "@/components/module-landings/monitoring-v3/MonitoringV3DepthPin";
 import { MonitoringV3FluxScene } from "@/components/module-landings/monitoring-v3/MonitoringV3FluxScene";
+import { MonitoringV3InsightsWall } from "@/components/module-landings/monitoring-v3/MonitoringV3InsightsWall";
 import { MonitoringV3SignalRail } from "@/components/module-landings/monitoring-v3/MonitoringV3SignalRail";
 import { MonitoringV3ScreenshotStage } from "@/components/module-landings/monitoring-v3/MonitoringV3ScreenshotStage";
 import { MonitoringV3StatsBurst } from "@/components/module-landings/monitoring-v3/MonitoringV3StatsBurst";
@@ -14,6 +15,10 @@ import {
   MONITORING_V3_ESSENTIALS,
   MONITORING_V3_FAQ,
   MONITORING_V3_FLUX,
+  MONITORING_V3_FAQ_SECTION,
+  MONITORING_V3_INSIGHTS_GRID,
+  MONITORING_V3_INSIGHTS_HIGHLIGHT,
+  MONITORING_V3_INSIGHTS_SECTION,
   MONITORING_V3_INTRO,
   MONITORING_V3_OUTRO,
   MONITORING_V3_SCREENSHOTS,
@@ -41,10 +46,15 @@ export function MonitoringPoziciiV3Landing({ module }: Props) {
       <MonitoringV3DepthPin depth={MONITORING_V3_DEPTH} />
       <MonitoringV3FluxScene flux={MONITORING_V3_FLUX} />
       <MonitoringV3SignalRail section={MONITORING_V3_SIGNALS_SECTION} signals={MONITORING_V3_SIGNALS} />
+      <MonitoringV3InsightsWall
+        section={MONITORING_V3_INSIGHTS_SECTION}
+        grid={MONITORING_V3_INSIGHTS_GRID}
+        highlight={MONITORING_V3_INSIGHTS_HIGHLIGHT}
+      />
       <MonitoringV3ScreenshotStage shots={MONITORING_V3_SCREENSHOTS} section={MONITORING_V3_SCREENSHOT_SECTION} />
       <MonitoringV3StatsBurst stats={MONITORING_V3_STATS} section={MONITORING_V3_STATS_SECTION} />
       <MonitoringV3Essentials data={MONITORING_V3_ESSENTIALS} />
-      <MonitoringV3FaqDeck faq={MONITORING_V3_FAQ} />
+      <MonitoringV3FaqDeck faq={MONITORING_V3_FAQ} section={MONITORING_V3_FAQ_SECTION} />
       <MonitoringV3Outro outro={MONITORING_V3_OUTRO} />
     </div>
   );
