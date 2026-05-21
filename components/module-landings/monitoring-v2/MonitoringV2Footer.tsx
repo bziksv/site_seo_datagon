@@ -24,8 +24,8 @@ type Props = {
 export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq, footerUi }: Props) {
   const fu = footerUi;
   return (
-    <div className="bg-slate-50">
-      <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+    <div className="min-w-0 max-w-full overflow-x-clip bg-slate-50">
+      <div className="mx-auto min-w-0 max-w-6xl px-4 py-14 md:py-20">
         <RevealOnScroll>
           <section className="rounded-2xl border border-slate-200 bg-white p-6 md:p-10">
             <MonitoringV2SectionHeader
@@ -75,25 +75,27 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
             <MonitoringV2SectionHeader eyebrow="FAQ" title={fu.faqTitle} />
             <dl className="mt-8 space-y-3">
               {faq.map((item) => (
-                <details
-                  key={item.q}
-                  className="group rounded-xl border border-slate-200 bg-white open:border-brand-200 open:shadow-sm"
-                >
-                  <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-slate-900 marker:content-none [&::-webkit-details-marker]:hidden">
-                    <span className="flex items-center justify-between gap-4">
-                      {item.q}
-                      <span
-                        className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition group-open:rotate-45 group-open:bg-brand-100 group-open:text-brand-700"
-                        aria-hidden
-                      >
-                        +
-                      </span>
-                    </span>
-                  </summary>
-                  <dd className="border-t border-slate-100 px-5 pb-4 pt-0 text-sm leading-relaxed text-slate-600">
-                    <p className="pt-3">{item.a}</p>
+                <div key={item.q}>
+                  <dt className="sr-only">{item.q}</dt>
+                  <dd className="m-0">
+                    <details className="group rounded-xl border border-slate-200 bg-white open:border-brand-200 open:shadow-sm">
+                      <summary className="cursor-pointer list-none px-5 py-4 font-semibold text-slate-900 marker:content-none [&::-webkit-details-marker]:hidden">
+                        <span className="flex items-center justify-between gap-4">
+                          {item.q}
+                          <span
+                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-600 transition group-open:rotate-45 group-open:bg-brand-100 group-open:text-brand-700"
+                            aria-hidden
+                          >
+                            +
+                          </span>
+                        </span>
+                      </summary>
+                      <div className="border-t border-slate-100 px-5 pb-4 text-sm leading-relaxed text-slate-600">
+                        <p className="pt-3">{item.a}</p>
+                      </div>
+                    </details>
                   </dd>
-                </details>
+                </div>
               ))}
             </dl>
           </section>
@@ -154,12 +156,6 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
                   Основная версия
                 </Link>
               ) : null}
-              <Link
-                href={fu.labV1Href}
-                className="text-sm text-brand-200 hover:text-white"
-              >
-                Архив v1 (LAB)
-              </Link>
             </nav>
           </div>
         </section>

@@ -15,7 +15,7 @@ export function HeroParallaxMedia({ children }: Props) {
   return (
     <div
       ref={ref}
-      className="will-change-transform transition-none"
+      className="min-w-0 max-w-full overflow-hidden will-change-transform transition-none"
       style={{ transform: `translate3d(0, ${y}px, 0)` }}
     >
       {children}

@@ -200,14 +200,29 @@ export function Header() {
           </a>
         </div>
 
-        <button
-          type="button"
-          className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm transition hover:border-brand-300 hover:bg-brand-50 lg:hidden"
-          onClick={() => setMobileOpen((v) => !v)}
-          aria-expanded={mobileOpen}
-        >
-          Меню
-        </button>
+        <div className="flex shrink-0 items-center gap-2 lg:hidden">
+          <a
+            href={`${LK_URL}/login`}
+            className="rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-700 transition hover:bg-brand-50 hover:text-brand-700"
+          >
+            Вход
+          </a>
+          <a
+            href={`${LK_URL}/register`}
+            className="rounded-lg bg-brand-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm transition hover:bg-brand-700"
+          >
+            Регистрация
+          </a>
+          <button
+            type="button"
+            className="rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm transition hover:border-brand-300 hover:bg-brand-50"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-expanded={mobileOpen}
+            aria-label={mobileOpen ? "Закрыть меню" : "Открыть меню"}
+          >
+            {mobileOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -245,12 +260,6 @@ export function Header() {
             <Link href="/contact/" className="rounded-lg px-2 py-2 hover:bg-brand-50" onClick={() => setMobileOpen(false)}>
               Контакты
             </Link>
-            <a href={`${LK_URL}/login`} className="rounded-lg px-2 py-2 hover:bg-brand-50">
-              Вход
-            </a>
-            <a href={`${LK_URL}/register`} className="rounded-lg px-2 py-2 font-medium text-brand-600 hover:bg-brand-50">
-              Регистрация
-            </a>
           </div>
         </nav>
       )}

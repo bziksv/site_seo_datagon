@@ -45,8 +45,6 @@ export type ModuleV2HeroUi = {
   keysFooter?: string;
   dynamicsFooter?: string;
   labBadge?: string;
-  /** LAB v1 (зеркало классики), не в меню */
-  labV1Href?: string;
   ctaHint?: string;
 };
 
@@ -56,7 +54,6 @@ export type ModuleV2FooterUi = {
   finalLead: string;
   /** Публичный URL модуля (без -v2) */
   classicHref: string;
-  labV1Href: string;
   faqTitle: string;
   videoTitle?: string;
   videoLead?: string;

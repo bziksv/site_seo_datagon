@@ -9,7 +9,7 @@ export function Analytics() {
     <>
       {YM_ID && (
         <>
-          <Script id="yandex-metrika" strategy="afterInteractive">
+          <Script id="yandex-metrika" strategy="lazyOnload">
             {`
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
 m[i].l=1*new Date();
@@ -35,9 +35,9 @@ ym(${YM_ID}, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true,
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id="google-analytics" strategy="lazyOnload">
             {`
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}

@@ -9,9 +9,9 @@ type PainGain = {
 
 export function MonitoringV2PainGain({ data }: { data: PainGain }) {
   return (
-    <section className="border-y border-slate-200 bg-white">
+    <section className="overflow-x-clip border-y border-slate-200 bg-white">
       <RevealOnScroll>
-        <div className="mx-auto grid max-w-6xl lg:grid-cols-2">
+        <div className="mx-auto grid min-w-0 max-w-6xl lg:grid-cols-2">
           <div className="border-b border-slate-200 bg-slate-50 px-6 py-14 md:px-10 lg:border-b-0 lg:border-r">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-slate-500">{data.painTitle}</h2>
             <ul className="mt-8 space-y-5">

@@ -28,7 +28,7 @@ export function ModuleV2Landing({ module, config, isLabRoute = false }: Props) {
   const actsPreview = c.acts.map((a) => ({ act: a.act, title: a.title }));
 
   return (
-    <div className="module-v2-landing">
+    <div className="module-v2-landing min-w-0 max-w-full overflow-x-clip">
       <MonitoringV2CommandHero
         module={module}
         concept={c.concept}

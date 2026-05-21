@@ -4,7 +4,6 @@ import type { ClassicV3Source } from "@/lib/content/module-v3/build-config";
 import { MODULE_V2_ENRICHMENT } from "@/lib/content/module-v2/enrichment";
 import { MODULE_V2_OVERRIDES, type ModuleV2Override } from "@/lib/content/module-v2/overrides";
 import { MODULE_V2_SECTION_ENRICHMENT } from "@/lib/content/module-v2/sections-enrichment";
-import { moduleV1Slug } from "@/lib/content/module-v1/slugs";
 import { MODULE_V2_VIDEOS } from "@/lib/content/module-v2/videos-by-slug";
 import type {
   ModuleV2Act,
@@ -189,13 +188,10 @@ export function buildModuleV2Config(
 
   const hub = o.hubTitle ?? module.h1.split(" ").slice(0, 3).join(" ");
 
-  const labV1Href = o.heroUi?.labV1Href ?? `/${moduleV1Slug(baseSlug)}/`;
-
   const heroUi: ModuleV2HeroUi = {
     classicHref: `/${baseSlug}/`,
     storyAnchor: `module-v2-story-${baseSlug}`,
     idPrefix: `module-v2-${baseSlug}`,
-    labV1Href,
     showSearchEngines: false,
     panelChips: buildPanelChips(source, module.features),
     keysFooter: "Проект · задача",
@@ -217,7 +213,6 @@ export function buildModuleV2Config(
     finalTitle: `Запустите «${shortTitle}»`,
     finalLead: "",
     classicHref: heroUi.classicHref,
-    labV1Href,
     faqTitle: `Вопросы: ${shortTitle}`,
     videoTitle: videos.length ? `Видео: ${shortTitle}` : undefined,
     videoLead: videos.length ? "Короткие уроки по интерфейсу и типовым сценариям." : undefined,

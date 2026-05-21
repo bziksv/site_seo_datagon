@@ -19,8 +19,8 @@ export function MonitoringV2MetricWall({
   section?: MetricSection;
 }) {
   return (
-    <section className="border-y border-brand-900/30 bg-brand-800 py-16 text-white md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section className="overflow-x-clip border-y border-brand-900/30 bg-brand-800 py-16 text-white md:py-24">
+      <div className="mx-auto min-w-0 max-w-6xl px-4">
         <RevealOnScroll>
           <MonitoringV2SectionHeader
             align="center"

@@ -34,7 +34,6 @@ export type MonitoringV2HeroUi = {
   keysFooter?: string;
   dynamicsFooter?: string;
   labBadge?: string;
-  labV1Href?: string;
   ctaHint?: string;
 };
 
@@ -79,13 +78,13 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
     panelChips: DEFAULT_PANEL_CHIPS,
     keysFooter: "Проект · ключи",
     dynamicsFooter: "Динамика · отчёт",
-    labV1Href: "/monitoring-pozicii-v1/",
     ...heroUi,
   };
   const panelChips = ui.panelChips ?? DEFAULT_PANEL_CHIPS;
   const [keys, dynamics] = shots;
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [reduceMotion, setReduceMotion] = useState(true);
+  const [canTiltPanel, setCanTiltPanel] = useState(false);
 
   useEffect(() => {
     setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
@@ -96,7 +95,15 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
   }, []);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const update = () => setCanTiltPanel(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion || !canTiltPanel) return;
     const onMove = (e: MouseEvent) => {
       const cx = window.innerWidth / 2;
       const cy = window.innerHeight / 2;
@@ -107,9 +114,10 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
     };
     window.addEventListener("mousemove", onMove, { passive: true });
     return () => window.removeEventListener("mousemove", onMove);
-  }, [reduceMotion]);
+  }, [reduceMotion, canTiltPanel]);
 
-  const panelTransform = reduceMotion ? undefined : `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`;
+  const panelTransform =
+    reduceMotion || !canTiltPanel ? undefined : `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`;
 
   return (
     <section className="relative min-h-[min(92vh,900px)] overflow-hidden bg-[#070d1a] text-white">
@@ -134,7 +142,7 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
       />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-[#070d1a]" aria-hidden />
 
-      <div className="relative z-10 mx-auto flex min-h-[min(92vh,900px)] max-w-6xl flex-col px-4 pb-16 pt-8 md:pt-12">
+      <div className="relative z-10 mx-auto flex min-h-[min(92vh,900px)] max-w-6xl min-w-0 flex-col px-4 pb-16 pt-8 md:pt-12">
         <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-400" aria-label="Хлебные крошки">
           <Link href="/" className="hover:text-white">
             Главная
@@ -157,20 +165,10 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
               </Link>
             </>
           ) : null}
-          {ui.labV1Href ? (
-            <>
-              <span className="hidden text-slate-600 sm:inline" aria-hidden>
-                ·
-              </span>
-              <Link href={ui.labV1Href} className="text-slate-500 hover:text-slate-300">
-                архив v1
-              </Link>
-            </>
-          ) : null}
         </nav>
 
-        <div className="mt-10 grid flex-1 items-center gap-12 lg:grid-cols-[1fr_1.12fr] lg:gap-10">
-          <div className="max-w-xl">
+        <div className="mt-10 grid min-w-0 flex-1 items-center gap-12 lg:grid-cols-[1fr_1.12fr] lg:gap-10">
+          <div className="min-w-0 max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-300">{concept.eyebrow}</p>
             <h1 className="mt-4 text-4xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-[3.25rem]">
               {concept.headline}
@@ -212,13 +210,13 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
           </div>
 
           <div
-            className="relative mx-auto w-full max-w-xl perspective-[1200px] lg:mx-0 lg:max-w-none"
+            className="relative mx-auto min-w-0 w-full max-w-xl overflow-hidden lg:mx-0 lg:max-w-none lg:overflow-visible lg:perspective-[1200px]"
             style={{
               transform: panelTransform,
-              transition: reduceMotion ? undefined : "transform 0.15s ease-out",
+              transition: reduceMotion || !canTiltPanel ? undefined : "transform 0.15s ease-out",
             }}
           >
-            <div className="pointer-events-none absolute -left-2 top-8 z-30 flex flex-col gap-2 sm:left-0">
+            <div className="pointer-events-none absolute left-0 top-6 z-30 hidden flex-col gap-2 sm:flex lg:-left-2 lg:top-8">
               {panelChips.map((c) => (
                 <span
                   key={c.label}
@@ -257,8 +255,8 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }
               </div>
             )}
             {dynamics && (
-              <div className="relative z-20 -mt-12 ml-6 overflow-hidden rounded-xl border border-brand-400/50 bg-white shadow-2xl shadow-brand-900/50 sm:-mt-16 md:-mt-20 md:ml-12">
-                <div className="relative aspect-[1024/260] w-full min-h-[100px] bg-slate-50 sm:min-h-[120px]">
+              <div className="relative z-20 -mt-8 w-full max-w-full overflow-hidden rounded-xl border border-brand-400/50 bg-white shadow-2xl shadow-brand-900/50 sm:-mt-12 lg:-mt-20 lg:ml-12 lg:max-w-[92%]">
+                <div className="relative aspect-[1024/260] w-full min-h-[88px] bg-slate-50 sm:min-h-[110px]">
                   <Image
                     src={dynamics.src}
                     alt={dynamics.caption}

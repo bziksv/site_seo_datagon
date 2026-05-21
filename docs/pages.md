@@ -17,7 +17,7 @@
 | `/<модуль>-v1/` (18 шт.) | ✅ LAB — зеркало **старой** классики; robots disallow |
 | `/<модуль>-v2/` (17 шт.) | ✅ LAB — архив URL v2; robots disallow |
 | `/<модуль>-v3/` (17 шт.) | ✅ LAB v3 — [module-landing-v3-universal.md](./examples/module-landing-v3-universal.md); robots disallow |
-| `/` (главная) | ✅ showcase `DatagonHome` — анимации без привязки к v1/v2/v3 |
+| `/` (главная) | ✅ `DatagonHome` + `HomeEcosystemOrbit` — hero-панель, pain/gain, pipeline, bento со скринами, орбита модулей |
 | `/analiz-konkurentov/` | ✅ [module-landing-competitors.md](./examples/module-landing-competitors.md) |
 | `/html-redaktor/` | ✅ [module-landing-html-editor.md](./examples/module-landing-html-editor.md) |
 | `/http-headers/` | ✅ [module-landing-http-headers.md](./examples/module-landing-http-headers.md) |

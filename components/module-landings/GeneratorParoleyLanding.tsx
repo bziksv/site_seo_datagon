@@ -41,7 +41,7 @@ export function GeneratorParoleyLanding({ module }: Props) {
           aria-hidden
         />
         <ParallaxMonoScene align="right" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
+        <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 py-12 md:py-16 lg:py-20">
           <nav className="mb-6 text-sm text-brand-100">
             <Link href="/" className="hover:text-white">
               Главная
@@ -52,7 +52,7 @@ export function GeneratorParoleyLanding({ module }: Props) {
             </Link>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div>
               <div className="flex flex-wrap items-center gap-3">
                 <ModuleIcon href={module.path} className="h-12 w-12 bg-white/15 text-2xl" />
@@ -103,7 +103,7 @@ export function GeneratorParoleyLanding({ module }: Props) {
               </div>
             </div>
 
-            <div className="relative w-full lg:max-w-none">
+            <div className="relative min-w-0 w-full max-w-full overflow-hidden lg:max-w-none">
               <HeroParallaxMedia>
                 <figure className="relative overflow-hidden rounded-2xl border border-white/20 bg-white shadow-xl shadow-black/25">
                   <div className="relative aspect-[16/11] min-h-[220px] w-full sm:min-h-[280px] lg:min-h-[340px] xl:min-h-[380px]">
@@ -139,7 +139,7 @@ export function GeneratorParoleyLanding({ module }: Props) {
 
       <ModuleTechSection section={PW_GEN_TECH_SECTION} layers={PW_GEN_TECH_LAYERS} titleId="pw-gen-tech-title" />
 
-      <div className="bg-slate-50">
+      <div className="min-w-0 max-w-full overflow-x-clip bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
           <section>
             <p className="text-center text-sm font-semibold uppercase tracking-widest text-brand-600">
@@ -203,7 +203,7 @@ export function GeneratorParoleyLanding({ module }: Props) {
           <section className="mt-20">
             <h2 className="text-2xl font-bold text-slate-900">Интерфейс модуля</h2>
             <p className="mt-2 text-slate-600">Форма настроек и выдача паролей — как в личном кабинете.</p>
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div className="mt-8 grid min-w-0 gap-8 sm:grid-cols-2">
               {PW_GEN_SCREENSHOTS.map((shot) => (
                 <figure
                   key={shot.src}

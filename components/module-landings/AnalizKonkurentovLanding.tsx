@@ -39,7 +39,7 @@ export function AnalizKonkurentovLanding({ module }: Props) {
           aria-hidden
         />
         <ParallaxMonoScene align="right" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
+        <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 py-12 md:py-16 lg:py-20">
           <nav className="mb-6 text-sm text-brand-100">
             <Link href="/" className="hover:text-white">
               Главная
@@ -50,7 +50,7 @@ export function AnalizKonkurentovLanding({ module }: Props) {
             </Link>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div>
               <div className="flex flex-wrap items-center gap-3">
                 <ModuleIcon href={module.path} className="h-12 w-12 bg-white/15 text-2xl" />
@@ -103,7 +103,7 @@ export function AnalizKonkurentovLanding({ module }: Props) {
               </div>
             </div>
 
-            <div className="relative w-full lg:max-w-none">
+            <div className="relative min-w-0 w-full max-w-full overflow-hidden lg:max-w-none">
               <HeroParallaxMedia>
                 <figure className="relative overflow-hidden rounded-2xl border border-white/20 bg-white shadow-xl shadow-black/25">
                   <div className="relative aspect-[4/3] min-h-[240px] w-full sm:min-h-[300px] lg:min-h-[360px] xl:min-h-[400px]">
@@ -143,7 +143,7 @@ export function AnalizKonkurentovLanding({ module }: Props) {
         titleId="competitor-tech-title"
       />
 
-      <div className="bg-slate-50">
+      <div className="min-w-0 max-w-full overflow-x-clip bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
           <section>
             <p className="text-center text-sm font-semibold uppercase tracking-widest text-brand-600">
@@ -208,7 +208,7 @@ export function AnalizKonkurentovLanding({ module }: Props) {
           <section className="mt-20">
             <h2 className="text-2xl font-bold text-slate-900">Интерфейс модуля</h2>
             <p className="mt-2 text-slate-600">Матрица, мета и вложенность — как в личном кабинете.</p>
-            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <div className="mt-8 grid min-w-0 gap-8 sm:grid-cols-2">
               {COMPETITOR_SCREENSHOTS.map((shot) => (
                 <figure
                   key={shot.src}

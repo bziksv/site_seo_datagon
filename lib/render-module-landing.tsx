@@ -1,5 +1,7 @@
+import type { ReactNode } from "react";
 import type { ModulePage } from "@/lib/content/modules";
 import { ModuleLanding } from "@/components/ModuleLanding";
+import { ModuleLandingShell } from "@/components/module-landings/ModuleLandingShell";
 import { AnalizRelevantnostiLanding } from "@/components/module-landings/AnalizRelevantnostiLanding";
 import { AnalizKonkurentovLanding } from "@/components/module-landings/AnalizKonkurentovLanding";
 import { HttpHeadersLanding } from "@/components/module-landings/HttpHeadersLanding";
@@ -20,48 +22,52 @@ import { HtmlRedaktorLanding } from "@/components/module-landings/HtmlRedaktorLa
 import { MonitoringPoziciiLanding } from "@/components/module-landings/MonitoringPoziciiLanding";
 import { MonitoringSaytovLanding } from "@/components/module-landings/MonitoringSaytovLanding";
 
+function wrapClassic(page: ReactNode) {
+  return <ModuleLandingShell>{page}</ModuleLandingShell>;
+}
+
 /** Рендер эталонного лендинга по базовому slug (классика / LAB v1). */
 export function renderModuleLanding(baseSlug: string, module: ModulePage) {
   switch (baseSlug) {
     case "analiz-relevantnosti":
-      return <AnalizRelevantnostiLanding module={module} />;
+      return wrapClassic(<AnalizRelevantnostiLanding module={module} />);
     case "monitoring-pozicii-sayta":
-      return <MonitoringPoziciiLanding module={module} />;
+      return wrapClassic(<MonitoringPoziciiLanding module={module} />);
     case "monitoring-saytov":
-      return <MonitoringSaytovLanding module={module} />;
+      return wrapClassic(<MonitoringSaytovLanding module={module} />);
     case "analiz-konkurentov":
-      return <AnalizKonkurentovLanding module={module} />;
+      return wrapClassic(<AnalizKonkurentovLanding module={module} />);
     case "html-redaktor":
-      return <HtmlRedaktorLanding module={module} />;
+      return wrapClassic(<HtmlRedaktorLanding module={module} />);
     case "http-headers":
-      return <HttpHeadersLanding module={module} />;
+      return wrapClassic(<HttpHeadersLanding module={module} />);
     case "kalkulyator-roi":
-      return <KalkulyatorRoiLanding module={module} />;
+      return wrapClassic(<KalkulyatorRoiLanding module={module} />);
     case "utm-metki":
-      return <UtmMetkiLanding module={module} />;
+      return wrapClassic(<UtmMetkiLanding module={module} />);
     case "sravnenie-spiskov-klyuchevykh-fraz":
-      return <SravnenieSpiskovLanding module={module} />;
+      return wrapClassic(<SravnenieSpiskovLanding module={module} />);
     case "generator-paroley":
-      return <GeneratorParoleyLanding module={module} />;
+      return wrapClassic(<GeneratorParoleyLanding module={module} />);
     case "podschet-dliny-teksta":
-      return <PodschetDlinyTekstaLanding module={module} />;
+      return wrapClassic(<PodschetDlinyTekstaLanding module={module} />);
     case "generator_slov":
-      return <GeneratorSlovLanding module={module} />;
+      return wrapClassic(<GeneratorSlovLanding module={module} />);
     case "proverka-meta-tegov-online":
-      return <ProverkaMetaTegovLanding module={module} />;
+      return wrapClassic(<ProverkaMetaTegovLanding module={module} />);
     case "udalenie-dublikatov":
-      return <UdalenieDublikatovLanding module={module} />;
+      return wrapClassic(<UdalenieDublikatovLanding module={module} />);
     case "vydelenie-unikalnykh-slov-v-tekste":
-      return <VydelenieUnikalnykhSlovLanding module={module} />;
+      return wrapClassic(<VydelenieUnikalnykhSlovLanding module={module} />);
     case "otslezhivanie-ssylok":
-      return <OtslezhivanieSsylokLanding module={module} />;
+      return wrapClassic(<OtslezhivanieSsylokLanding module={module} />);
     case "otslezhivanie-sroka-registratsii-domenov":
-      return <OtslezhivanieSrokaRegistratsiiDomenovLanding module={module} />;
+      return wrapClassic(<OtslezhivanieSrokaRegistratsiiDomenovLanding module={module} />);
     case "analiz-teksta":
-      return <AnalizTekstaLanding module={module} />;
+      return wrapClassic(<AnalizTekstaLanding module={module} />);
     case "klasterizator-klyuchevykh-slov":
-      return <KlasterizatorKlyuchevykhSlovLanding module={module} />;
+      return wrapClassic(<KlasterizatorKlyuchevykhSlovLanding module={module} />);
     default:
-      return <ModuleLanding module={module} />;
+      return wrapClassic(<ModuleLanding module={module} />);
   }
 }

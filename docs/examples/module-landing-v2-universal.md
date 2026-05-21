@@ -28,6 +28,13 @@
 
 Правки текстов — `overrides.ts`, `enrichment.ts`, `sections-enrichment.ts`. Роутинг: `lib/content/module-v2/resolve-route.ts`, `app/[slug]/page.tsx`.
 
+## Производительность и a11y
+
+- Hero CTA: `ModuleLeadCta` с `variant="hero"` — заголовок `h2` после `h1` (PageSpeed / Lighthouse).
+- FAQ в `MonitoringV2Footer`: валидная пара `dt`/`dd` внутри `dl`.
+- Подвал сайта: копирайт `text-slate-400` на `bg-slate-900` (контраст WCAG).
+- Яндекс.Метрика и GA: `strategy="lazyOnload"` в `components/Analytics.tsx`.
+
 ## Проверка
 
 ```bash

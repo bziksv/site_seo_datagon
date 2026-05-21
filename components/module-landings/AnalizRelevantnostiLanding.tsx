@@ -41,7 +41,7 @@ export function AnalizRelevantnostiLanding({ module }: Props) {
           aria-hidden
         />
         <ParallaxMonoScene align="right" />
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
+        <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 py-12 md:py-16 lg:py-20">
           <nav className="mb-6 text-sm text-brand-100">
             <Link href="/" className="hover:text-white">
               Главная
@@ -52,7 +52,7 @@ export function AnalizRelevantnostiLanding({ module }: Props) {
             </Link>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
             <div>
               <div className="flex flex-wrap items-center gap-3">
                 <ModuleIcon href={module.path} className="h-12 w-12 bg-white/15 text-2xl" />
@@ -105,7 +105,7 @@ export function AnalizRelevantnostiLanding({ module }: Props) {
               </div>
             </div>
 
-            <div className="relative w-full lg:max-w-none">
+            <div className="relative min-w-0 w-full max-w-full overflow-hidden lg:max-w-none">
               <HeroParallaxMedia>
               <figure className="relative overflow-hidden rounded-2xl border border-white/20 bg-white shadow-xl shadow-black/25">
                 <div className="relative min-h-[220px] w-full aspect-[16/11] sm:min-h-[280px] lg:min-h-[340px] xl:min-h-[380px]">
@@ -146,7 +146,7 @@ export function AnalizRelevantnostiLanding({ module }: Props) {
         titleId="relevance-tech-title"
       />
 
-      <div className="bg-slate-50">
+      <div className="min-w-0 max-w-full overflow-x-clip bg-slate-50">
         <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
           {/* Steps */}
           <section>

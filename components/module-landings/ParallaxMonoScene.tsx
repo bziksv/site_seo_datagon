@@ -41,8 +41,8 @@ export function ParallaxMonoScene({ align = "spread" }: Props) {
 
   const rootClass =
     align === "right"
-      ? "pointer-events-none absolute inset-y-0 right-0 w-full max-w-[62%]"
-      : "pointer-events-none absolute inset-0";
+      ? "pointer-events-none absolute inset-y-0 right-0 w-full max-w-full overflow-hidden sm:max-w-[62%]"
+      : "pointer-events-none absolute inset-0 overflow-hidden";
 
   return (
     <div ref={ref} className={rootClass} aria-hidden>

@@ -55,7 +55,7 @@ export function MonitoringV2StoryActs({
   }, [acts]);
 
   return (
-    <section id={section.id} className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
+    <section id={section.id} className="scroll-mt-20 overflow-x-clip bg-slate-50 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <MonitoringV2SectionHeader
           eyebrow={section.eyebrow}
@@ -64,9 +64,10 @@ export function MonitoringV2StoryActs({
         />
       </div>
 
-      {/* Mobile: горизонтальные табы */}
-      <div className="mx-auto mt-8 max-w-6xl overflow-x-auto px-4 lg:hidden">
-        <div className="flex gap-2 pb-2">
+      {/* Mobile: горизонтальные табы — скролл внутри блока, не на всю страницу */}
+      <div className="mx-auto mt-8 min-w-0 max-w-6xl px-4 lg:hidden">
+        <div className="-mx-4 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:thin]">
+          <div className="flex w-max max-w-none gap-2 pb-2">
           {acts.map((a, i) => (
             <button
               key={a.act}
@@ -81,10 +82,11 @@ export function MonitoringV2StoryActs({
               {a.act} {a.title.split(" ")[0]}
             </button>
           ))}
+          </div>
         </div>
       </div>
 
-      <div className="mx-auto mt-10 grid max-w-6xl gap-10 px-4 lg:mt-14 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-16">
+      <div className="mx-auto mt-10 grid min-w-0 max-w-6xl gap-10 px-4 lg:mt-14 lg:grid-cols-[minmax(0,300px)_1fr] lg:gap-16">
         <div className="hidden lg:sticky lg:top-28 lg:block lg:self-start">
           <nav aria-label="Этапы сценария" className="relative pl-8">
             <div className="absolute bottom-2 left-[11px] top-2 w-0.5 bg-brand-100" aria-hidden />
@@ -121,14 +123,14 @@ export function MonitoringV2StoryActs({
           </nav>
         </div>
 
-        <div className="space-y-20 md:space-y-28">
+        <div className="min-w-0 space-y-20 md:space-y-28">
           {acts.map((a, i) => (
             <RevealOnScroll key={a.act} delayMs={i * 80}>
               <article
                 ref={(el) => {
                   refs.current[i] = el;
                 }}
-                className="scroll-mt-28"
+                className="min-w-0 scroll-mt-28"
               >
                 <p className="font-mono text-sm text-brand-600 lg:hidden">{a.act}</p>
                 <h3 className="mt-1 text-2xl font-bold text-slate-900 md:text-3xl">{a.title}</h3>
@@ -143,8 +145,8 @@ export function MonitoringV2StoryActs({
                     </li>
                   ))}
                 </ul>
-                <figure className="mt-8 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl ring-1 ring-slate-900/5">
-                  <div className={`relative w-full bg-slate-100 ${actImageClass(a.image)}`}>
+                <figure className="mt-8 max-w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl ring-1 ring-slate-900/5">
+                  <div className={`relative max-w-full bg-slate-100 ${actImageClass(a.image)}`}>
                     <Image
                       src={a.image}
                       alt={a.imageAlt}

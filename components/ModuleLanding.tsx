@@ -30,10 +30,10 @@ export function ModuleLanding({ module }: Props) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-brand-800 via-brand-600 to-brand-700 text-white">
+      <section className="relative overflow-x-clip bg-gradient-to-br from-brand-800 via-brand-600 to-brand-700 text-white">
         <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-56 w-56 rounded-full bg-brand-400/25 blur-3xl" />
-        <div className="relative mx-auto max-w-6xl px-4 py-12 md:py-16 lg:py-20">
+        <div className="relative mx-auto min-w-0 max-w-6xl px-4 py-12 md:py-16 lg:py-20">
           <nav className="mb-6 text-sm text-brand-100">
             <Link href="/" className="hover:text-white">
               Главная
@@ -44,7 +44,7 @@ export function ModuleLanding({ module }: Props) {
             </Link>
           </nav>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_minmax(0,420px)] lg:gap-12">
+          <div className="grid min-w-0 items-center gap-10 lg:grid-cols-[1fr_minmax(0,420px)] lg:gap-12">
             <div>
               <div className="flex flex-wrap items-center gap-3">
                 <ModuleIcon href={module.path} className="h-12 w-12 bg-white/20 text-2xl shadow-lg" />

@@ -43,13 +43,15 @@ export function ModuleLeadCta({
         ? "w-full max-w-xl"
         : "w-full";
 
+  const TitleTag = variant === "hero" ? "h2" : "h3";
+
   return (
     <div className={wrapClass}>
       {variant !== "inline" && (
         <div className="mb-4">
-          <h3 className={`text-lg font-bold ${variant === "hero" ? "text-white" : "text-slate-900"}`}>
+          <TitleTag className={`text-lg font-bold ${variant === "hero" ? "text-white" : "text-slate-900"}`}>
             {title}
-          </h3>
+          </TitleTag>
           <p className={`mt-1 text-sm ${variant === "hero" ? "text-brand-100" : "text-slate-600"}`}>{hint}</p>
         </div>
       )}

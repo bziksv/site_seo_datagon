@@ -20,7 +20,7 @@ export function MonitoringV3SignalRail({
   const [active, setActive] = useState(0);
 
   return (
-    <section className="monitoring-v3-tone-violet relative overflow-hidden py-20 md:py-28">
+    <section className="monitoring-v3-tone-violet relative overflow-x-clip py-20 md:py-28">
       <MonitoringV3SceneGrid />
       <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-[min(90%,720px)] -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl" aria-hidden />
       <div className="relative mx-auto max-w-7xl px-4 text-center md:px-8">
@@ -50,9 +50,10 @@ export function MonitoringV3SignalRail({
         </div>
       </div>
 
-      <div
+      <div className="mx-auto mt-12 min-w-0 max-w-full px-0 md:px-8">
+        <div
         ref={railRef}
-        className="relative mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-10 md:justify-center md:px-8 [scrollbar-color:rgb(47,93,224)_transparent] [scrollbar-width:thin]"
+        className="flex snap-x snap-mandatory gap-6 overflow-x-auto overscroll-x-contain px-4 pb-10 [scrollbar-color:rgb(47,93,224)_transparent] [scrollbar-width:thin] md:justify-center"
         onScroll={() => {
           const el = railRef.current;
           if (!el) return;
@@ -94,6 +95,7 @@ export function MonitoringV3SignalRail({
             )}
           </article>
         ))}
+        </div>
       </div>
     </section>
   );

@@ -27,7 +27,7 @@ type Props = { module: ModulePage; isLabRoute?: boolean };
  */
 export function MonitoringPoziciiV2Landing({ module, isLabRoute = false }: Props) {
   return (
-    <div className="module-v2-landing">
+    <div className="module-v2-landing min-w-0 max-w-full overflow-x-clip">
       <MonitoringV2CommandHero
         module={module}
         concept={MONITORING_V2_CONCEPT}
@@ -35,7 +35,6 @@ export function MonitoringPoziciiV2Landing({ module, isLabRoute = false }: Props
         acts={MONITORING_V2_ACTS.map((a) => ({ act: a.act, title: a.title }))}
         heroUi={{
           classicHref: "/monitoring-pozicii-sayta/",
-          labV1Href: "/monitoring-pozicii-v1/",
           labBadge: isLabRoute ? "LAB v2" : undefined,
         }}
       />
@@ -54,7 +53,6 @@ export function MonitoringPoziciiV2Landing({ module, isLabRoute = false }: Props
           finalTitle: "Запустите панель мониторинга",
           finalLead: "",
           classicHref: "/monitoring-pozicii-sayta/",
-          labV1Href: "/monitoring-pozicii-v1/",
           faqTitle: "Вопросы по мониторингу",
           videoTitle: "Разбор модуля в видео",
           videoLead: "Четыре урока — от первого проекта до выгрузки отчёта.",

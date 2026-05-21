@@ -41,7 +41,7 @@ export function Footer() {
             Политика cookies
           </a>
         </div>
-        <p className="mt-8 text-xs text-slate-500">{getCopyrightText()}</p>
+        <p className="mt-8 text-xs text-slate-400">{getCopyrightText()}</p>
       </div>
     </footer>
   );

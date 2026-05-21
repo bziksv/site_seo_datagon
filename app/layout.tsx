@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${inter.variable} min-h-screen font-sans`}>
         <Analytics />
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-clip">{children}</main>
         <Footer />
         <CookieBanner />
       </body>

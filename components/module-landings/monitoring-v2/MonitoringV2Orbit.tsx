@@ -19,20 +19,22 @@ function OrbitNodeCard({
   active,
   delayMs,
   onHover,
+  fullWidth,
 }: {
   node: Node;
   active: boolean;
   delayMs: number;
   onHover?: (hovering: boolean) => void;
+  fullWidth?: boolean;
 }) {
   return (
     <Link
       href={node.href}
       onMouseEnter={() => onHover?.(true)}
       onMouseLeave={() => onHover?.(false)}
-      className={`group relative z-10 block w-full max-w-[220px] rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition-[border-color,box-shadow,opacity] duration-300 hover:border-brand-400 hover:shadow-md lg:text-left ${
-        active ? "opacity-100" : "opacity-50"
-      }`}
+      className={`group relative z-10 block w-full rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition-[border-color,box-shadow,opacity] duration-300 hover:border-brand-400 hover:shadow-md lg:text-left ${
+        fullWidth ? "max-w-none" : "max-w-[220px]"
+      } ${active ? "opacity-100" : "opacity-50"}`}
       style={{ transitionDelay: active ? `${delayMs}ms` : "0ms" }}
     >
       <span className="font-bold text-brand-700 group-hover:underline">{node.label}</span>
@@ -107,7 +109,7 @@ function OrbitDiagram({ nodes, hubTitle }: { nodes: readonly Node[]; hubTitle: s
 
           {ORBIT_LINES.map((line, i) => (
             <line
-              key={`line-${line.x2}`}
+              key={`line-${line.x2}-${line.y2}`}
               className={lineClass(i)}
               style={{ animationDelay: active && motion ? `${i * 0.18}s` : undefined }}
               x1="50"
@@ -120,7 +122,7 @@ function OrbitDiagram({ nodes, hubTitle }: { nodes: readonly Node[]; hubTitle: s
 
           {ORBIT_LINES.map((line, i) => (
             <circle
-              key={`end-${line.x2}`}
+              key={`end-${line.x2}-${line.y2}`}
               cx={line.x2}
               cy={line.y2}
               r="2"
@@ -211,8 +213,8 @@ export function MonitoringV2Orbit({
   section?: OrbitSection;
 }) {
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-4">
+    <section className="overflow-x-clip py-16 md:py-24">
+      <div className="mx-auto min-w-0 max-w-6xl px-4">
         <RevealOnScroll>
           <MonitoringV2SectionHeader
             eyebrow={section.eyebrow}
@@ -229,8 +231,8 @@ export function MonitoringV2Orbit({
             <span className="mt-2 block text-xl font-bold text-slate-900">{section.hubTitle}</span>
           </li>
           {nodes.map((n) => (
-            <li key={n.href}>
-              <OrbitNodeCard node={n} active delayMs={0} />
+            <li key={n.href} className="min-w-0">
+              <OrbitNodeCard node={n} active delayMs={0} fullWidth />
             </li>
           ))}
         </ul>
