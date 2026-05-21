@@ -17,8 +17,8 @@
 | `MonitoringV2PainGain` | Сплит «без системы» / «с панелью Датагон» |
 | `MonitoringV2StoryActs` | Sticky-навигация + 3 акта scroll-story (ядро → проверка → отчёт) |
 | `MonitoringV2MetricWall` | Bento-стена цифр + count-up при скролле |
-| `MonitoringV2Orbit` | Орбита на desktop, сетка на mobile |
-| `MonitoringV2Footer` | Опции, plain, видео, FAQ-аккордеон, CTA |
+| `MonitoringV2Orbit` | Орбита на desktop: стрелки **рисуются от центра** при скролле; при hover карточки/центра — поток по линии (карточки не сдвигаются). Mobile — сетка |
+| `MonitoringV2Footer` | Опции, plain, видео, FAQ-аккордеон, финальный CTA (полоса `bg-brand-700`, белая карточка формы) |
 
 Общее: `MonitoringV2SectionHeader`, `MonitoringV2CountUp`, `RevealOnScroll` на секциях.
 

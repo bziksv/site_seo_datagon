@@ -4,6 +4,7 @@ const ICONS: Record<string, string> = {
   "analiz-konkurentov": "🔍",
   "monitoring-pozicii-sayta": "📈",
   "monitoring-pozicii-v2": "📈",
+  "monitoring-pozicii-v3": "📈",
   "monitoring-saytov": "🛡️",
   "proverka-meta-tegov-online": "🏷️",
   generator_slov: "✨",

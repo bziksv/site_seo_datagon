@@ -39,6 +39,351 @@ a {
   animation: marquee 36s linear infinite;
 }
 
+/* --- monitoring v3: иммерсив «Пульс позиций» --- */
+.monitoring-v3 {
+  --v3-bg: #05070f;
+  --v3-ink: #0a1020;
+  --v3-brand-panel: #0f1a33;
+  --v3-violet-panel: #141028;
+  --v3-slate-panel: #101827;
+}
+
+.monitoring-v3-tone-hero {
+  background-color: #070d1c;
+  border-bottom: 1px solid rgb(47 93 224 / 0.25);
+}
+
+.monitoring-v3-tone-stream {
+  background-color: #04050a;
+  border-top: 1px solid rgb(47 93 224 / 0.2);
+  border-bottom: 1px solid rgb(139 92 246 / 0.15);
+}
+
+.monitoring-v3-tone-depth {
+  background-color: #0a1228;
+}
+
+.monitoring-v3-tone-flux {
+  background-color: #060608;
+}
+
+.monitoring-v3-tone-violet {
+  background-color: var(--v3-violet-panel);
+  border-top: 1px solid rgb(139 92 246 / 0.2);
+  border-bottom: 1px solid rgb(47 93 224 / 0.15);
+}
+
+.monitoring-v3-tone-slate {
+  background-color: var(--v3-slate-panel);
+  border-top: 1px solid rgb(100 116 139 / 0.25);
+}
+
+.monitoring-v3-tone-stats {
+  background-color: #0c1838;
+  border-top: 1px solid rgb(47 93 224 / 0.35);
+  border-bottom: 1px solid rgb(47 93 224 / 0.2);
+}
+
+.monitoring-v3-tone-ink {
+  background-color: var(--v3-ink);
+}
+
+.monitoring-v3-tone-faq {
+  background-color: #080a14;
+}
+
+.monitoring-v3-tone-outro {
+  background-color: #0a1428;
+  border-top: 1px solid rgb(47 93 224 / 0.3);
+}
+
+.monitoring-v3-highlight-panel {
+  border: 1px solid rgb(47 93 224 / 0.45);
+  background-color: rgb(15 26 51 / 0.85);
+  box-shadow: 0 0 0 1px rgb(47 93 224 / 0.1), 0 20px 50px -20px rgb(47 93 224 / 0.35);
+}
+
+.monitoring-v3-highlight-metric {
+  border: 1px solid rgb(47 93 224 / 0.5);
+  background-color: rgb(47 93 224 / 0.12);
+  box-shadow: 0 0 60px -10px rgb(47 93 224 / 0.4);
+}
+
+.monitoring-v3-stat-cell {
+  border: 1px solid rgb(47 93 224 / 0.3);
+  background-color: rgb(30 63 158 / 0.15);
+  border-radius: 1rem;
+  padding: 1.75rem 1rem;
+}
+
+.monitoring-v3-signal-card {
+  border-width: 1px;
+  border-style: solid;
+  background-color: rgb(255 255 255 / 0.04);
+}
+
+.monitoring-v3-signal-card[data-accent="brand"] {
+  border-color: rgb(47 93 224 / 0.45);
+  background-color: rgb(47 93 224 / 0.08);
+}
+
+.monitoring-v3-signal-card[data-accent="violet"] {
+  border-color: rgb(139 92 246 / 0.4);
+  background-color: rgb(139 92 246 / 0.08);
+}
+
+.monitoring-v3-signal-card[data-accent="emerald"] {
+  border-color: rgb(16 185 129 / 0.35);
+  background-color: rgb(16 185 129 / 0.06);
+}
+
+.monitoring-v3-signal-card[data-accent="amber"] {
+  border-color: rgb(245 158 11 / 0.35);
+  background-color: rgb(245 158 11 / 0.06);
+}
+
+.monitoring-v3-chip {
+  border: 1px solid rgb(255 255 255 / 0.12);
+  background-color: rgb(255 255 255 / 0.06);
+}
+
+.monitoring-v3-chip-featured {
+  border-color: rgb(47 93 224 / 0.5);
+  background-color: rgb(47 93 224 / 0.15);
+  color: rgb(191 219 254);
+}
+
+@keyframes v3-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes v3-marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes v3-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-12px) scale(1.05);
+    opacity: 0.85;
+  }
+}
+
+@keyframes v3-grid-pan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 64px;
+  }
+}
+
+@keyframes v3-scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes v3-pulse-ring {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes v3-glitch {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(12% 0 58% 0);
+    transform: translate(-2px, 1px);
+  }
+  40% {
+    clip-path: inset(48% 0 8% 0);
+    transform: translate(2px, -1px);
+  }
+  60% {
+    clip-path: inset(8% 0 72% 0);
+    transform: translate(-1px, 2px);
+  }
+}
+
+@keyframes v3-carousel {
+  0%,
+  45% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+  50%,
+  95% {
+    opacity: 0;
+    transform: scale(0.96) rotateY(-8deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}
+
+.monitoring-v3 .animate-v3-marquee-left {
+  animation: v3-marquee-left 28s linear infinite;
+}
+
+.monitoring-v3 .animate-v3-marquee-right {
+  animation: v3-marquee-right 32s linear infinite;
+}
+
+.monitoring-v3 .animate-v3-float {
+  animation: v3-float 4s ease-in-out infinite;
+}
+
+.monitoring-v3 .animate-v3-grid {
+  animation: v3-grid-pan 8s linear infinite;
+}
+
+.monitoring-v3 .animate-v3-scan {
+  animation: v3-scan 4s linear infinite;
+}
+
+.monitoring-v3 .animate-v3-pulse-ring {
+  animation: v3-pulse-ring 2.4s ease-out infinite;
+}
+
+.monitoring-v3 .animate-v3-glitch {
+  animation: v3-glitch 2.8s steps(1) infinite;
+}
+
+.monitoring-v3 .animate-v3-carousel-a {
+  animation: v3-carousel 8s ease-in-out infinite;
+}
+
+.monitoring-v3 .animate-v3-carousel-b {
+  animation: v3-carousel 8s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+@keyframes monitoring-v2-orbit-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes monitoring-v2-orbit-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+
+.monitoring-v2-orbit-line {
+  fill: none;
+  stroke: #2f5de0;
+  stroke-opacity: 0.4;
+  stroke-width: 0.55;
+  stroke-dasharray: 38;
+  stroke-dashoffset: 38;
+  stroke-linecap: round;
+  transition: stroke-opacity 0.25s ease, stroke-width 0.25s ease;
+}
+
+.monitoring-v2-orbit-line--drawn {
+  animation: monitoring-v2-orbit-draw 0.7s ease-out forwards;
+}
+
+.monitoring-v2-orbit-line--shown {
+  stroke-dashoffset: 0;
+}
+
+.monitoring-v2-orbit-line--hot {
+  stroke-dasharray: 5 3;
+  stroke-opacity: 1;
+  stroke-width: 0.72;
+  animation: monitoring-v2-orbit-flow 1.1s linear infinite;
+}
+
+.monitoring-v2-orbit-line--dim {
+  stroke-opacity: 0.18;
+}
+
+.monitoring-v2-orbit-ring {
+  fill: none;
+  stroke: #93b4f6;
+  stroke-opacity: 0.45;
+  stroke-width: 0.4;
+  stroke-dasharray: 4 4;
+}
+
+.monitoring-v2-orbit-hub {
+  fill: #2f5de0;
+  opacity: 0.35;
+  transition: opacity 0.4s ease;
+}
+
+.monitoring-v2-orbit-active .monitoring-v2-orbit-hub {
+  opacity: 1;
+}
+
+.monitoring-v2-orbit-endpoint {
+  fill: #2f5de0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.monitoring-v2-orbit-active .monitoring-v2-orbit-endpoint {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monitoring-v2-orbit-line--drawn {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .monitoring-v2-orbit-line--hot {
+    animation: none;
+    stroke-dasharray: none;
+  }
+
+  .monitoring-v3 .animate-v3-marquee-left,
+  .monitoring-v3 .animate-v3-marquee-right,
+  .monitoring-v3 .animate-v3-float,
+  .monitoring-v3 .animate-v3-grid,
+  .monitoring-v3 .animate-v3-scan,
+  .monitoring-v3 .animate-v3-pulse-ring,
+  .monitoring-v3 .animate-v3-glitch,
+  .monitoring-v3 .animate-v3-carousel-a,
+  .monitoring-v3 .animate-v3-carousel-b {
+    animation: none !important;
+  }
+}
+
 .legal-content {
   @apply max-w-3xl text-sm leading-relaxed text-slate-700;
 }

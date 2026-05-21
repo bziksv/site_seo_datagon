@@ -11,6 +11,7 @@
 | **Лендинг модуля (полный)** | [module-landing-relevance.md](./module-landing-relevance.md) | `AnalizRelevantnostiLanding` | ✅ |
 | **Лендинг модуля: мониторинг** | [module-landing-monitoring.md](./module-landing-monitoring.md) | `MonitoringPoziciiLanding` | ✅ |
 | **Лендинг: мониторинг v2 (NEW)** | [module-landing-monitoring-v2.md](./module-landing-monitoring-v2.md) | `MonitoringPoziciiV2Landing` — концепция «Центр управления» | ✅ |
+| **Лендинг: мониторинг v3 (LAB)** | [module-landing-monitoring-v3.md](./module-landing-monitoring-v3.md) | `MonitoringPoziciiV3Landing` — «Пульс позиций», иммерсив | ✅ |
 | **Лендинг модуля: конкуренты** | [module-landing-competitors.md](./module-landing-competitors.md) | `AnalizKonkurentovLanding` | ✅ |
 | **Лендинг модуля: HTML-редактор** | [module-landing-html-editor.md](./module-landing-html-editor.md) | `HtmlRedaktorLanding` | ✅ |
 | **Лендинг: HTTP headers** | [module-landing-http-headers.md](./module-landing-http-headers.md) | `HttpHeadersLanding` | ✅ |

@@ -28,7 +28,12 @@ type Props = { module: ModulePage };
 export function MonitoringPoziciiV2Landing({ module }: Props) {
   return (
     <>
-      <MonitoringV2CommandHero module={module} concept={MONITORING_V2_CONCEPT} shots={MONITORING_V2_SCREENSHOTS} />
+      <MonitoringV2CommandHero
+        module={module}
+        concept={MONITORING_V2_CONCEPT}
+        shots={MONITORING_V2_SCREENSHOTS}
+        acts={MONITORING_V2_ACTS.map((a) => ({ act: a.act, title: a.title }))}
+      />
       <MonitoringV2PainGain data={MONITORING_V2_PAIN_GAIN} />
       <MonitoringV2StoryActs acts={MONITORING_V2_ACTS} />
       <MonitoringV2MetricWall metrics={MONITORING_V2_METRIC_WALL} />

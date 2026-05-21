@@ -8,17 +8,8 @@ const BENTO_SPAN = [true, false, false, true] as const;
 
 export function MonitoringV2MetricWall({ metrics }: { metrics: readonly Metric[] }) {
   return (
-    <section className="relative overflow-hidden bg-brand-800 py-16 text-white md:py-24">
-      <div
-        className="pointer-events-none absolute inset-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-        aria-hidden
-      />
-      <div className="relative mx-auto max-w-6xl px-4">
+    <section className="border-y border-brand-900/30 bg-brand-800 py-16 text-white md:py-24">
+      <div className="mx-auto max-w-6xl px-4">
         <RevealOnScroll>
           <MonitoringV2SectionHeader
             align="center"

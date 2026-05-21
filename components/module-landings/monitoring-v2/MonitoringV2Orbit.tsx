@@ -1,15 +1,195 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { RevealOnScroll } from "@/components/module-landings/RevealOnScroll";
 import { MonitoringV2SectionHeader } from "@/components/module-landings/monitoring-v2/MonitoringV2SectionHeader";
 
 type Node = { label: string; href: string; role: string };
 
-const ORBIT_POSITIONS = [
-  "lg:left-1/2 lg:top-0 lg:-translate-x-1/2",
-  "lg:right-0 lg:top-[18%]",
-  "lg:left-1/2 lg:bottom-0 lg:-translate-x-1/2",
-  "lg:left-0 lg:top-[18%]",
+const ORBIT_LINES = [
+  { x2: 50, y2: 12 },
+  { x2: 88, y2: 50 },
+  { x2: 50, y2: 88 },
+  { x2: 12, y2: 50 },
 ] as const;
+
+function OrbitNodeCard({
+  node,
+  active,
+  delayMs,
+  onHover,
+}: {
+  node: Node;
+  active: boolean;
+  delayMs: number;
+  onHover?: (hovering: boolean) => void;
+}) {
+  return (
+    <Link
+      href={node.href}
+      onMouseEnter={() => onHover?.(true)}
+      onMouseLeave={() => onHover?.(false)}
+      className={`group relative z-10 block w-full max-w-[220px] rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm transition-[border-color,box-shadow,opacity] duration-300 hover:border-brand-400 hover:shadow-md lg:text-left ${
+        active ? "opacity-100" : "opacity-50"
+      }`}
+      style={{ transitionDelay: active ? `${delayMs}ms` : "0ms" }}
+    >
+      <span className="font-bold text-brand-700 group-hover:underline">{node.label}</span>
+      <p className="mt-1.5 text-sm leading-snug text-slate-600">{node.role}</p>
+    </Link>
+  );
+}
+
+function OrbitDiagram({ nodes }: { nodes: readonly Node[] }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+  const [motion, setMotion] = useState(true);
+  const [hoveredLine, setHoveredLine] = useState<number | "center" | null>(null);
+
+  useEffect(() => {
+    setMotion(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const el = wrapRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setActive(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.25 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const [top, right, bottom, left] = nodes;
+
+  const lineClass = (index: number) => {
+    const hot =
+      hoveredLine === "center" || hoveredLine === index;
+    const dim = hoveredLine !== null && !hot;
+    return [
+      "monitoring-v2-orbit-line",
+      active && motion ? "monitoring-v2-orbit-line--drawn" : active ? "monitoring-v2-orbit-line--shown" : "",
+      hot ? "monitoring-v2-orbit-line--hot" : "",
+      dim ? "monitoring-v2-orbit-line--dim" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+  };
+
+  return (
+    <div ref={wrapRef} className="relative mx-auto mt-16 hidden w-full max-w-3xl lg:block">
+      <div className={`relative min-h-[440px] w-full ${active ? "monitoring-v2-orbit-active" : ""}`}>
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden
+        >
+          <defs>
+            <marker
+              id="monitoring-v2-orbit-arrow"
+              viewBox="0 0 10 10"
+              refX="8"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto"
+            >
+              <path d="M0,0 L10,5 L0,10 Z" fill="#2f5de0" />
+            </marker>
+          </defs>
+
+          <ellipse className="monitoring-v2-orbit-ring" cx="50" cy="50" rx="36" ry="36" />
+
+          {ORBIT_LINES.map((line, i) => (
+            <line
+              key={`line-${line.x2}`}
+              className={lineClass(i)}
+              style={{ animationDelay: active && motion ? `${i * 0.18}s` : undefined }}
+              x1="50"
+              y1="50"
+              x2={line.x2}
+              y2={line.y2}
+              markerEnd="url(#monitoring-v2-orbit-arrow)"
+            />
+          ))}
+
+          {ORBIT_LINES.map((line, i) => (
+            <circle
+              key={`end-${line.x2}`}
+              cx={line.x2}
+              cy={line.y2}
+              r="2"
+              className="monitoring-v2-orbit-endpoint"
+              style={{ transitionDelay: active ? `${0.55 + i * 0.18}s` : undefined }}
+            />
+          ))}
+
+          <circle cx="50" cy="50" r="2.5" className="monitoring-v2-orbit-hub" />
+        </svg>
+
+        <div className="grid h-full min-h-[440px] w-full grid-cols-[1fr_auto_1fr] grid-rows-[auto_1fr_auto] items-center justify-items-center gap-x-6 gap-y-4">
+          <div className="col-start-2 row-start-1 flex justify-center self-end pb-2">
+            {top && (
+              <OrbitNodeCard
+                node={top}
+                active={active}
+                delayMs={350}
+                onHover={(h) => setHoveredLine(h ? 0 : null)}
+              />
+            )}
+          </div>
+
+          <div className="col-start-1 row-start-2 flex justify-end self-center pr-2">
+            {left && (
+              <OrbitNodeCard
+                node={left}
+                active={active}
+                delayMs={800}
+                onHover={(h) => setHoveredLine(h ? 3 : null)}
+              />
+            )}
+          </div>
+
+          <div
+            className="relative z-10 flex w-[13.5rem] flex-col items-center rounded-2xl border-2 border-brand-600 bg-brand-50 px-6 py-8 text-center shadow-lg transition-[box-shadow,border-color] duration-300 hover:border-brand-700 hover:shadow-xl"
+            onMouseEnter={() => setHoveredLine("center")}
+            onMouseLeave={() => setHoveredLine(null)}
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Центр</span>
+            <span className="mt-2 text-lg font-bold leading-tight text-slate-900">Мониторинг позиций</span>
+          </div>
+
+          <div className="col-start-3 row-start-2 flex justify-start self-center pl-2">
+            {right && (
+              <OrbitNodeCard
+                node={right}
+                active={active}
+                delayMs={500}
+                onHover={(h) => setHoveredLine(h ? 1 : null)}
+              />
+            )}
+          </div>
+
+          <div className="col-start-2 row-start-3 flex justify-center self-start pt-2">
+            {bottom && (
+              <OrbitNodeCard
+                node={bottom}
+                active={active}
+                delayMs={650}
+                onHover={(h) => setHoveredLine(h ? 2 : null)}
+              />
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export function MonitoringV2Orbit({ nodes }: { nodes: readonly Node[] }) {
   return (
@@ -23,38 +203,8 @@ export function MonitoringV2Orbit({ nodes }: { nodes: readonly Node[] }) {
           />
         </RevealOnScroll>
 
-        {/* Desktop orbit */}
-        <div className="relative mx-auto mt-16 hidden h-[400px] max-w-3xl lg:block">
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-dashed border-brand-200/80"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-100"
-            aria-hidden
-          />
+        <OrbitDiagram nodes={nodes} />
 
-          <div className="absolute left-1/2 top-1/2 z-10 flex w-52 -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-2xl border-2 border-brand-600 bg-brand-50 px-6 py-8 text-center shadow-lg">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Центр</span>
-            <span className="mt-2 text-lg font-bold text-slate-900">Мониторинг позиций</span>
-          </div>
-
-          <ul className="absolute inset-0">
-            {nodes.map((n, i) => (
-              <li key={n.href} className={`absolute w-[220px] max-w-[42%] ${ORBIT_POSITIONS[i] ?? ""}`}>
-                <Link
-                  href={n.href}
-                  className="group block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-400 hover:shadow-md"
-                >
-                  <span className="font-bold text-brand-700 group-hover:underline">{n.label}</span>
-                  <p className="mt-1.5 text-sm leading-snug text-slate-600">{n.role}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Mobile / tablet grid */}
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:hidden">
           <li className="col-span-full rounded-2xl border-2 border-brand-600 bg-brand-50 p-6 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Центр</span>
@@ -62,13 +212,7 @@ export function MonitoringV2Orbit({ nodes }: { nodes: readonly Node[] }) {
           </li>
           {nodes.map((n) => (
             <li key={n.href}>
-              <Link
-                href={n.href}
-                className="group block h-full rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-brand-300 hover:shadow-md"
-              >
-                <span className="font-bold text-brand-700 group-hover:underline">{n.label}</span>
-                <p className="mt-2 text-sm text-slate-600">{n.role}</p>
-              </Link>
+              <OrbitNodeCard node={n} active delayMs={0} />
             </li>
           ))}
         </ul>

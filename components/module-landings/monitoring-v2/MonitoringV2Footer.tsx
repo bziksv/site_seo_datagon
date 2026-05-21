@@ -93,39 +93,57 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
             </dl>
           </section>
         </RevealOnScroll>
+      </div>
 
-        <RevealOnScroll>
-          <section className="mt-16 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-brand-900 p-8 text-white md:p-12">
-            <div className="md:flex md:items-end md:justify-between md:gap-8">
+      {/* Финальный CTA — контрастная полоса, без «серой карточки на белом» */}
+      <RevealOnScroll>
+        <section
+          className="border-t border-brand-800 bg-brand-700 py-12 md:py-16"
+          aria-labelledby="monitoring-v2-final-title"
+        >
+          <div className="mx-auto max-w-6xl px-4">
+            <div className="grid gap-8 lg:grid-cols-[1fr_minmax(300px,400px)] lg:items-center lg:gap-10">
               <div>
-                <p className="text-sm text-slate-400">{SITE.name}</p>
-                <h2 className="mt-2 text-2xl font-bold md:text-3xl">Запустите панель мониторинга</h2>
-                <p className="mt-3 max-w-lg text-slate-400">
+                <p className="text-sm font-semibold uppercase tracking-wide text-brand-200">{SITE.name}</p>
+                <h2 id="monitoring-v2-final-title" className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                  Запустите панель мониторинга
+                </h2>
+                <p className="mt-3 max-w-lg text-sm leading-relaxed text-brand-100 md:text-base">
                   Классический лендинг —{" "}
-                  <Link href="/monitoring-pozicii-sayta/" className="text-brand-300 underline hover:text-white">
+                  <Link
+                    href="/monitoring-pozicii-sayta/"
+                    className="font-semibold text-white underline decoration-brand-300 underline-offset-2 hover:decoration-white"
+                  >
                     /monitoring-pozicii-sayta/
                   </Link>
                   . Здесь — концепция «Центр управления выдачей».
                 </p>
               </div>
-              <div className="mt-8 shrink-0 md:mt-0 md:min-w-[280px]">
-                <ModuleLeadCta
-                  variant="card"
-                  idPrefix="monitoring-v2-final"
-                  title="Начать бесплатно"
-                  hint="Регистрация в личном кабинете."
-                />
-              </div>
+              <ModuleLeadCta
+                variant="card"
+                idPrefix="monitoring-v2-final"
+                title="Начать бесплатно"
+                hint="Регистрация в личном кабинете."
+              />
             </div>
-          </section>
-        </RevealOnScroll>
 
-        <nav className="mt-12 text-center">
-          <Link href="/services/" className="text-sm font-semibold text-brand-600 hover:text-brand-700">
-            ← Все модули
-          </Link>
-        </nav>
-      </div>
+            <nav className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-white/20 pt-8">
+              <Link
+                href="/services/"
+                className="text-sm font-semibold text-white hover:text-brand-100"
+              >
+                ← Все модули
+              </Link>
+              <Link
+                href="/monitoring-pozicii-v3/"
+                className="text-sm text-brand-200 hover:text-white"
+              >
+                Концепция v3 (LAB)
+              </Link>
+            </nav>
+          </div>
+        </section>
+      </RevealOnScroll>
     </div>
   );
 }

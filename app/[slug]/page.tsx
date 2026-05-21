@@ -20,6 +20,7 @@ import { KlasterizatorKlyuchevykhSlovLanding } from "@/components/module-landing
 import { HtmlRedaktorLanding } from "@/components/module-landings/HtmlRedaktorLanding";
 import { MonitoringPoziciiLanding } from "@/components/module-landings/MonitoringPoziciiLanding";
 import { MonitoringPoziciiV2Landing } from "@/components/module-landings/MonitoringPoziciiV2Landing";
+import { MonitoringPoziciiV3Landing } from "@/components/module-landings/MonitoringPoziciiV3Landing";
 import { MonitoringSaytovLanding } from "@/components/module-landings/MonitoringSaytovLanding";
 import { getAllModuleSlugs, getModuleBySlug } from "@/lib/content/modules";
 
@@ -51,6 +52,9 @@ export default async function ModulePage({ params }: Props) {
   }
   if (slug === "monitoring-pozicii-v2") {
     return <MonitoringPoziciiV2Landing module={mod} />;
+  }
+  if (slug === "monitoring-pozicii-v3") {
+    return <MonitoringPoziciiV3Landing module={mod} />;
   }
   if (slug === "monitoring-saytov") {
     return <MonitoringSaytovLanding module={mod} />;

@@ -39,6 +39,11 @@ export const NAV_MODULES: NavLink[] = [
     label: "Мониторинг позиций сайта",
     badge: "NEW",
   },
+  {
+    href: "/monitoring-pozicii-v3/",
+    label: "Мониторинг позиций (LAB)",
+    badge: "v3",
+  },
   { href: "/monitoring-saytov/", label: "Мониторинг корректной работы сайтов" },
   { href: "/proverka-meta-tegov-online/", label: "Мониторинг мета-тегов" },
   { href: "/generator_slov/", label: "Генератор слов" },

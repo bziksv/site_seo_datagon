@@ -58,6 +58,16 @@ export const MODULE_PAGES: ModulePage[] = [
     features: ["Яндекс и Google", "Десктоп · mobile в разработке", "Анализ ТОП-100 и конкуренты"],
   },
   {
+    slug: "monitoring-pozicii-v3",
+    path: "/monitoring-pozicii-v3/",
+    title: "Мониторинг позиций — пульс позиций (LAB v3)",
+    h1: "Пульс позиций",
+    description:
+      "Экспериментальный иммерсивный лендинг: scroll-pin, потоки ключей, сцены хаос→порядок, максимум анимации.",
+    lead: "Лабораторная подача модуля — не классика и не v2.",
+    features: ["Яндекс и Google", "Десктоп · mobile в разработке", "Анализ ТОП-100 и конкуренты"],
+  },
+  {
     slug: "monitoring-saytov",
     path: "/monitoring-saytov/",
     title: "Мониторинг корректной работы сайтов",
