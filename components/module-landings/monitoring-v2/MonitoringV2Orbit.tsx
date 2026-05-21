@@ -41,7 +41,7 @@ function OrbitNodeCard({
   );
 }
 
-function OrbitDiagram({ nodes }: { nodes: readonly Node[] }) {
+function OrbitDiagram({ nodes, hubTitle }: { nodes: readonly Node[]; hubTitle: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   const [motion, setMotion] = useState(true);
@@ -161,7 +161,7 @@ function OrbitDiagram({ nodes }: { nodes: readonly Node[] }) {
             onMouseLeave={() => setHoveredLine(null)}
           >
             <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Центр</span>
-            <span className="mt-2 text-lg font-bold leading-tight text-slate-900">Мониторинг позиций</span>
+            <span className="mt-2 text-lg font-bold leading-tight text-slate-900">{hubTitle}</span>
           </div>
 
           <div className="col-start-3 row-start-2 flex justify-start self-center pl-2">
@@ -191,24 +191,42 @@ function OrbitDiagram({ nodes }: { nodes: readonly Node[] }) {
   );
 }
 
-export function MonitoringV2Orbit({ nodes }: { nodes: readonly Node[] }) {
+type OrbitSection = {
+  hubTitle: string;
+  eyebrow: string;
+  title: string;
+  lead: string;
+};
+
+export function MonitoringV2Orbit({
+  nodes,
+  section = {
+    hubTitle: "Мониторинг позиций",
+    eyebrow: "Экосистема",
+    title: "Мониторинг — узел, не остров",
+    lead: "Позиции связаны с конкурентами, релевантностью, ссылками и техникой — переход в соседний модуль без смены платформы.",
+  },
+}: {
+  nodes: readonly Node[];
+  section?: OrbitSection;
+}) {
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <RevealOnScroll>
           <MonitoringV2SectionHeader
-            eyebrow="Экосистема"
-            title="Мониторинг — узел, не остров"
-            lead="Позиции связаны с конкурентами, релевантностью, ссылками и техникой — переход в соседний модуль без смены платформы."
+            eyebrow={section.eyebrow}
+            title={section.title}
+            lead={section.lead}
           />
         </RevealOnScroll>
 
-        <OrbitDiagram nodes={nodes} />
+        <OrbitDiagram nodes={nodes} hubTitle={section.hubTitle} />
 
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:hidden">
           <li className="col-span-full rounded-2xl border-2 border-brand-600 bg-brand-50 p-6 text-center">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Центр</span>
-            <span className="mt-2 block text-xl font-bold text-slate-900">Мониторинг позиций</span>
+            <span className="mt-2 block text-xl font-bold text-slate-900">{section.hubTitle}</span>
           </li>
           {nodes.map((n) => (
             <li key={n.href}>

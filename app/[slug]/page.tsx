@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ModuleLanding } from "@/components/ModuleLanding";
-import { AnalizRelevantnostiLanding } from "@/components/module-landings/AnalizRelevantnostiLanding";
-import { AnalizKonkurentovLanding } from "@/components/module-landings/AnalizKonkurentovLanding";
-import { HttpHeadersLanding } from "@/components/module-landings/HttpHeadersLanding";
-import { KalkulyatorRoiLanding } from "@/components/module-landings/KalkulyatorRoiLanding";
-import { UtmMetkiLanding } from "@/components/module-landings/UtmMetkiLanding";
-import { SravnenieSpiskovLanding } from "@/components/module-landings/SravnenieSpiskovLanding";
-import { GeneratorParoleyLanding } from "@/components/module-landings/GeneratorParoleyLanding";
-import { PodschetDlinyTekstaLanding } from "@/components/module-landings/PodschetDlinyTekstaLanding";
-import { GeneratorSlovLanding } from "@/components/module-landings/GeneratorSlovLanding";
-import { ProverkaMetaTegovLanding } from "@/components/module-landings/ProverkaMetaTegovLanding";
-import { UdalenieDublikatovLanding } from "@/components/module-landings/UdalenieDublikatovLanding";
-import { VydelenieUnikalnykhSlovLanding } from "@/components/module-landings/VydelenieUnikalnykhSlovLanding";
-import { OtslezhivanieSsylokLanding } from "@/components/module-landings/OtslezhivanieSsylokLanding";
-import { OtslezhivanieSrokaRegistratsiiDomenovLanding } from "@/components/module-landings/OtslezhivanieSrokaRegistratsiiDomenovLanding";
-import { AnalizTekstaLanding } from "@/components/module-landings/AnalizTekstaLanding";
-import { KlasterizatorKlyuchevykhSlovLanding } from "@/components/module-landings/KlasterizatorKlyuchevykhSlovLanding";
-import { HtmlRedaktorLanding } from "@/components/module-landings/HtmlRedaktorLanding";
-import { MonitoringPoziciiLanding } from "@/components/module-landings/MonitoringPoziciiLanding";
 import { MonitoringPoziciiV2Landing } from "@/components/module-landings/MonitoringPoziciiV2Landing";
 import { MonitoringPoziciiV3Landing } from "@/components/module-landings/MonitoringPoziciiV3Landing";
-import { MonitoringSaytovLanding } from "@/components/module-landings/MonitoringSaytovLanding";
-import { getAllModuleSlugs, getModuleBySlug } from "@/lib/content/modules";
+import { baseSlugFromV1 } from "@/lib/content/module-v1/slugs";
+import {
+  getModuleV2LabSlugForPage,
+  isMonitoringV2Page,
+} from "@/lib/content/module-v2/resolve-route";
+import { getModuleV2Config } from "@/lib/content/module-v2/registry";
+import { getModuleV3Config } from "@/lib/content/module-v3/registry";
+import {
+  getAllModuleSlugs,
+  getBaseModuleBySlug,
+  getModuleBySlug,
+  isLabModuleSlug,
+} from "@/lib/content/modules";
+import { ModuleV2Landing } from "@/components/module-landings/ModuleV2Landing";
+import { ModuleV3Landing } from "@/components/module-landings/ModuleV3Landing";
+import { renderModuleLanding } from "@/lib/render-module-landing";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,6 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: mod.title,
     description: mod.description,
+    ...(isLabModuleSlug(slug)
+      ? { robots: { index: false, follow: false, googleBot: { index: false, follow: false } } }
+      : {}),
   };
 }
 
@@ -44,68 +42,47 @@ export default async function ModulePage({ params }: Props) {
   const { slug } = await params;
   const mod = getModuleBySlug(slug);
   if (!mod) notFound();
-  if (slug === "analiz-relevantnosti") {
-    return <AnalizRelevantnostiLanding module={mod} />;
+
+  const v1Base = baseSlugFromV1(slug);
+  if (v1Base) {
+    const baseMod = getBaseModuleBySlug(v1Base);
+    if (!baseMod) notFound();
+    return renderModuleLanding(v1Base, baseMod);
   }
-  if (slug === "monitoring-pozicii-sayta") {
-    return <MonitoringPoziciiLanding module={mod} />;
+
+  if (isMonitoringV2Page(slug)) {
+    const pageMod = getBaseModuleBySlug("monitoring-pozicii-sayta") ?? mod;
+    return (
+      <MonitoringPoziciiV2Landing
+        module={pageMod}
+        isLabRoute={slug === "monitoring-pozicii-v2"}
+      />
+    );
   }
-  if (slug === "monitoring-pozicii-v2") {
-    return <MonitoringPoziciiV2Landing module={mod} />;
+
+  const v2LabSlug = getModuleV2LabSlugForPage(slug);
+  if (v2LabSlug) {
+    const v2Config = getModuleV2Config(v2LabSlug);
+    if (v2Config) {
+      const pageMod = getBaseModuleBySlug(v2Config.baseSlug) ?? mod;
+      return (
+        <ModuleV2Landing
+          module={pageMod}
+          config={v2Config}
+          isLabRoute={slug.endsWith("-v2")}
+        />
+      );
+    }
   }
+
   if (slug === "monitoring-pozicii-v3") {
     return <MonitoringPoziciiV3Landing module={mod} />;
   }
-  if (slug === "monitoring-saytov") {
-    return <MonitoringSaytovLanding module={mod} />;
+
+  const v3Config = getModuleV3Config(slug);
+  if (v3Config) {
+    return <ModuleV3Landing module={mod} config={v3Config} />;
   }
-  if (slug === "analiz-konkurentov") {
-    return <AnalizKonkurentovLanding module={mod} />;
-  }
-  if (slug === "html-redaktor") {
-    return <HtmlRedaktorLanding module={mod} />;
-  }
-  if (slug === "http-headers") {
-    return <HttpHeadersLanding module={mod} />;
-  }
-  if (slug === "kalkulyator-roi") {
-    return <KalkulyatorRoiLanding module={mod} />;
-  }
-  if (slug === "utm-metki") {
-    return <UtmMetkiLanding module={mod} />;
-  }
-  if (slug === "sravnenie-spiskov-klyuchevykh-fraz") {
-    return <SravnenieSpiskovLanding module={mod} />;
-  }
-  if (slug === "generator-paroley") {
-    return <GeneratorParoleyLanding module={mod} />;
-  }
-  if (slug === "podschet-dliny-teksta") {
-    return <PodschetDlinyTekstaLanding module={mod} />;
-  }
-  if (slug === "generator_slov") {
-    return <GeneratorSlovLanding module={mod} />;
-  }
-  if (slug === "proverka-meta-tegov-online") {
-    return <ProverkaMetaTegovLanding module={mod} />;
-  }
-  if (slug === "udalenie-dublikatov") {
-    return <UdalenieDublikatovLanding module={mod} />;
-  }
-  if (slug === "vydelenie-unikalnykh-slov-v-tekste") {
-    return <VydelenieUnikalnykhSlovLanding module={mod} />;
-  }
-  if (slug === "otslezhivanie-ssylok") {
-    return <OtslezhivanieSsylokLanding module={mod} />;
-  }
-  if (slug === "otslezhivanie-sroka-registratsii-domenov") {
-    return <OtslezhivanieSrokaRegistratsiiDomenovLanding module={mod} />;
-  }
-  if (slug === "analiz-teksta") {
-    return <AnalizTekstaLanding module={mod} />;
-  }
-  if (slug === "klasterizator-klyuchevykh-slov") {
-    return <KlasterizatorKlyuchevykhSlovLanding module={mod} />;
-  }
-  return <ModuleLanding module={mod} />;
+
+  return renderModuleLanding(slug, mod);
 }

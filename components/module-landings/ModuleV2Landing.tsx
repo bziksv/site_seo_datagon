@@ -1,0 +1,61 @@
+import { MonitoringV2CommandHero } from "@/components/module-landings/monitoring-v2/MonitoringV2CommandHero";
+import { MonitoringV2PainGain } from "@/components/module-landings/monitoring-v2/MonitoringV2PainGain";
+import { MonitoringV2StoryActs } from "@/components/module-landings/monitoring-v2/MonitoringV2StoryActs";
+import { MonitoringV2MetricWall } from "@/components/module-landings/monitoring-v2/MonitoringV2MetricWall";
+import { MonitoringV2Orbit } from "@/components/module-landings/monitoring-v2/MonitoringV2Orbit";
+import { MonitoringV2Footer } from "@/components/module-landings/monitoring-v2/MonitoringV2Footer";
+import type { ModuleV2PageConfig } from "@/lib/content/module-v2/types";
+import type { ModulePage } from "@/lib/content/modules";
+
+type Props = {
+  module: ModulePage;
+  config: ModuleV2PageConfig;
+  /** true на URL *-v2; false на публичном /<base>/ */
+  isLabRoute?: boolean;
+};
+
+/**
+ * Универсальный лендинг v2 «Центр управления» (как monitoring-pozicii-v2).
+ */
+export function ModuleV2Landing({ module, config, isLabRoute = false }: Props) {
+  const c = config;
+  const heroUi = {
+    ...c.heroUi,
+    labBadge: isLabRoute ? (c.heroUi.labBadge ?? "LAB v2") : undefined,
+  };
+  const footerUi = { ...c.footerUi, isLabRoute };
+  const shots = c.acts.map((a) => ({ src: a.image, caption: a.imageAlt }));
+  const actsPreview = c.acts.map((a) => ({ act: a.act, title: a.title }));
+
+  return (
+    <div className="module-v2-landing">
+      <MonitoringV2CommandHero
+        module={module}
+        concept={c.concept}
+        shots={shots.length >= 2 ? [shots[0], shots[1]] : shots}
+        acts={actsPreview}
+        heroUi={heroUi}
+      />
+      <MonitoringV2PainGain data={c.painGain} />
+      <MonitoringV2StoryActs
+        acts={c.acts}
+        section={{
+          id: c.heroUi.storyAnchor,
+          eyebrow: c.storySection.eyebrow,
+          title: c.storySection.title,
+          lead: c.storySection.lead,
+        }}
+      />
+      <MonitoringV2MetricWall metrics={c.metrics} section={c.metricSection} />
+      <MonitoringV2Orbit nodes={c.orbit} section={c.orbitSection} />
+      <MonitoringV2Footer
+        options={c.options}
+        optionsSection={c.optionsSection}
+        plain={c.plain}
+        videos={c.videos}
+        faq={c.faq}
+        footerUi={footerUi}
+      />
+    </div>
+  );
+}

@@ -1,3 +1,13 @@
+import { getModuleV1ModulePages } from "@/lib/content/module-v1/pages";
+import {
+  getModuleV2ModulePages,
+  registerModuleV2GetBase,
+} from "@/lib/content/module-v2/registry";
+import {
+  getModuleV3ModulePages,
+  registerModuleV3GetBase,
+} from "@/lib/content/module-v3/registry";
+
 export type ModulePage = {
   slug: string;
   path: string;
@@ -10,7 +20,8 @@ export type ModulePage = {
   videos?: string[];
 };
 
-export const MODULE_PAGES: ModulePage[] = [
+/** Базовые страницы модулей (без универсальных *-v2/*-v3 — они добавляются ниже). */
+export const BASE_MODULE_PAGES: ModulePage[] = [
   {
     slug: "analiz-relevantnosti",
     path: "/analiz-relevantnosti/",
@@ -227,12 +238,59 @@ export const MODULE_PAGES: ModulePage[] = [
   },
 ];
 
-const bySlug = new Map(MODULE_PAGES.map((m) => [m.slug, m]));
+const baseBySlug = new Map(BASE_MODULE_PAGES.map((m) => [m.slug, m]));
+
+export function getBaseModuleBySlug(slug: string): ModulePage | undefined {
+  return baseBySlug.get(slug);
+}
+
+/** Полный список после инициализации v2/v3 (лениво, без цикла import). */
+let modulePagesCache: ModulePage[] | null = null;
+
+export function getModulePages(): ModulePage[] {
+  if (!modulePagesCache) {
+    const v1Pages = getModuleV1ModulePages(getBaseModuleBySlug);
+    const v2Pages = getModuleV2ModulePages(getBaseModuleBySlug);
+    const labSlugs = new Set([...v1Pages, ...v2Pages].map((m) => m.slug));
+    const base = BASE_MODULE_PAGES.filter((m) => !labSlugs.has(m.slug));
+    modulePagesCache = [
+      ...base,
+      ...v1Pages,
+      ...v2Pages,
+      ...getModuleV3ModulePages(getBaseModuleBySlug),
+    ];
+  }
+  return modulePagesCache;
+}
+
+/** @deprecated используйте getModulePages(); оставлено для совместимости */
+export const MODULE_PAGES: ModulePage[] = BASE_MODULE_PAGES;
+
+const bySlug = new Map<string, ModulePage>();
+
+function ensureBySlug() {
+  if (bySlug.size === 0) {
+    for (const m of getModulePages()) bySlug.set(m.slug, m);
+  }
+}
 
 export function getModuleBySlug(slug: string): ModulePage | undefined {
+  ensureBySlug();
   return bySlug.get(slug);
 }
 
-export function getAllModuleSlugs(): string[] {
-  return MODULE_PAGES.map((m) => m.slug);
+/** LAB: *-v1, *-v2, *-v3 — noindex, не в sitemap, robots disallow. Публичные URL = v2. */
+export function isLabModuleSlug(slug: string): boolean {
+  return slug.endsWith("-v1") || slug.endsWith("-v2") || slug.endsWith("-v3");
 }
+
+export function getAllModuleSlugs(): string[] {
+  return getModulePages().map((m) => m.slug);
+}
+
+export function getPublicModuleSlugs(): string[] {
+  return getModulePages().filter((m) => !isLabModuleSlug(m.slug)).map((m) => m.slug);
+}
+
+registerModuleV2GetBase(getBaseModuleBySlug);
+registerModuleV3GetBase(getBaseModuleBySlug);

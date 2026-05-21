@@ -19,27 +19,41 @@ type Concept = {
 type ActPreview = { act: string; title: string };
 type Shots = readonly { src: string; caption: string }[];
 
-const PANEL_CHIPS = [
+const DEFAULT_PANEL_CHIPS = [
   { label: "ТОП‑100", tone: "emerald" },
   { label: "2 ПС", tone: "sky" },
   { label: "Desktop", tone: "amber" },
 ] as const;
+
+export type MonitoringV2HeroUi = {
+  classicHref: string;
+  storyAnchor: string;
+  idPrefix: string;
+  showSearchEngines?: boolean;
+  panelChips?: readonly { label: string; tone: "emerald" | "sky" | "amber" }[];
+  keysFooter?: string;
+  dynamicsFooter?: string;
+  labBadge?: string;
+  labV1Href?: string;
+  ctaHint?: string;
+};
 
 type Props = {
   module: ModulePage;
   concept: Concept;
   shots: Shots;
   acts: readonly ActPreview[];
+  heroUi?: Partial<MonitoringV2HeroUi>;
 };
 
-function HeroActStrip({ acts }: { acts: readonly ActPreview[] }) {
+function HeroActStrip({ acts, storyAnchor }: { acts: readonly ActPreview[]; storyAnchor: string }) {
   return (
     <div className="flex flex-col items-center gap-3">
       <div className="flex flex-wrap justify-center gap-2">
         {acts.map((a) => (
           <a
             key={a.act}
-            href="#monitoring-v2-story"
+            href={`#${storyAnchor}`}
             className="group flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 text-sm backdrop-blur-md transition hover:border-brand-400/40 hover:bg-brand-500/20"
           >
             <span className="font-mono text-xs font-bold text-brand-300">{a.act}</span>
@@ -56,7 +70,19 @@ function HeroActStrip({ acts }: { acts: readonly ActPreview[] }) {
 }
 
 /** Hero: панель управления — слои скринов + декор и превью актов. */
-export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props) {
+export function MonitoringV2CommandHero({ module, concept, shots, acts, heroUi }: Props) {
+  const ui: MonitoringV2HeroUi = {
+    classicHref: "/monitoring-pozicii-sayta/",
+    storyAnchor: "monitoring-v2-story",
+    idPrefix: "monitoring-v2-command",
+    showSearchEngines: true,
+    panelChips: DEFAULT_PANEL_CHIPS,
+    keysFooter: "Проект · ключи",
+    dynamicsFooter: "Динамика · отчёт",
+    labV1Href: "/monitoring-pozicii-v1/",
+    ...heroUi,
+  };
+  const panelChips = ui.panelChips ?? DEFAULT_PANEL_CHIPS;
   const [keys, dynamics] = shots;
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [reduceMotion, setReduceMotion] = useState(true);
@@ -118,13 +144,29 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props)
             Модули
           </Link>
           <span aria-hidden>/</span>
-          <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-bold text-emerald-300">NEW</span>
-          <span className="hidden text-slate-600 sm:inline" aria-hidden>
-            ·
-          </span>
-          <Link href="/monitoring-pozicii-sayta/" className="text-slate-500 hover:text-slate-300">
-            классическая версия
-          </Link>
+          {ui.labBadge ? (
+            <>
+              <span className="rounded bg-violet-500/25 px-2 py-0.5 text-xs font-bold text-violet-200">
+                {ui.labBadge}
+              </span>
+              <span className="hidden text-slate-600 sm:inline" aria-hidden>
+                ·
+              </span>
+              <Link href={ui.classicHref} className="text-slate-500 hover:text-slate-300">
+                основная версия
+              </Link>
+            </>
+          ) : null}
+          {ui.labV1Href ? (
+            <>
+              <span className="hidden text-slate-600 sm:inline" aria-hidden>
+                ·
+              </span>
+              <Link href={ui.labV1Href} className="text-slate-500 hover:text-slate-300">
+                архив v1
+              </Link>
+            </>
+          ) : null}
         </nav>
 
         <div className="mt-10 grid flex-1 items-center gap-12 lg:grid-cols-[1fr_1.12fr] lg:gap-10">
@@ -148,14 +190,14 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props)
               </ul>
             )}
 
-            <SearchEngineLogos className="mt-8" variant="hero" />
+            {ui.showSearchEngines && <SearchEngineLogos className="mt-8" variant="hero" />}
 
             <div className="mt-10 max-w-md rounded-2xl border border-white/10 bg-white/[0.04] p-1 backdrop-blur-sm">
               <ModuleLeadCta
                 variant="hero"
-                idPrefix="monitoring-v2-command"
+                idPrefix={ui.idPrefix}
                 title={concept.cta}
-                hint="Email → регистрация в личном кабинете с модулем мониторинга."
+                hint={ui.ctaHint ?? "Email → регистрация в личном кабинете."}
               />
             </div>
 
@@ -177,7 +219,7 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props)
             }}
           >
             <div className="pointer-events-none absolute -left-2 top-8 z-30 flex flex-col gap-2 sm:left-0">
-              {PANEL_CHIPS.map((c) => (
+              {panelChips.map((c) => (
                 <span
                   key={c.label}
                   className={`rounded-lg border px-2.5 py-1 text-xs font-semibold shadow-lg backdrop-blur-md ${
@@ -206,7 +248,7 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props)
                   />
                 </div>
                 <div className="flex items-center justify-between border-t border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-                  <span>Проект · ключи</span>
+                  <span>{ui.keysFooter ?? "Проект · ключи"}</span>
                   <span className="font-mono font-semibold text-brand-600">
                     <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500 align-middle motion-reduce:animate-none" />{" "}
                     LIVE
@@ -225,14 +267,16 @@ export function MonitoringV2CommandHero({ module, concept, shots, acts }: Props)
                     sizes="(max-width: 1024px) 90vw, 520px"
                   />
                 </div>
-                <div className="bg-brand-600 px-3 py-2 text-xs font-medium text-white">Динамика · отчёт</div>
+                <div className="bg-brand-600 px-3 py-2 text-xs font-medium text-white">
+                  {ui.dynamicsFooter ?? "Динамика · отчёт"}
+                </div>
               </div>
             )}
           </div>
         </div>
 
         <div className="mt-10 md:mt-6">
-          <HeroActStrip acts={acts} />
+          <HeroActStrip acts={acts} storyAnchor={ui.storyAnchor} />
         </div>
       </div>
     </section>

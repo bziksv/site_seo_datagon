@@ -4,20 +4,11 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { ModuleLeadCta } from "@/components/ModuleLeadCta";
 import { SearchEngineLogos } from "@/components/SearchEngineLogos";
-import { MonitoringV3PulseHeroVisual } from "@/components/module-landings/monitoring-v3/MonitoringV3PulseHeroVisual";
+import { ModuleV3PulseHeroVisual } from "@/components/module-landings/module-v3/ModuleV3PulseHeroVisual";
 import { MonitoringV3TypeCycle } from "@/components/module-landings/monitoring-v3/MonitoringV3TypeCycle";
 import { LK_URL } from "@/lib/site";
+import type { ModuleV3HeroVisual, ModuleV3Intro } from "@/lib/content/module-v3/types";
 import type { ModulePage } from "@/lib/content/modules";
-
-type Intro = {
-  badge: string;
-  title: string;
-  titleAccent: string;
-  lead: string;
-  sub?: string;
-  cta: string;
-  typeCycle: readonly string[];
-};
 
 const FLOAT_SEED = [
   { t: 12, l: 8, n: 3 },
@@ -30,11 +21,18 @@ const FLOAT_SEED = [
   { t: 52, l: 96, n: 12 },
 ];
 
-export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; intro: Intro }) {
+type Props = {
+  module: ModulePage;
+  intro: ModuleV3Intro;
+  heroVisual: ModuleV3HeroVisual;
+  showEngineLogos?: boolean;
+};
+
+export function ModuleV3PulseIntro({ module, intro, heroVisual, showEngineLogos = false }: Props) {
   const floats = useMemo(() => FLOAT_SEED, []);
 
   return (
-    <section className="monitoring-v3-tone-hero relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 py-20 md:px-8 lg:px-12">
+    <section className="module-v3-tone-hero relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-4 py-20 md:px-8 lg:px-12">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.12] animate-v3-grid motion-reduce:opacity-[0.06]"
         style={{
@@ -47,7 +45,6 @@ export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; 
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
         <div className="absolute left-[8%] top-1/4 h-80 w-80 rounded-full bg-brand-600/20 blur-3xl" />
         <div className="absolute right-[6%] top-1/3 h-96 w-96 rounded-full bg-violet-600/25 blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-brand-500/10 blur-3xl" />
         {floats.map((f) => (
           <span
             key={`${f.t}-${f.l}`}
@@ -57,7 +54,6 @@ export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; 
             #{f.n}
           </span>
         ))}
-        <div className="absolute inset-x-0 h-24 bg-brand-500/15 animate-v3-scan opacity-40" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
@@ -93,7 +89,7 @@ export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; 
                 {module.features.map((f, i) => (
                   <li
                     key={f}
-                    className={`rounded-full px-3 py-1 text-sm ${i === 0 ? "monitoring-v3-chip-featured" : "monitoring-v3-chip text-slate-300"}`}
+                    className={`rounded-full px-3 py-1 text-sm ${i === 0 ? "module-v3-chip-featured" : "module-v3-chip text-slate-300"}`}
                   >
                     {f}
                   </li>
@@ -101,12 +97,12 @@ export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; 
               </ul>
             )}
 
-            <SearchEngineLogos className="mt-8 opacity-90" variant="hero" />
+            {showEngineLogos && <SearchEngineLogos className="mt-8 opacity-90" variant="hero" />}
 
-            <div className="monitoring-v3-highlight-panel mt-10 w-full max-w-md rounded-2xl p-6 lg:max-w-lg">
+            <div className="module-v3-highlight-panel mt-10 w-full max-w-md rounded-2xl p-6 lg:max-w-lg">
               <ModuleLeadCta
                 variant="hero"
-                idPrefix="monitoring-v3-intro"
+                idPrefix={`${module.slug}-intro`}
                 title={intro.cta}
                 hint="Регистрация в личном кабинете."
               />
@@ -119,7 +115,7 @@ export function MonitoringV3PulseIntro({ module, intro }: { module: ModulePage; 
           </div>
 
           <div className="min-w-0 lg:pt-6">
-            <MonitoringV3PulseHeroVisual />
+            <ModuleV3PulseHeroVisual visual={heroVisual} />
           </div>
         </div>
       </div>

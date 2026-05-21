@@ -2,7 +2,8 @@
 
 | Среда | URL |
 |-------|-----|
-| Локально | http://localhost:3001/monitoring-pozicii-v2/ |
+| Публичный URL | http://localhost:3001/monitoring-pozicii-sayta/ |
+| LAB v2 | http://localhost:3001/monitoring-pozicii-v2/ |
 | Классика (не трогать) | http://localhost:3001/monitoring-pozicii-sayta/ |
 
 `MonitoringPoziciiV2Landing` · `lib/content/monitoring-pozicii-v2-page.ts`.

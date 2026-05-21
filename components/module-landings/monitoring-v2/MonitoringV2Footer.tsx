@@ -5,6 +5,7 @@ import { ModuleVideoGallery } from "@/components/ModuleVideoGallery";
 import { RevealOnScroll } from "@/components/module-landings/RevealOnScroll";
 import { MonitoringV2SectionHeader } from "@/components/module-landings/monitoring-v2/MonitoringV2SectionHeader";
 import type { ModulePlainContent } from "@/components/module-landings/ModulePlainSection";
+import type { ModuleV2FooterUi } from "@/lib/content/module-v2/types";
 import { SITE } from "@/lib/site";
 
 type Video = { id: string; title: string; description: string };
@@ -17,9 +18,11 @@ type Props = {
   plain: ModulePlainContent;
   videos: readonly Video[];
   faq: readonly FaqItem[];
+  footerUi: ModuleV2FooterUi;
 };
 
-export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq }: Props) {
+export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq, footerUi }: Props) {
+  const fu = footerUi;
   return (
     <div className="bg-slate-50">
       <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
@@ -49,13 +52,14 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
           </section>
         </RevealOnScroll>
 
-        <ModulePlainSection data={plain} titleId="monitoring-v2-plain-title" />
+        <ModulePlainSection data={plain} titleId={`${fu.idPrefix}-plain-title`} />
 
+        {videos.length > 0 && (
         <RevealOnScroll>
           <section className="mt-16 rounded-2xl border border-slate-200 bg-white p-6 md:p-10">
             <ModuleVideoGallery
-              title="Разбор модуля в видео"
-              lead="Четыре урока — от первого проекта до выгрузки отчёта."
+              title={fu.videoTitle ?? "Разбор модуля в видео"}
+              lead={fu.videoLead ?? "Короткие уроки по интерфейсу и сценарию."}
               items={videos.map((v) => ({
                 embedUrl: `https://www.youtube.com/embed/${v.id}`,
                 title: v.title,
@@ -64,10 +68,11 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
             />
           </section>
         </RevealOnScroll>
+        )}
 
         <RevealOnScroll>
           <section className="mt-16">
-            <MonitoringV2SectionHeader eyebrow="FAQ" title="Вопросы по мониторингу" />
+            <MonitoringV2SectionHeader eyebrow="FAQ" title={fu.faqTitle} />
             <dl className="mt-8 space-y-3">
               {faq.map((item) => (
                 <details
@@ -99,29 +104,36 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
       <RevealOnScroll>
         <section
           className="border-t border-brand-800 bg-brand-700 py-12 md:py-16"
-          aria-labelledby="monitoring-v2-final-title"
+          aria-labelledby={`${fu.idPrefix}-final-title`}
         >
           <div className="mx-auto max-w-6xl px-4">
             <div className="grid gap-8 lg:grid-cols-[1fr_minmax(300px,400px)] lg:items-center lg:gap-10">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-brand-200">{SITE.name}</p>
-                <h2 id="monitoring-v2-final-title" className="mt-2 text-2xl font-bold text-white md:text-3xl">
-                  Запустите панель мониторинга
+                <h2 id={`${fu.idPrefix}-final-title`} className="mt-2 text-2xl font-bold text-white md:text-3xl">
+                  {fu.finalTitle}
                 </h2>
                 <p className="mt-3 max-w-lg text-sm leading-relaxed text-brand-100 md:text-base">
-                  Классический лендинг —{" "}
-                  <Link
-                    href="/monitoring-pozicii-sayta/"
-                    className="font-semibold text-white underline decoration-brand-300 underline-offset-2 hover:decoration-white"
-                  >
-                    /monitoring-pozicii-sayta/
-                  </Link>
-                  . Здесь — концепция «Центр управления выдачей».
+                  {fu.finalLead ||
+                    (fu.isLabRoute ? (
+                      <>
+                        Основная версия —{" "}
+                        <Link
+                          href={fu.classicHref}
+                          className="font-semibold text-white underline decoration-brand-300 underline-offset-2 hover:decoration-white"
+                        >
+                          {fu.classicHref}
+                        </Link>
+                        . Здесь — архив LAB v2.
+                      </>
+                    ) : (
+                      "Панель модуля в личном кабинете — регистрация бесплатна."
+                    ))}
                 </p>
               </div>
               <ModuleLeadCta
                 variant="card"
-                idPrefix="monitoring-v2-final"
+                idPrefix={`${fu.idPrefix}-final`}
                 title="Начать бесплатно"
                 hint="Регистрация в личном кабинете."
               />
@@ -134,11 +146,19 @@ export function MonitoringV2Footer({ options, optionsSection, plain, videos, faq
               >
                 ← Все модули
               </Link>
+              {fu.isLabRoute ? (
+                <Link
+                  href={fu.classicHref}
+                  className="text-sm text-brand-200 hover:text-white"
+                >
+                  Основная версия
+                </Link>
+              ) : null}
               <Link
-                href="/monitoring-pozicii-v3/"
+                href={fu.labV1Href}
                 className="text-sm text-brand-200 hover:text-white"
               >
-                Концепция v3 (LAB)
+                Архив v1 (LAB)
               </Link>
             </nav>
           </div>

@@ -32,7 +32,7 @@ export function MonitoringV3KeywordStreams({ streamA, streamB }: Props) {
     <section className="monitoring-v3-tone-stream relative py-4" aria-label="Потоки ключевых фраз">
       <MonitoringV3SceneGrid />
       <p className="pointer-events-none relative z-10 mb-2 text-center text-[10px] font-semibold uppercase tracking-[0.4em] text-brand-400/70">
-        поток запросов
+        ключевые запросы
       </p>
       <Row items={streamA} />
       <Row items={streamB} reverse />

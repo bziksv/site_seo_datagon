@@ -43,7 +43,7 @@ export function MonitoringV3FluxScene({ flux }: { flux: Flux }) {
         <p className="mx-auto mt-4 max-w-2xl text-slate-500 leading-relaxed">{flux.lead}</p>
         <div className="mx-auto mt-8 flex max-w-md items-center gap-3">
           <span className={`shrink-0 font-mono text-xs ${chaosOpacity > 0.5 ? "text-red-300" : "text-slate-600"}`}>
-            хаос
+            вручную
           </span>
           <div className="h-2 flex-1 overflow-hidden rounded-full bg-white/10">
             <div
@@ -52,7 +52,7 @@ export function MonitoringV3FluxScene({ flux }: { flux: Flux }) {
             />
           </div>
           <span className={`shrink-0 font-mono text-xs ${orderOpacity > 0.5 ? "text-brand-300" : "text-slate-600"}`}>
-            пульс
+            в Датагоне
           </span>
         </div>
       </div>

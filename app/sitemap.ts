@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllLegalSlugs } from "@/lib/content/legal";
-import { getAllModuleSlugs } from "@/lib/content/modules";
+import { getPublicModuleSlugs } from "@/lib/content/modules";
 import { NEWS_ITEMS } from "@/lib/content/news";
+import { SITE } from "@/lib/site";
 
-const BASE = "https://redbox.su";
+const BASE = SITE.siteUrl.replace(/\/$/, "");
 
 const STATIC = [
   "",
@@ -26,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
-  const modules = getAllModuleSlugs().map((slug) => ({
+  const modules = getPublicModuleSlugs().map((slug) => ({
     url: `${BASE}/${slug}/`,
     lastModified: now,
     changeFrequency: "monthly" as const,

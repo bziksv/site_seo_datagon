@@ -6,7 +6,18 @@ type Metric = { value: string; unit: string; note: string };
 
 const BENTO_SPAN = [true, false, false, true] as const;
 
-export function MonitoringV2MetricWall({ metrics }: { metrics: readonly Metric[] }) {
+type MetricSection = { eyebrow: string; title: string; lead?: string };
+
+export function MonitoringV2MetricWall({
+  metrics,
+  section = {
+    eyebrow: "Цифры без маркетингового шума",
+    title: "Параметры съёма в одном взгляде",
+  },
+}: {
+  metrics: readonly Metric[];
+  section?: MetricSection;
+}) {
   return (
     <section className="border-y border-brand-900/30 bg-brand-800 py-16 text-white md:py-24">
       <div className="mx-auto max-w-6xl px-4">
@@ -14,8 +25,9 @@ export function MonitoringV2MetricWall({ metrics }: { metrics: readonly Metric[]
           <MonitoringV2SectionHeader
             align="center"
             dark
-            eyebrow="Цифры без маркетингового шума"
-            title="Параметры съёма в одном взгляде"
+            eyebrow={section.eyebrow}
+            title={section.title}
+            lead={section.lead}
           />
         </RevealOnScroll>
 

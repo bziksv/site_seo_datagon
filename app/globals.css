@@ -39,7 +39,8 @@ a {
   animation: marquee 36s linear infinite;
 }
 
-/* --- monitoring v3: иммерсив «Пульс позиций» --- */
+/* --- module v3: иммерсивные лендинги LAB (все модули · -v3) --- */
+.module-v3,
 .monitoring-v3 {
   --v3-bg: #05070f;
   --v3-ink: #0a1020;
@@ -48,67 +49,80 @@ a {
   --v3-slate-panel: #101827;
 }
 
+.module-v3-tone-hero,
 .monitoring-v3-tone-hero {
   background-color: #070d1c;
   border-bottom: 1px solid rgb(47 93 224 / 0.25);
 }
 
+.module-v3-tone-stream,
 .monitoring-v3-tone-stream {
   background-color: #04050a;
   border-top: 1px solid rgb(47 93 224 / 0.2);
   border-bottom: 1px solid rgb(139 92 246 / 0.15);
 }
 
+.module-v3-tone-depth,
 .monitoring-v3-tone-depth {
   background-color: #0a1228;
 }
 
+.module-v3-tone-flux,
 .monitoring-v3-tone-flux {
   background-color: #060608;
 }
 
+.module-v3-tone-violet,
 .monitoring-v3-tone-violet {
   background-color: var(--v3-violet-panel);
   border-top: 1px solid rgb(139 92 246 / 0.2);
   border-bottom: 1px solid rgb(47 93 224 / 0.15);
 }
 
+.module-v3-tone-slate,
 .monitoring-v3-tone-slate {
   background-color: var(--v3-slate-panel);
   border-top: 1px solid rgb(100 116 139 / 0.25);
 }
 
+.module-v3-tone-stats,
 .monitoring-v3-tone-stats {
   background-color: #0c1838;
   border-top: 1px solid rgb(47 93 224 / 0.35);
   border-bottom: 1px solid rgb(47 93 224 / 0.2);
 }
 
+.module-v3-tone-ink,
 .monitoring-v3-tone-ink {
   background-color: var(--v3-ink);
 }
 
+.module-v3-tone-faq,
 .monitoring-v3-tone-faq {
   background-color: #080a14;
 }
 
+.module-v3-tone-outro,
 .monitoring-v3-tone-outro {
   background-color: #0a1428;
   border-top: 1px solid rgb(47 93 224 / 0.3);
 }
 
+.module-v3-highlight-panel,
 .monitoring-v3-highlight-panel {
   border: 1px solid rgb(47 93 224 / 0.45);
   background-color: rgb(15 26 51 / 0.85);
   box-shadow: 0 0 0 1px rgb(47 93 224 / 0.1), 0 20px 50px -20px rgb(47 93 224 / 0.35);
 }
 
+.module-v3-highlight-metric,
 .monitoring-v3-highlight-metric {
   border: 1px solid rgb(47 93 224 / 0.5);
   background-color: rgb(47 93 224 / 0.12);
   box-shadow: 0 0 60px -10px rgb(47 93 224 / 0.4);
 }
 
+.module-v3-stat-cell,
 .monitoring-v3-stat-cell {
   border: 1px solid rgb(47 93 224 / 0.3);
   background-color: rgb(30 63 158 / 0.15);
@@ -116,72 +130,85 @@ a {
   padding: 1.75rem 1rem;
 }
 
+.module-v3-signal-card,
 .monitoring-v3-signal-card {
   border-width: 1px;
   border-style: solid;
   background-color: rgb(255 255 255 / 0.04);
 }
 
+.module-v3-signal-card,
 .monitoring-v3-signal-card[data-accent="brand"] {
   border-color: rgb(47 93 224 / 0.45);
   background-color: rgb(47 93 224 / 0.08);
 }
 
+.module-v3-signal-card,
 .monitoring-v3-signal-card[data-accent="violet"] {
   border-color: rgb(139 92 246 / 0.4);
   background-color: rgb(139 92 246 / 0.08);
 }
 
+.module-v3-signal-card,
 .monitoring-v3-signal-card[data-accent="emerald"] {
   border-color: rgb(16 185 129 / 0.35);
   background-color: rgb(16 185 129 / 0.06);
 }
 
+.module-v3-signal-card,
 .monitoring-v3-signal-card[data-accent="amber"] {
   border-color: rgb(245 158 11 / 0.35);
   background-color: rgb(245 158 11 / 0.06);
 }
 
+.module-v3-chip,
 .monitoring-v3-chip {
   border: 1px solid rgb(255 255 255 / 0.12);
   background-color: rgb(255 255 255 / 0.06);
 }
 
+.module-v3-chip-featured,
 .monitoring-v3-chip-featured {
   border-color: rgb(47 93 224 / 0.5);
   background-color: rgb(47 93 224 / 0.15);
   color: rgb(191 219 254);
 }
 
+.module-v3-insight-card,
 .monitoring-v3-insight-card {
   border: 1px solid rgb(255 255 255 / 0.1);
   background-color: rgb(255 255 255 / 0.04);
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+.module-v3-insight-card,
 .monitoring-v3-insight-card:hover {
   border-color: rgb(47 93 224 / 0.35);
   background-color: rgb(47 93 224 / 0.06);
 }
 
+.module-v3-flux-card--chaos,
 .monitoring-v3-flux-card--chaos {
   border: 1px solid rgb(239 68 68 / 0.35);
   background-color: rgb(69 10 10 / 0.45);
   box-shadow: 0 20px 60px -20px rgb(239 68 68 / 0.25);
 }
 
+.module-v3-flux-card--order,
 .monitoring-v3-flux-card--order {
   border: 1px solid rgb(47 93 224 / 0.45);
   background-color: rgb(15 26 51 / 0.65);
   box-shadow: 0 20px 60px -20px rgb(47 93 224 / 0.3);
 }
 
+.module-v3-stat-cell--hero,
 .monitoring-v3-stat-cell--hero {
   border-color: rgb(47 93 224 / 0.5);
   background: linear-gradient(135deg, rgb(30 63 158 / 0.25), rgb(139 92 246 / 0.12));
   padding: 2.5rem 2rem;
 }
 
+.module-v3-browser-frame,
 .monitoring-v3-browser-frame {
   border: 1px solid rgb(255 255 255 / 0.12);
   border-radius: 1rem;
@@ -289,38 +316,47 @@ a {
   }
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-marquee-left {
   animation: v3-marquee-left 28s linear infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-marquee-right {
   animation: v3-marquee-right 32s linear infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-float {
   animation: v3-float 4s ease-in-out infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-grid {
   animation: v3-grid-pan 8s linear infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-scan {
   animation: v3-scan 4s linear infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-pulse-ring {
   animation: v3-pulse-ring 2.4s ease-out infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-glitch {
   animation: v3-glitch 2.8s steps(1) infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-carousel-a {
   animation: v3-carousel 8s ease-in-out infinite;
 }
 
+.module-v3 .animate-v3-,
 .monitoring-v3 .animate-v3-carousel-b {
   animation: v3-carousel 8s ease-in-out infinite;
   animation-delay: -4s;
@@ -407,15 +443,24 @@ a {
     stroke-dasharray: none;
   }
 
-  .monitoring-v3 .animate-v3-marquee-left,
-  .monitoring-v3 .animate-v3-marquee-right,
-  .monitoring-v3 .animate-v3-float,
-  .monitoring-v3 .animate-v3-grid,
-  .monitoring-v3 .animate-v3-scan,
-  .monitoring-v3 .animate-v3-pulse-ring,
-  .monitoring-v3 .animate-v3-glitch,
-  .monitoring-v3 .animate-v3-carousel-a,
-  .monitoring-v3 .animate-v3-carousel-b {
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-marquee-left,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-marquee-right,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-float,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-grid,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-scan,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-pulse-ring,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-glitch,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-carousel-a,
+  .module-v3 .animate-v3-,
+.monitoring-v3 .animate-v3-carousel-b {
     animation: none !important;
   }
 }
@@ -447,4 +492,225 @@ a {
 
 .legal-content a {
   @apply text-brand-600 underline hover:text-brand-700;
+}
+
+/* ——— Главная: showcase (лучшее от лендингов, без привязки к v1/v2/v3) ——— */
+
+.home-hero-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: home-grid-drift 24s linear infinite;
+}
+
+@keyframes home-grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 56px 56px;
+  }
+}
+
+.home-orb-a {
+  animation: home-float-a 14s ease-in-out infinite;
+}
+
+.home-orb-b {
+  animation: home-float-b 18s ease-in-out infinite;
+}
+
+.home-orb-c {
+  animation: home-float-c 12s ease-in-out infinite;
+}
+
+@keyframes home-float-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(24px, -20px) scale(1.08);
+  }
+}
+
+@keyframes home-float-b {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-20px, 16px) scale(1.05);
+  }
+}
+
+@keyframes home-float-c {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(12px, 24px);
+  }
+}
+
+.home-pulse-dot {
+  animation: home-pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes home-pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+}
+
+.home-rotator-word {
+  animation: home-fade-in 0.5s ease-out;
+}
+
+@keyframes home-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-panel-float {
+  animation: home-panel-float 6s ease-in-out infinite;
+}
+
+@keyframes home-panel-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.home-line-draw {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: home-line-draw 2.5s ease-out forwards;
+}
+
+@keyframes home-line-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.home-scroll-hint {
+  animation: home-scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes home-scroll-bounce {
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scaleY(1.2);
+    opacity: 1;
+  }
+}
+
+.home-marquee-track {
+  animation: home-marquee 40s linear infinite;
+}
+
+@keyframes home-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.home-bento-card {
+  animation: home-bento-in 0.7s ease-out backwards;
+}
+
+@keyframes home-bento-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-bento-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(47, 93, 224, 0.12), transparent 70%);
+}
+
+.home-cta-glow {
+  animation: home-cta-shimmer 8s ease-in-out infinite;
+}
+
+@keyframes home-cta-shimmer {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.06);
+  }
+}
+
+/* Универсальный LAB v2 (ModuleV2Landing) */
+.module-v2-landing .scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+
+.module-v2-landing #module-v2-story-analiz-konkurentov ~ section,
+.module-v2-landing section[id^="module-v2-story-"] + section {
+  position: relative;
+}
+
+.module-v2-landing .monitoring-v2-orbit-hub {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-grid,
+  .home-orb-a,
+  .home-orb-b,
+  .home-orb-c,
+  .home-pulse-dot,
+  .home-panel-float,
+  .home-scroll-hint,
+  .home-marquee-track,
+  .home-cta-glow {
+    animation: none !important;
+  }
+
+  .home-line-draw {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  .home-bento-card {
+    animation: none;
+  }
+
+  .home-rotator-word {
+    animation: none;
+  }
 }

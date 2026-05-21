@@ -20,7 +20,20 @@ function actImageClass(image: string) {
   return image.includes("518ec") ? "aspect-[1024/260] min-h-[200px]" : "aspect-[739/385] min-h-[240px]";
 }
 
-export function MonitoringV2StoryActs({ acts }: { acts: readonly Act[] }) {
+type StorySection = { id: string; eyebrow: string; title: string; lead: string };
+
+export function MonitoringV2StoryActs({
+  acts,
+  section = {
+    id: "monitoring-v2-story",
+    eyebrow: "Три акта",
+    title: "От ядра до отчёта — один непрерывный сценарий",
+    lead: "Прокрутите сюжет или выберите этап — навигация синхронизирована со скроллом.",
+  },
+}: {
+  acts: readonly Act[];
+  section?: StorySection;
+}) {
   const [active, setActive] = useState(0);
   const refs = useRef<(HTMLElement | null)[]>([]);
 
@@ -42,12 +55,12 @@ export function MonitoringV2StoryActs({ acts }: { acts: readonly Act[] }) {
   }, [acts]);
 
   return (
-    <section id="monitoring-v2-story" className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
+    <section id={section.id} className="scroll-mt-20 bg-slate-50 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-4">
         <MonitoringV2SectionHeader
-          eyebrow="Три акта"
-          title="От ядра до отчёта — один непрерывный сценарий"
-          lead="Прокрутите сюжет или выберите этап — навигация синхронизирована со скроллом."
+          eyebrow={section.eyebrow}
+          title={section.title}
+          lead={section.lead}
         />
       </div>
 

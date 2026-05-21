@@ -107,8 +107,8 @@ export function MonitoringV3DepthPin({ depth }: { depth: Depth }) {
               </div>
               <div className="mt-8">
                 <div className="mb-2 flex justify-between text-xs text-slate-500">
-                  <span>глубина среза</span>
-                  <span className="font-mono text-brand-300">{Math.round(progress * 100)}%</span>
+                  <span>глубина проверки</span>
+                  <span className="font-mono text-brand-300">ТОП‑{value}</span>
                 </div>
                 <div className="h-2.5 overflow-hidden rounded-full bg-white/10">
                   <div

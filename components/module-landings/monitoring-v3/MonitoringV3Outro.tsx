@@ -5,16 +5,15 @@ import { useEffect, useRef, useState } from "react";
 import { ModuleLeadCta } from "@/components/ModuleLeadCta";
 import { MonitoringV3SceneGrid } from "@/components/module-landings/monitoring-v3/MonitoringV3SceneGrid";
 
+type Step = { n: string; title: string; text: string };
 type Outro = {
   title: string;
   lead: string;
+  stepsTitle: string;
+  steps: readonly Step[];
+  freeNote: string;
   links: readonly { href: string; label: string }[];
 };
-
-const OUTRO_ROWS = [
-  { q: "первый срез", pos: 1, delta: 0 },
-  { q: "ядро загружено", pos: 8, delta: 3 },
-] as const;
 
 export function MonitoringV3Outro({ outro }: { outro: Outro }) {
   const btnRef = useRef<HTMLDivElement>(null);
@@ -76,22 +75,26 @@ export function MonitoringV3Outro({ outro }: { outro: Outro }) {
         </div>
 
         <div className="monitoring-v3-highlight-panel mx-auto w-full max-w-md rounded-3xl p-6 lg:max-w-lg">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-brand-300">старт проекта</p>
-          <ul className="mt-5 space-y-3">
-            {OUTRO_ROWS.map((row) => (
-              <li
-                key={row.q}
-                className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm"
-              >
-                <span className="text-slate-300">{row.q}</span>
-                <span className="font-mono font-bold text-white">
-                  #{row.pos}
-                  {row.delta > 0 && <span className="ml-1 text-xs text-emerald-400">↑{row.delta}</span>}
+          <p className="text-sm font-bold uppercase tracking-widest text-brand-300">{outro.stepsTitle}</p>
+          <ol className="mt-5 space-y-4">
+            {outro.steps.map((step) => (
+              <li key={step.n} className="flex gap-4 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-brand-500/40 bg-brand-600/20 font-mono text-sm font-bold text-brand-200">
+                  {step.n}
                 </span>
+                <div>
+                  <p className="font-semibold text-white">{step.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-slate-400">{step.text}</p>
+                </div>
               </li>
             ))}
-          </ul>
-          <p className="mt-6 text-center text-xs text-slate-500">500 проверок в месяц на Free · уточняйте лимиты в тарифах</p>
+          </ol>
+          <p className="mt-6 text-sm leading-relaxed text-slate-500">
+            {outro.freeNote}{" "}
+            <Link href="/tarify/" className="text-brand-300 hover:text-white">
+              Смотреть тарифы
+            </Link>
+          </p>
         </div>
       </div>
     </section>

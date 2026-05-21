@@ -27,7 +27,7 @@ export function MonitoringV3PulseHeroVisual() {
       <div className="monitoring-v3-highlight-panel relative rounded-3xl p-6 md:p-8">
         <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
           <span className="font-mono text-[10px] font-bold uppercase tracking-[0.35em] text-brand-300">
-            live · срез
+            мониторинг · онлайн
           </span>
           <span className="flex items-center gap-2 font-mono text-xs text-slate-500">
             <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-emerald-400 motion-reduce:animate-none" />
@@ -67,7 +67,7 @@ export function MonitoringV3PulseHeroVisual() {
         </div>
 
         <p className="mt-6 text-center text-xs leading-relaxed text-slate-500">
-          Десктоп · регион · глубина · отчёт XLS / PDF — в одном срезе кабинета
+          Регион, язык, глубина и отчёт — в одном проекте кабинета
         </p>
       </div>
 
@@ -75,7 +75,7 @@ export function MonitoringV3PulseHeroVisual() {
         {[
           { label: "запросов", value: "1.2k" },
           { label: "в ТОП‑10", value: "84" },
-          { label: "срезов", value: "12" },
+          { label: "дат в истории", value: "12" },
         ].map((m) => (
           <div
             key={m.label}

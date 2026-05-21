@@ -8,9 +8,9 @@ export const SITE = {
   description:
     "Платформа Датагон для анализа и отслеживания сайта. Мониторинг, релевантность, позиции и другие инструменты для SEO и маркетинга.",
   phone: "+7-960-134-03-03",
-  email: "info@redbox.su",
+  email: "info@datagon.ru",
   supportHours: "Пн–Пт, 9:30–19:00",
-  siteUrl: "https://redbox.su",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://datagon.ru",
   /** Первый год в подвале: © {since} – {текущий} */
   copyrightSince: 2023,
 } as const;
@@ -23,6 +23,8 @@ export function getCopyrightText(name: string = SITE.name): string {
   return `© ${years} ${name}`;
 }
 
+import { buildModuleNavLinks } from "@/lib/nav-modules";
+
 export type NavLink = { href: string; label: string; badge?: string };
 
 export const NAV_COMPANY: NavLink[] = [
@@ -30,37 +32,8 @@ export const NAV_COMPANY: NavLink[] = [
   { href: "/news/", label: "Новости" },
 ];
 
-export const NAV_MODULES: NavLink[] = [
-  { href: "/analiz-relevantnosti/", label: "Анализ релевантности" },
-  { href: "/analiz-konkurentov/", label: "Анализ конкурентов" },
-  { href: "/monitoring-pozicii-sayta/", label: "Мониторинг позиций сайта" },
-  {
-    href: "/monitoring-pozicii-v2/",
-    label: "Мониторинг позиций сайта",
-    badge: "NEW",
-  },
-  {
-    href: "/monitoring-pozicii-v3/",
-    label: "Мониторинг позиций (LAB)",
-    badge: "v3",
-  },
-  { href: "/monitoring-saytov/", label: "Мониторинг корректной работы сайтов" },
-  { href: "/proverka-meta-tegov-online/", label: "Мониторинг мета-тегов" },
-  { href: "/generator_slov/", label: "Генератор слов" },
-  { href: "/podschet-dliny-teksta/", label: "Подсчет длины текста" },
-  { href: "/generator-paroley/", label: "Генератор паролей" },
-  { href: "/sravnenie-spiskov-klyuchevykh-fraz/", label: "Сравнение списков ключевых фраз" },
-  { href: "/udalenie-dublikatov/", label: "Удаление дубликатов" },
-  { href: "/utm-metki/", label: "UTM метки" },
-  { href: "/kalkulyator-roi/", label: "Калькулятор ROI" },
-  { href: "/http-headers/", label: "HTTP headers" },
-  { href: "/html-redaktor/", label: "HTML-редактор" },
-  { href: "/vydelenie-unikalnykh-slov-v-tekste/", label: "Выделение уникальных слов в тексте" },
-  { href: "/otslezhivanie-ssylok/", label: "Отслеживание ссылок" },
-  { href: "/otslezhivanie-sroka-registratsii-domenov/", label: "Отслеживание срока регистрации доменов" },
-  { href: "/analiz-teksta/", label: "Анализ текста" },
-  { href: "/klasterizator-klyuchevykh-slov/", label: "Кластеризатор ключевых слов" },
-];
+/** Только публичные URL модулей; *-v1 / *-v2 / *-v3 в меню нет */
+export const NAV_MODULES: NavLink[] = buildModuleNavLinks();
 
 export const HOME_MODULES = [
   {

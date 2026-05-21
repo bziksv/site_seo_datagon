@@ -19,20 +19,25 @@ import {
 } from "@/lib/content/monitoring-pozicii-v2-page";
 import type { ModulePage } from "@/lib/content/modules";
 
-type Props = { module: ModulePage };
+type Props = { module: ModulePage; isLabRoute?: boolean };
 
 /**
  * v2 — концепция «Центр управления выдачей».
- * Не дублирует структуру MonitoringPoziciiLanding (классика).
+ * Публичный URL: /monitoring-pozicii-sayta/; LAB: /monitoring-pozicii-v2/.
  */
-export function MonitoringPoziciiV2Landing({ module }: Props) {
+export function MonitoringPoziciiV2Landing({ module, isLabRoute = false }: Props) {
   return (
-    <>
+    <div className="module-v2-landing">
       <MonitoringV2CommandHero
         module={module}
         concept={MONITORING_V2_CONCEPT}
         shots={MONITORING_V2_SCREENSHOTS}
         acts={MONITORING_V2_ACTS.map((a) => ({ act: a.act, title: a.title }))}
+        heroUi={{
+          classicHref: "/monitoring-pozicii-sayta/",
+          labV1Href: "/monitoring-pozicii-v1/",
+          labBadge: isLabRoute ? "LAB v2" : undefined,
+        }}
       />
       <MonitoringV2PainGain data={MONITORING_V2_PAIN_GAIN} />
       <MonitoringV2StoryActs acts={MONITORING_V2_ACTS} />
@@ -44,7 +49,18 @@ export function MonitoringPoziciiV2Landing({ module }: Props) {
         plain={MONITORING_V2_PLAIN}
         videos={MONITORING_V2_VIDEOS}
         faq={MONITORING_V2_FAQ}
+        footerUi={{
+          idPrefix: "monitoring-v2",
+          finalTitle: "Запустите панель мониторинга",
+          finalLead: "",
+          classicHref: "/monitoring-pozicii-sayta/",
+          labV1Href: "/monitoring-pozicii-v1/",
+          faqTitle: "Вопросы по мониторингу",
+          videoTitle: "Разбор модуля в видео",
+          videoLead: "Четыре урока — от первого проекта до выгрузки отчёта.",
+          isLabRoute,
+        }}
       />
-    </>
+    </div>
   );
 }

@@ -10,9 +10,14 @@
 | `/about/`, `/contact/`, `/tarify/`, `/services/`, `/faq/` | ✅ фаза 2 |
 | 18 модулей, 30 новостей | ✅ |
 | `/analiz-relevantnosti/` | ✅ эталон #1 — [module-landing-relevance.md](./examples/module-landing-relevance.md) |
-| `/monitoring-pozicii-sayta/` | ✅ [module-landing-monitoring.md](./examples/module-landing-monitoring.md) |
-| `/monitoring-pozicii-v2/` | ✅ [module-landing-monitoring-v2.md](./examples/module-landing-monitoring-v2.md) (NEW, улучшенный дизайн) |
-| `/monitoring-pozicii-v3/` | ✅ [module-landing-monitoring-v3.md](./examples/module-landing-monitoring-v3.md) (LAB, иммерсив) |
+| `/monitoring-pozicii-sayta/` | ✅ v2 «Центр управления» — [module-landing-monitoring-v2.md](./examples/module-landing-monitoring-v2.md); в меню |
+| `/monitoring-pozicii-v2/` | ✅ LAB-архив v2 (дубль URL); robots disallow |
+| `/monitoring-pozicii-v3/` | ✅ LAB v3 — [module-landing-monitoring-v3.md](./examples/module-landing-monitoring-v3.md); robots disallow |
+| 17 модулей `/<slug>/` | ✅ публичный лендинг v2 — [module-landing-v2-universal.md](./examples/module-landing-v2-universal.md); в sitemap |
+| `/<модуль>-v1/` (18 шт.) | ✅ LAB — зеркало **старой** классики; robots disallow |
+| `/<модуль>-v2/` (17 шт.) | ✅ LAB — архив URL v2; robots disallow |
+| `/<модуль>-v3/` (17 шт.) | ✅ LAB v3 — [module-landing-v3-universal.md](./examples/module-landing-v3-universal.md); robots disallow |
+| `/` (главная) | ✅ showcase `DatagonHome` — анимации без привязки к v1/v2/v3 |
 | `/analiz-konkurentov/` | ✅ [module-landing-competitors.md](./examples/module-landing-competitors.md) |
 | `/html-redaktor/` | ✅ [module-landing-html-editor.md](./examples/module-landing-html-editor.md) |
 | `/http-headers/` | ✅ [module-landing-http-headers.md](./examples/module-landing-http-headers.md) |
