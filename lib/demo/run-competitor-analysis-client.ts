@@ -5,8 +5,8 @@ import type {
 } from "@/lib/demo/types";
 import { COMPETITOR_ANALYSIS_DEMO_MODULE } from "@/lib/demo/competitor-analysis-demo";
 
-const LK_PATH = `api/demo/${COMPETITOR_ANALYSIS_DEMO_MODULE}/run`;
-const LOCAL_PATH = `/api/demo/${COMPETITOR_ANALYSIS_DEMO_MODULE}/run`;
+const LK_PATH = `api/demo/${COMPETITOR_ANALYSIS_DEMO_MODULE}/run/`;
+const LOCAL_PATH = `/api/demo/${COMPETITOR_ANALYSIS_DEMO_MODULE}/run/`;
 
 export async function runCompetitorAnalysisDemo(
   body: CompetitorAnalysisDemoRunBody
@@ -14,7 +14,7 @@ export async function runCompetitorAnalysisDemo(
   | { ok: true; data: CompetitorAnalysisDemoResult }
   | { ok: false; status: number; error: DemoErrorBody }
 > {
-  const endpoints = [`/api/lk/${LK_PATH}`, LOCAL_PATH];
+  const endpoints = [LOCAL_PATH, `/api/lk/${LK_PATH}`];
 
   for (const path of endpoints) {
     const res = await fetch(path, {
@@ -28,7 +28,9 @@ export async function runCompetitorAnalysisDemo(
 
     const json = (await res.json()) as CompetitorAnalysisDemoResult | DemoErrorBody;
     if (!res.ok) {
-      return { ok: false, status: res.status, error: json as DemoErrorBody };
+      const error = json as DemoErrorBody;
+      if (path === endpoints[0] && error.error === "empty_serp") continue;
+      return { ok: false, status: res.status, error };
     }
     return { ok: true, data: json as CompetitorAnalysisDemoResult };
   }
