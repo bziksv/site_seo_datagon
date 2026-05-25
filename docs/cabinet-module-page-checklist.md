@@ -59,7 +59,7 @@
 ## 5. Только потом — polish (остаток)
 
 - [ ] CSS в `public/css/cabinet-<module>.css`, scope `.cabinet-<module>-page`.
-- [ ] Badge версии в config + строка в changelog (если модуль версионируется).
+- [ ] **Версия обязательна:** `config/cabinet-<slug>.php`, `docs/cabinet-<slug>-changelog.md`, badge — см. [cabinet-module-versioning.md](./cabinet-module-versioning.md) и `.cursor/rules/redbox-cabinet-module-version.mdc`.
 - [ ] Переводы в `resources/lang/ru.json`.
 - [ ] **Не** менять три вещи по кругу: если toggle ок — не трогать; если облако ок — не возвращать jQCloud.
 

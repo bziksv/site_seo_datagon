@@ -13,7 +13,9 @@ type Props = {
 export function DemoWidgetShell({ title, lead, features, badge, children }: Props) {
   return (
     <div className="p-6 md:p-8 lg:p-10">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10 xl:grid-cols-[minmax(0,1fr)_320px]">
+      <div
+        className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,1fr)_320px]"
+      >
         <div className="min-w-0">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
@@ -26,8 +28,8 @@ export function DemoWidgetShell({ title, lead, features, badge, children }: Prop
         </div>
 
         {features && features.length > 0 && (
-          <aside className="hidden lg:block">
-            <div className="sticky top-6 rounded-xl border border-brand-100 bg-gradient-to-b from-brand-50 to-white p-5 shadow-sm">
+          <aside className="sticky top-20 hidden self-start lg:block">
+            <div className="rounded-xl border border-brand-100 bg-gradient-to-b from-brand-50 to-white p-5 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-700">В демо-отчёте</p>
               <ul className="mt-4 space-y-3">
                 {features.map((f) => (

@@ -7,7 +7,9 @@
 | Локально | http://localhost:3001/analiz-konkurentov/ |
 | Прод | https://datagon.ru/analiz-konkurentov/ |
 
-Маршрут: `app/[slug]/page.tsx` → `AnalizKonkurentovLanding`.
+Маршрут: `app/[slug]/page.tsx` → **ModuleV2Landing** (публичный URL без `-v2`).
+
+**Демо:** `CompetitorAnalysisDemoWidget` в `ModuleV2DemoSection` (как [module-landing-text-analysis.md](./module-landing-text-analysis.md)) — `POST /api/demo/analiz-konkurentov/run`.
 
 ## Файлы
 

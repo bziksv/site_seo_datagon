@@ -7,6 +7,7 @@
 **Пилоты:**
 - [подсчёт длины текста](http://localhost:3001/podschet-dliny-teksta/) — секция «Попробовать бесплатно»
 - [анализ текста](http://localhost:3001/analiz-teksta/) — KPI + топ слов, остальное в кабинете
+- [анализ конкурентов](http://localhost:3001/analiz-konkurentov/) — ТОП-10 Яндекса по одной фразе
 
 ## Файлы (пилот)
 
@@ -22,6 +23,10 @@
 | **Анализ текста — клиент** | `lib/demo/run-text-analyzer-client.ts` |
 | **Анализ текста — прокси lk** | `app/api/demo/analiz-teksta/run/route.ts`, `lib/demo/proxy-cabinet-demo.ts` |
 | **Анализ текста — lk** | `cabinet…/Api/Demo/TextAnalyzerDemoController`, `Services/Demo/TextAnalyzerDemoService` |
+| **Анализ конкурентов — UI** | `CompetitorAnalysisDemoWidget.tsx`, `CompetitorAnalysisDemoReport.tsx` |
+| **Анализ конкурентов — клиент** | `lib/demo/run-competitor-analysis-client.ts` |
+| **Анализ конкурентов — прокси** | `app/api/demo/analiz-konkurentov/run/route.ts` |
+| **Анализ конкурентов — lk** | `CompetitorAnalysisDemoController`, `CompetitorAnalysisDemoService` |
 | BFF к lk | `app/api/lk/[...path]/route.ts`, `lib/lk-api.ts` |
 | Guest cookie | `lib/demo/guest-session.ts` |
 

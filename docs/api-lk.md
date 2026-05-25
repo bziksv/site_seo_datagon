@@ -96,6 +96,7 @@ UI: `components/demo/TextLengthDemoWidget.tsx` на `/podschet-dliny-teksta/`.
 | POST | `api/public/contact` | Форма «Задать вопрос» |
 | POST | `api/demo/podschet-dliny-teksta/run` | Демо подсчёта текста (пилот, Next fallback) |
 | POST | `api/demo/analiz-teksta/run` | **Демо анализа текста** (Laravel, `TextAnalyzer::analyze`) |
+| POST | `api/demo/analiz-konkurentov/run` | **Демо анализа конкурентов** (SERP ТОП-10, Яндекс, 1 фраза) |
 | *(добавить)* | `api/demo/session` | Единая guest-session для всех модулей |
 
 ### Demo API: анализ текста
@@ -158,6 +159,35 @@ UI: `components/demo/TextLengthDemoWidget.tsx` на `/podschet-dliny-teksta/`.
 UI: `components/demo/TextAnalyzerDemoWidget.tsx` на `/analiz-teksta/`.
 
 Проверка кабинета: `php scripts/verify-text-analyzer-demo.php`.
+
+### Demo API: анализ конкурентов
+
+Клиент: `lib/demo/run-competitor-analysis-client.ts` — `POST /api/lk/api/demo/analiz-konkurentov/run`, fallback `POST /api/demo/analiz-konkurentov/run`.
+
+Логика в Laravel: `CompetitorAnalysisDemoService` → `SimplifiedXmlFacade` (только XML/SERP, без `scanSites`).
+
+#### `POST /api/demo/analiz-konkurentov/run`
+
+Тело:
+
+```json
+{
+  "phrase": "отоскоп купить",
+  "region_id": "213",
+  "search_engine": "yandex",
+  "compare_region_id": "193"
+}
+```
+
+`search_engine`: `yandex` | `google`. `compare_region_id` — опционально, второй город → `result.geo` (геозависимость).
+
+Ответ **200**: `result.serp` (`rows` — прямые конкуренты, `excluded_rows` — маркетплейсы/агрегаторы с исходной позицией в SERP), `result.geo`, `limits.*`. Фильтр доменов — `CompetitorSerpDomainFilter` (как в кабинете). В демо съём только **ТОП-10**; 20/30 — в кабинете.
+
+Лимиты (config `cabinet-competitor-analysis.demo`): 3 запуска/сутки, 1 фраза до 120 символов, ТОП-10, регионы `213,2,193,65,54`.
+
+UI: `CompetitorAnalysisDemoWidget.tsx` на `/analiz-konkurentov/` (ModuleV2DemoSection).
+
+Проверка кабинета: `php scripts/verify-competitor-analysis-demo.php`.
 
 ## Документировать при изменениях
 

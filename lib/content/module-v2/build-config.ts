@@ -23,6 +23,7 @@ const DEFAULT_SHOT_ALT = "/modules/assets/518ec5eeb1bee67f.jpg";
 /** Публичные v2-лендинги с демо-виджетом (как в classic landing) */
 const DEMO_WIDGET_BY_BASE: Partial<Record<string, ModuleV2DemoWidget>> = {
   "analiz-teksta": "text-analyzer",
+  "analiz-konkurentov": "competitor-analysis",
   "podschet-dliny-teksta": "text-length",
 };
 

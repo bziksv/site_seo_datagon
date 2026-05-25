@@ -15,6 +15,7 @@
 | [cabinet-git.md](./cabinet-git.md) | **Кабинет:** push с VPS → GitHub → clone на Mac |
 | [cabinet-deploy.md](./cabinet-deploy.md) | **Кабинет:** деплой на VPS `155.212.171.103` (git + composer + PM2 :3002) |
 | [cabinet-reference.md](./cabinet-reference.md) | **Кабинет:** роуты, middleware, логи, troubleshooting |
+| [cabinet-module-versioning.md](./cabinet-module-versioning.md) | **Кабинет:** версии модулей (config + changelog + badge) |
 | [cabinet-pending-db-and-deploy.md](./cabinet-pending-db-and-deploy.md) | **Кабинет:** что не на проде, миграции БД, журнал между диалогами |
 | [cabinet-performance-audit.md](./cabinet-performance-audit.md) | **Кабинет:** чек-лист страниц, SQL-аудит, страницы вне меню |
 | [cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md) | **Кабинет:** эталон PDF-отчёта mPDF (v6.9s) — layout, копирование в новые модули |

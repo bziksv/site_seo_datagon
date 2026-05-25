@@ -1,20 +1,18 @@
 ---
-description: Версия страницы /text-analyzer — badge и changelog при каждом изменении
-globs: cabinet.datagon.ru/resources/views/text-analyse/**,cabinet.datagon.ru/public/css/cabinet-text-analyzer.css,cabinet.datagon.ru/resources/views/text-analyse/**,cabinet.datagon.ru/config/cabinet-text-analyzer.php,datagon.ru/docs/cabinet-text-analyzer-changelog.md
+description: Анализ текста — напоминание о версии (общее правило redbox-cabinet-module-version.mdc)
+globs: cabinet.datagon.ru/resources/views/text-analyse/**,cabinet.datagon.ru/public/css/cabinet-text-analyzer.css,cabinet.datagon.ru/config/cabinet-text-analyzer.php,datagon.ru/docs/cabinet-text-analyzer-changelog.md
 alwaysApply: false
 ---
 
-# Анализ текста — версионирование страницы
+# Анализ текста — версионирование
 
-## Обязательно при изменении `/text-analyzer`
+**Общее правило:** `redbox-cabinet-module-version.mdc` (всегда). Реестр: `docs/cabinet-module-versioning.md`.
 
-1. **Поднять версию** в `cabinet.datagon.ru/config/cabinet-text-analyzer.php` (`1.1` → `1.2` …).
-2. **Записать строку в** `datagon.ru/docs/cabinet-text-analyzer-changelog.md`:
-   - номер версии;
-   - дата (YYYY-MM-DD);
-   - что изменено (1–3 пункта);
-   - что проверить (URL/сценарий).
-3. Badge **vX.Y** показывается в шапке карточки «Анализ текста» — пользователь сверяет версию при багрепортах.
+## При изменении `/text-analyzer`
+
+1. `config/cabinet-text-analyzer.php` → `'version'` (сейчас стабильная база **6.9s**; эксперименты — `6.9s-dev` / `7.0-dev`).
+2. `docs/cabinet-text-analyzer-changelog.md` — версия, дата, пункты, проверка.
+3. Badge в `text-analyse/index.blade.php` уже есть.
 
 ## Не трогать версию
 

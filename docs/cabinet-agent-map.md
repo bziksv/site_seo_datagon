@@ -29,6 +29,7 @@
 | **Меню / плитки модулей** | §3 ниже | `main_projects` (БД), `MenuComposer`, `MenuItemsPosition` |
 | **Лимиты тарифа (prod)** | `LimitsComposer`, `profile-limits-composer.sh` | `app/Classes/Tariffs/`, `app/Http/ViewComposers/LimitsComposer.php` |
 | **Демо на datagon.ru** | [api-lk.md](./api-lk.md), `docs/examples/demo-widget.md` | Next: `app/api/demo/`, `lib/lk-api.ts` |
+| **Доска идей (голосование)** | [cabinet-reference.md](./cabinet-reference.md) § support + ideas | `FeatureIdeaController`, `resources/views/ideas/`, `feature_ideas` |
 | **PDF-отчёт модуля (mPDF)** | **[cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md)** — эталон v6.9s, не пересобирать layout | `TextAnalyzerPdfService`, `TextAnalyzerPdfBranding`, `resources/views/*/export/pdf-body.blade.php` |
 | **Лендинг модуля (Next)** | `docs/examples/module-landing-relevance.md` | `components/module-landings/`, `app/**/page.tsx` |
 | **Деплой кабинета** | [cabinet-deploy.md](./cabinet-deploy.md) (§ **FastPanel** / Troubleshooting), [cabinet-servers.md](./cabinet-servers.md) | VPS s3: **FastPanel**, PHP **7.4** (`/opt/php74/bin/php`), FPM; PM2 — только если vhost на :3002 |
@@ -145,6 +146,7 @@ export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
 | Новый эталон UI маркетинга | `docs/examples/README.md` + файл эталона |
 | Архитектура / домены | [architecture.md](./architecture.md) |
 | **Новый паттерн для агентов** (где что лежит) | **этот файл** §4–7 |
+| **Версия модуля (UI/JS)** | [cabinet-module-versioning.md](./cabinet-module-versioning.md), `.cursor/rules/redbox-cabinet-module-version.mdc` |
 
 Формат правки: **что / зачем / как проверить** (URL или команда).
 

@@ -78,7 +78,7 @@ bash scripts/dev-local.sh detach
 
 **Бренд в UI:** сайдбар — `public/img/logo-icon.svg` + текст «Датагон» в `layouts/app.blade.php`; фавикон — `public/img/favicon.svg` (как на datagon.ru).
 
-**Админ-меню:** у `admin` / `Super Admin` или legacy-роли (`User::isUserAdmin`) в блоке профиля — шестерёнка; список **не Bootstrap dropdown** (в сайдбаре обрезался): `users/panel.blade.php` + `position: fixed` в `layouts/app.blade.php` / `public/css/custom.css` (`.cabinet-admin-gear__menu`). Пункты `main_projects` id 16, 26, 29, 17, 27, 33, 31 (`App\Support\CabinetAdminMenu`) в основном меню не дублируются; id **17** (Documentation) в шестерёнке скрыт (`GEAR_HIDDEN_IDS`); id **33** — «Управление политиками» (`/edit-policy-files`, ключ `Policy management`).
+**Админ-меню:** у `admin` / `Super Admin` или legacy-роли (`User::isUserAdmin`) в блоке профиля — шестерёнка; список **не Bootstrap dropdown** (в сайдбаре обрезался): `users/panel.blade.php` + `position: fixed` в `layouts/app.blade.php` / `public/css/custom.css` (`.cabinet-admin-gear__menu`). Пункты `main_projects` id 16, 26, 29, 17, 27, 33, 31 (`App\Support\CabinetAdminMenu`) в основном меню не дублируются; id **17** (Documentation) в шестерёнке скрыт (`GEAR_HIDDEN_IDS`); id **33** — «Управление политиками» (`/edit-policy-files`, ключ `Policy management`). **Управление XML:** `/admin/xml-providers` (`XmlProvidersAdminController`) — балансы XMLStock / XMLProxy / XMLRiver, таблица «модуль → провайдеры»; config `cabinet-xml-providers.php`, сервис `App\Services\Xml\XmlProviderBalanceService`.
 
 | | |
 |---|---|
@@ -157,6 +157,12 @@ bash scripts/dev-local.sh detach
 **Главная `/`:** три макета (переключатель). Данные: `App\Support\HomeDashboard`. **V1** `/` — info-box + карточки (`home/`, `cabinet-home.css`). **V2** `/home/variant-2` — сайдбар + bento + список (`home-v2/`, `cabinet-home-v2.css`). **V3** `/home/variant-3` — KPI-полоса + поиск + сетка иконок + чипы действий (`home-v3/`, `cabinet-home-v3.css`). Проверка: http://localhost:3002/
 
 **Служба поддержки (тикеты):** эталон `public/html/mailbox/` — layout `resources/views/support/layout.blade.php` (без лишней обёртки `component.card`). Маршруты `support/*`, `SupportTicketController`, CSS `public/css/cabinet-support.css`. Пользователь создаёт тикет и дописывает в открытом; ответ поддержки — `admin` / `Super Admin`. Статусы: `open` → `answered` → `closed`; **повторно открыть** — `PATCH support/{ticket}/reopen` (владелец тикета или staff). Поиск по теме, тексту сообщений и (для staff) email. **Бейдж в шапке** (`SupportInboxBadgeComposer`): staff — число тикетов `open`; пользователь — `answered` (есть ответ поддержки). Проверка: http://localhost:3002/support
+
+**Анализ конкурентов (`/competitor-analysis`):** версия **2.4** — рекомендации по кластерам SERP (`CompetitorMetaRecommendations`); v2.3 параллельный curl; XMLStock v2.1+. — журнал [cabinet-competitor-analysis-changelog.md](./cabinet-competitor-analysis-changelog.md). **1.3+:** обе ПС, лимиты в шапке/баннере, `byRegion['engine|id']`. **1.4–1.5:** прогресс-бар; на local job после ответа HTTP (`dispatch_now`), ошибки XML в toast. Config: `cabinet-competitor-analysis.php`; API `GET /competitor-analysis/regions?engine=…`.
+
+**Версионирование модулей (общее):** [cabinet-module-versioning.md](./cabinet-module-versioning.md) — config + changelog + badge для каждого модуля с UI.
+
+**Доска идей:** в шапке справа от «Служба поддержки» — **Идеи** (`ideas/*`, `FeatureIdeaController`). Пользователь предлагает идею → статус `pending`; staff (`admin` / `Super Admin`) публикует (`approved`) или отклоняет (`rejected`). Голосование — `POST ideas/{idea}/vote` (toggle), только за чужие опубликованные идеи. Таблицы `feature_ideas`, `feature_idea_votes`; CSS `public/css/cabinet-ideas.css`, JS `public/js/cabinet-ideas.js`. Миграция `2026_05_24_120000_create_feature_ideas_tables.php`. Проверка: http://localhost:3002/ideas
 
 **Удалён модуль «Управление репутацией / накрутка поведенческих»** (2026-05-22) — код в репозитории; **миграции БД, прод, чеклисты:** [cabinet-pending-db-and-deploy.md](./cabinet-pending-db-and-deploy.md).
 
@@ -264,6 +270,7 @@ SKIP_EMAIL_VERIFICATION=true
 | `public/share/relevance/{token}/history/{id}` | RelevancePublicShareController | детальный просмотр проверки по публичной ссылке |
 | `public/share/text-analyzer/{token}` | TextAnalyzerPublicShareController | публичный отчёт анализа текста (30 дней, read-only) |
 | `support/*` | SupportTicketController | тикеты поддержки |
+| `ideas/*` | FeatureIdeaController | доска идей: предложения, модерация, голоса |
 | `balance-add/result` | BalanceAddController | callback оплаты |
 | `personal-data/*`, `privacy-policy/*` | AccessController | политики |
 
@@ -277,7 +284,7 @@ SKIP_EMAIL_VERIFICATION=true
 | `analyze-relevance`, `history`, … | анализ релевантности — TF/IDF/score: `App\Support\TfidfMetrics`, расчёт в `App\Relevance` (агрегат конкурентов, IDF = log₁₀(N/df), облака «TF‑IDF score» по `weight = score`; «TF clouds» — частота через `TextAnalyzer::prepareCloud`) |
 | `meta-tags/*` | мета-теги |
 | `cluster/*` | кластеризатор |
-| `competitor-analysis` | анализ конкурентов |
+| `competitor-analysis` | анализ конкурентов — `public/css/cabinet-competitor-analysis.css`, nav pills; `/competitors-config` — KPI месяца + уникальные user_id за 30/60/90 дн. (`SearchCompetitors::countUniqueUsersSinceDays`) |
 | `counting-text-length` | подсчёт длины текста |
 | `list-comparison` | сравнение списков |
 | `http-headers/{url?}` | HTTP-заголовки |
@@ -294,7 +301,7 @@ SKIP_EMAIL_VERIFICATION=true
 | `news` | новости; шапка: жёлтый бейдж — новые посты, синий (admin) — новые комментарии → `#comment-{id}`; блокировка комментариев `users.news_comments_blocked_at` (иконка у комментария) |
 | `tariff`, `balance` | тарифы, баланс |
 | `profile/` | профиль |
-| `users`, `manage-access` | админка; `/users` — график активности `UsersActivityDashboard::snapshotCached()` (10 мин), **не** отключается `SKIP_HEAVY_WEB_MIDDLEWARE`; легенда **Верифицирован** / **Письмо прочитано**; cron `DeleteUnverifiedUsers` — удаление без `email_verified_at` старше N дн. (`DELETE_UNVERIFIED_USERS`, `DELETE_UNVERIFIED_USERS_DAYS`, `schedule:run`); `/users/{id}/edit`; визиты; `/manage-access` |
+| `users`, `manage-access` | админка; `/users` — график активности `UsersActivityDashboard::snapshotCached()` (10 мин), **не** отключается `SKIP_HEAVY_WEB_MIDDLEWARE`; фильтр **тарифа** — по Spatie-роли (`Maximum` / `Optimal` / `Ultimate`), с fallback на `tariff_pays.status=1`; `none` — без платных ролей; легенда **Верифицирован** / **Письмо прочитано**; cron `DeleteUnverifiedUsers`; `/users/{id}/edit`; визиты; `/manage-access` |
 | `main-projects` | модули главной и сайдбара; `/main-projects/statistics/{id}` — KPI, сравнение с прошлым периодом, doughnut/будни, динамика Chart.js, топ со ссылкой на `visit.statistics`, аккордеон (фильтр, развернуть/пик), клики по кнопкам (`ModuleVisitStatisticsReport`, `cabinet-module-statistics.css`) (2026-05) |
 | `tariff-settings` | лимиты тарифов — `public/css/cabinet-tariff-settings.css`, карточки по свойствам; значения — **карандаш**; справочник кодов `App\Support\TariffLimitRegistry` (нет в БД → обычно безлимит в модуле) (2026-05) |
 | `checklist/*` | чеклисты |

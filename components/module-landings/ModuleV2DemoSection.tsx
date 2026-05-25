@@ -1,3 +1,4 @@
+import { CompetitorAnalysisDemoWidget } from "@/components/demo/CompetitorAnalysisDemoWidget";
 import { TextAnalyzerDemoWidget } from "@/components/demo/TextAnalyzerDemoWidget";
 import { TextLengthDemoWidget } from "@/components/demo/TextLengthDemoWidget";
 import type { ModuleV2DemoWidget } from "@/lib/content/module-v2/types";
@@ -9,6 +10,10 @@ const SECTION_COPY: Record<
   "text-analyzer": {
     title: "Проверьте анализ текста без регистрации",
     lead: "Вставьте фрагмент — получите отчёт как в кабинете: KPI, слова, Ципф, облако и фразы. Часть данных — с ограничениями.",
+  },
+  "competitor-analysis": {
+    title: "Попробуйте анализ конкурентов без регистрации",
+    lead: "Яндекс или Google, сравнение двух городов и геозависимость — как в кабинете. В демо ТОП-10; полный съём — до 30 URL.",
   },
   "text-length": {
     title: "Посчитайте длину текста прямо здесь",
@@ -47,11 +52,15 @@ export function ModuleV2DemoSection({ kind }: Props) {
           <p className="mt-4 text-base leading-relaxed text-brand-100/95 md:text-lg">{copy.lead}</p>
         </div>
 
-        <div
-          className="relative mt-10 overflow-hidden rounded-2xl border border-white/20 bg-white shadow-2xl shadow-brand-800/40 ring-1 ring-black/5 md:mt-12"
-        >
-          <div className="h-1.5 bg-gradient-to-r from-brand-500 via-emerald-400 to-brand-600" aria-hidden />
-          {kind === "text-analyzer" ? <TextAnalyzerDemoWidget /> : <TextLengthDemoWidget />}
+        <div className="relative mt-10 rounded-2xl border border-white/20 bg-white shadow-2xl shadow-brand-800/40 ring-1 ring-black/5 md:mt-12">
+          <div className="h-1.5 rounded-t-2xl bg-gradient-to-r from-brand-500 via-emerald-400 to-brand-600" aria-hidden />
+          {kind === "text-analyzer" ? (
+            <TextAnalyzerDemoWidget />
+          ) : kind === "competitor-analysis" ? (
+            <CompetitorAnalysisDemoWidget />
+          ) : (
+            <TextLengthDemoWidget />
+          )}
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@
 
 - Отвечать **коротко и по существу**
 - Обновлять **`docs/`** вместе с кодом
+- **Версии модулей кабинета:** при правке UI/JS страницы — bump `config/cabinet-<slug>.php`, changelog, badge ([cabinet-module-versioning.md](./docs/cabinet-module-versioning.md), правило `redbox-cabinet-module-version.mdc`)
 - Маркетинг (:3001) — эталоны в **`docs/examples/`**; кабинет (:3002) — UI из **`/html/`** (AdminLTE 4 в `cabinet.datagon.ru/public/html/`)
 
 ## Стек

@@ -1,0 +1,45 @@
+---
+description: Версионирование страниц модулей кабинета — config, changelog, badge (обязательно)
+alwaysApply: true
+---
+
+# Кабинет — версионирование модулей
+
+Эталон: **Анализ текста** (`config/cabinet-text-analyzer.php`, `docs/cabinet-text-analyzer-changelog.md`, badge в шапке).
+
+Реестр всех модулей: **`datagon.ru/docs/cabinet-module-versioning.md`**.
+
+## Когда поднимать версию (в той же задаче, что и код)
+
+Любое изменение **страницы модуля** кабинета, если меняется хотя бы одно:
+
+- Blade / layout / CSS (`public/css/cabinet-*.css`) / JS (`public/js/cabinet-*.js`);
+- поведение формы, таблиц, API-запросов с UI модуля;
+- контракт ответа, который читает фронт модуля.
+
+## Три обязательных шага
+
+1. **Config** — `cabinet.datagon.ru/config/cabinet-<slug>.php`, ключ `'version'` (semver: `1.0`, `1.1`, `2.0`; суффикс `-dev` для экспериментов).
+2. **Changelog** — `datagon.ru/docs/cabinet-<slug>-changelog.md`: версия, дата (YYYY-MM-DD), что изменено, как проверить (URL).
+3. **Badge** — `v{{ config('cabinet-<slug>.version') }}` в шапке модуля (nav/card-title), чтобы пользователь и поддержка сверяли версию при багрепортах.
+
+Новый модуль → добавить строку в **`docs/cabinet-module-versioning.md`**.
+
+## Когда версию не трогать
+
+- только `resources/lang/ru.json` без смены UI/поведения;
+- рефакторинг PHP без изменения страницы;
+- правки деплоя, `.env`, SQL без UI.
+
+## Именование slug
+
+| URI / модуль | slug config |
+|--------------|-------------|
+| `/text-analyzer` | `text-analyzer` |
+| `/competitor-analysis` | `competitor-analysis` |
+| `/ideas` | `ideas` |
+| `/support` | `support` |
+
+## Документация
+
+В той же задаче обновить `docs/cabinet-reference.md` (§ модуля), если менялся контракт или URL.

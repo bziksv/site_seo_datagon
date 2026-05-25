@@ -164,3 +164,89 @@ export type TextAnalyzerDemoRunBody = {
   compare_competitor?: boolean;
   competitor_url?: string;
 };
+
+export type CompetitorDemoRegion = {
+  id: string;
+  label: string;
+  tab_label?: string;
+};
+
+export type CompetitorDemoSerpRow = {
+  position?: number;
+  serp_position: number;
+  url: string;
+  host: string;
+  path: string;
+  excluded?: boolean;
+};
+
+export type CompetitorDemoSerp = {
+  rows: CompetitorDemoSerpRow[];
+  excluded_rows?: CompetitorDemoSerpRow[];
+  total: number;
+  shown: number;
+  excluded_count?: number;
+  excludes_aggregators?: boolean;
+  excluded_domains_sample?: string[];
+  excluded_domains_total?: number;
+};
+
+export type CompetitorDemoTopDepth = {
+  value: number;
+  label: string;
+  demo: boolean;
+};
+
+export type CompetitorDemoGeo = {
+  overlap_pct: number | null;
+  status: string;
+  status_label: string;
+  region_a: CompetitorDemoRegion;
+  region_b: CompetitorDemoRegion;
+  shared_count: number;
+  shared_urls: string[];
+  count_a: number;
+  count_b: number;
+  overlap_pct_a: number | null;
+  overlap_pct_b: number | null;
+  excludes_aggregators?: boolean;
+  excluded_domains_sample?: string[];
+  excluded_domains_total?: number;
+};
+
+export type CompetitorAnalysisDemoResult = {
+  demo: true;
+  module: "analiz-konkurentov";
+  remaining: number;
+  limits: {
+    max_phrase_length: number;
+    max_runs_per_day: number;
+    top_count: number;
+    serp_rows: number;
+    top_depths: CompetitorDemoTopDepth[];
+    search_engines: string[];
+    yandex_regions: CompetitorDemoRegion[];
+    google_regions: CompetitorDemoRegion[];
+    /** @deprecated use yandex_regions / google_regions */
+    regions?: CompetitorDemoRegion[];
+  };
+  result: {
+    phrase: string;
+    engine: string;
+    engine_label: string;
+    region: CompetitorDemoRegion;
+    compare_region: CompetitorDemoRegion | null;
+    top_count: number;
+    serp: CompetitorDemoSerp;
+    geo: CompetitorDemoGeo | null;
+    locked: readonly string[];
+  };
+  upgrade: DemoUpgrade;
+};
+
+export type CompetitorAnalysisDemoRunBody = {
+  phrase: string;
+  region_id: string;
+  compare_region_id?: string;
+  search_engine?: "yandex" | "google";
+};
