@@ -1,6 +1,11 @@
 # Changelog: Отслеживание срока регистрации доменов
 
-Модуль: `/domain-information` · config `cabinet-domain-information.php` · badge **v1.0.0s**
+Модуль: `/domain-information` · config `cabinet-domain-information.php` · badge **v1.1.7s**
+
+## 1.1.7s — 2026-05-26
+
+- **Telegram:** плашка «Без Телеграм оповещения не придут» (как в мониторинге сайтов) — список и создание, если бот не подключён; убрана слабая ссылка внизу страницы.
+- **Проверка:** http://localhost:3002/domain-information
 
 ## 1.1.5s — 2026-05-26
 

@@ -33,6 +33,7 @@ import { CLUSTER_SCREENSHOTS } from "@/lib/content/klasterizator-klyuchevykh-slo
 
 const S0 = "/modules/assets/3d7d72c85b4af88c.jpg";
 const S1 = "/modules/assets/518ec5eeb1bee67f.jpg";
+const S2 = S1;
 
 export type ModuleV2Override = {
   eyebrow?: string;
@@ -542,33 +543,33 @@ export const MODULE_V2_OVERRIDES: Record<string, ModuleV2Override> = {
   },
 
   "otslezhivanie-ssylok": {
-    eyebrow: "Центр индексации",
-    headline: "Ссылки в индексе — на контроле",
-    cta: "Отследить ссылки",
-    showSearchEngines: true,
+    eyebrow: "Контроль размещения",
+    headline: "Отслеживание ссылок",
+    cta: "Проверить ссылку",
+    showSearchEngines: false,
     painGain: {
-      painTitle: "Проверка site: вручную",
+      painTitle: "Проверка доноров вручную",
       pains: [
-        "Десятки URL — по одному в поиске",
-        "Не знаете, когда страница выпала из индекса",
-        "Нет истории по проекту ссылок",
+        "Десятки страниц — открывать каждую вручную",
+        "Не заметите снятие ссылки или смену анкора",
+        "nofollow и noindex появляются незаметно",
       ],
-      gainTitle: "С отслеживанием",
+      gainTitle: "С модулем в кабинете",
       gains: [
-        "Список URL → статус в Google",
-        "История проверок по датам",
-        "Оповещение при изменении статуса",
+        "Страница донора → ссылка и анкор на месте",
+        "Проверка раз в сутки по всему проекту",
+        "Telegram; email при расхождении — на платных",
       ],
     },
     acts: [
-      act("01", "Добавьте URL", "Страницы для индексации — лендинги, статьи, фильтры.", LINK_TRACK_SCREENSHOTS[0]?.src ?? S0, "Проект ссылок", ["Пакет URL", "Регион", "Расписание"]),
-      act("02", "Проверьте индекс", "В индексе / нет / ошибка — без ручного site:.", LINK_TRACK_SCREENSHOTS[1]?.src ?? S1, "Статусы", ["История", "Фильтр", "Экспорт"], "65% top"),
-      act("03", "Реагируйте", "Выпала страница — правки, переобход, контент.", LINK_TRACK_SCREENSHOTS[1]?.src ?? S1, "Действия", ["HTTP headers", "Релевантность", "Мониторинг позиций"]),
+      act("01", "Создайте проект", "Название и привязка к мониторингу позиций — при необходимости.", LINK_TRACK_SCREENSHOTS[0]?.src ?? S0, "Проект", ["Списоком", "Таблицей", "Шаги 1–2–3"]),
+      act("02", "Добавьте ссылки", "Страница донора, URL на ваш сайт, анкор, контроль nofollow и noindex.", LINK_TRACK_SCREENSHOTS[1]?.src ?? S1, "Ссылки", ["Пакет строк", "Построчно", "Редактирование"], "65% top"),
+      act("03", "Реагируйте", "Ссылку сняли или изменили — узнаете до просадки отчётов.", LINK_TRACK_SCREENSHOTS[2]?.src ?? S2, "Оповещения", ["Повтор через час", "Статусы", "Сводка проблем"], "65% top"),
     ],
-    metrics: [m("Google", "индекс", "статус URL"), m("∞", "URL", "в проекте"), m("Δ", "история", "по датам"), m("алерт", "email", "при выпадении")],
-    orbit: orbit(ORBIT.positions, ORBIT.http, ORBIT.relevance, ORBIT.meta),
+    metrics: [m("24 ч", "проверка", "по расписанию"), m("2", "формата", "список и таблица"), m("5", "демо", "на сайте"), m("TG", "алерт", "и email")],
+    orbit: orbit(ORBIT.http, ORBIT.meta, ORBIT.positions, ORBIT.siteMon),
     hubTitle: "Отслеживание ссылок",
-    heroUi: { keysFooter: "URL · проект", dynamicsFooter: "Индекс · статус" },
+    heroUi: { keysFooter: "донор · анкор", dynamicsFooter: "nofollow · noindex" },
   },
 
   "otslezhivanie-sroka-registratsii-domenov": {

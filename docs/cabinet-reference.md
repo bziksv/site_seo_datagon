@@ -77,6 +77,10 @@ bash scripts/dev-local.sh detach
 
 **Активный модуль в сайдбаре:** `App\Support\CabinetSidebarActive` + класс `nav-link active` (подстраницы того же модуля тоже подсвечиваются). В режиме **sidebar-mini + sidebar-collapse** (≥992px) колонка grid зафиксирована на 4.6rem — при hover сайдбар раскрывается **поверх** контента (`public/css/custom.css`), без сдвига `app-main`.
 
+**Фавиконки v2:** клик по иконке/букве → `POST /monitoring-v2/favicons/fill` с `project_id`; «Обновить» догружает пропущенные. **Один домен в портфеле:** при сборке `list` и в `favicons/fill` вызывается `ProjectFaviconService::propagateMissingFromBatch` — PNG копируется с любого проекта с тем же хостом (не ждать фоновой очереди).
+
+**Свёрнутый сайдбар (кнопка «гамбургер»):** в `layouts/partials/app-sidebar.blade.php` — `data-enable-persistence="true"` (AdminLTE `localStorage` ключ `lte.sidebar.state`). Без этого при каждом F5 PushMenu сбрасывал состояние и разворачивал меню. В `layouts/app.blade.php` — inline-скрипт сразу после `<body>` добавляет `sidebar-collapse`, если в storage сохранён свёрнутый режим (без «мигания» развёрнутого меню).
+
 **Бренд в UI:** сайдбар — `public/img/logo-icon.svg` + текст «Датагон» в `layouts/app.blade.php`; фавикон — `public/img/favicon.svg` (как на datagon.ru).
 
 **Админ-меню:** у `admin` / `Super Admin` или legacy-роли (`User::isUserAdmin`) в блоке профиля — шестерёнка; список **не Bootstrap dropdown** (в сайдбаре обрезался): `users/panel.blade.php` + `position: fixed` в `layouts/app.blade.php` / `public/css/custom.css` (`.cabinet-admin-gear__menu`). Пункты `main_projects` id 16, 26, 29, 17, 27, 33, 31 (`App\Support\CabinetAdminMenu`) в основном меню не дублируются; id **17** (Documentation) в шестерёнке скрыт (`GEAR_HIDDEN_IDS`); id **33** — «Управление политиками» (`/edit-policy-files`, ключ `Policy management`). **Управление XML:** `/admin/xml-providers` (`XmlProvidersAdminController`) — балансы XMLStock / XMLProxy / XMLRiver, таблица «модуль → провайдеры»; config `cabinet-xml-providers.php`, сервис `App\Services\Xml\XmlProviderBalanceService`.
@@ -155,7 +159,9 @@ bash scripts/dev-local.sh detach
 
 **Модалка Telegram (2026-05):** всем без `telegram_bot_active` + `chat_id` — BS5 modal в `layouts/partials/telegram-connect-prompt.blade.php`, composer `TelegramConnectPromptComposer`, CSS `cabinet-telegram-prompt.css`. «Напомнить через 2 недели» → `POST profile/telegram-connect-prompt/snooze` (`users.telegram_prompt_snoozed_until`). Миграция: `2026_05_22_120000_add_telegram_prompt_snoozed_until_to_users_table.php`.
 
-**Главная `/`:** три макета (переключатель). Данные: `App\Support\HomeDashboard`. **V1** `/` — info-box + карточки (`home/`, `cabinet-home.css`). **V2** `/home/variant-2` — сайдбар + bento + список (`home-v2/`, `cabinet-home-v2.css`). **V3** `/home/variant-3` — KPI-полоса + поиск + сетка иконок + чипы действий (`home-v3/`, `cabinet-home-v3.css`). Проверка: http://localhost:3002/
+**Плашка в модулях с Telegram:** `resources/views/partials/cabinet-telegram-notify-notice.blade.php` — если `!$user->isTelegramConnected()`, синяя alert «Без Телеграм оповещения не придут» + кнопка в профиль. Подключена: site-monitoring, domain-information, backlink, meta-tags, cluster, monitoring positions. Реестр модулей: `config/cabinet-telegram.php`.
+
+**Главная `/`:** три макета (переключатель). Данные: `App\Support\HomeDashboard`. **V1** `/` — info-box + карточки (`home/`, `cabinet-home.css`). **V2** `/home/variant-2` — сайдбар + bento + список (`home-v2/`, `cabinet-home-v2.css`). **V3** `/home/variant-3` — KPI-полоса + поиск + сетка иконок + чипы действий (`home-v3/`, `cabinet-home-v3.css`). Бейдж «Внешняя ссылка» — только если URL не кабинет (не `/path`, не lk/cabinet/APP_URL); открытие в новой вкладке. Проверка: http://localhost:3002/
 
 **Служба поддержки (тикеты):** эталон `public/html/mailbox/` — layout `resources/views/support/layout.blade.php` (без лишней обёртки `component.card`). Маршруты `support/*`, `SupportTicketController`, CSS `public/css/cabinet-support.css`. Пользователь создаёт тикет и дописывает в открытом; ответ поддержки — `admin` / `Super Admin`. Статусы: `open` → `answered` → `closed`; **повторно открыть** — `PATCH support/{ticket}/reopen` (владелец тикета или staff). Поиск по теме, тексту сообщений и (для staff) email. **Бейдж в шапке** (`SupportInboxBadgeComposer`): staff — число тикетов `open`; пользователь — `answered` (есть ответ поддержки). Проверка: http://localhost:3002/support
 
@@ -291,25 +297,27 @@ SKIP_EMAIL_VERIFICATION=true
 | `counting-text-length` | подсчёт длины текста — `cabinet-text-length.css/js`, badge **v1.0s**; changelog: [cabinet-text-length-changelog.md](./cabinet-text-length-changelog.md) |
 | `list-comparison` | сравнение списков — `cabinet-list-comparison.css/js`, badge **v1.0s**; changelog: [cabinet-list-comparison-changelog.md](./cabinet-list-comparison-changelog.md) |
 | `unique` | уникальные слова — `cabinet-unique.css/js`, phpMorphy + shingles, badge **v1.0s**; changelog: [cabinet-unique-changelog.md](./cabinet-unique-changelog.md) |
-| `http-headers/{url?}` | HTTP-заголовки |
-| `utm-marks`, `roi-calculator` | UTM, ROI |
-| `password-generator` | генератор паролей |
+| `http-headers/{url?}` | HTTP-заголовки; UI: `public/css/cabinet-http-headers.css`, `pages/headers.blade.php`, Vue `ResponseHttpCode.vue`, badge `config/cabinet-http-headers.php` |
+| `utm-marks` | UTM-метки — `cabinet-utm-marks.css`, badge **v1.0.1s**; changelog: [cabinet-utm-marks-changelog.md](./cabinet-utm-marks-changelog.md) |
+| `roi-calculator` | калькулятор ROI — `cabinet-roi-calculator.css`, badge **v1.1**; changelog: [cabinet-roi-calculator-changelog.md](./cabinet-roi-calculator-changelog.md) |
+| `/configuration-menu` | порядок пунктов меню — `positions/index.blade.php`, `cabinet-configuration-menu.css/js`, partial `menu-configuration-tree.blade.php`. `/configuration-menu-v2` и `/configuration-menu-classic` → 301 на основной URL. DnD: `ol.for-nest` — прямой потомок `li` группы. Сайдбар в local кэшируется в session (`cabinet_menu_modules_v4` + stamp по `MenuProjectRegistry::structureStamp()`); кнопка «Обновить боковое меню» сбрасывает кэш. |
+| `password-generator` | генератор паролей · UI `cabinet-password-generator.css`, badge `cabinet-password-generator` v1.0 · [changelog](./cabinet-password-generator-changelog.md) |
 | `duplicates` | удаление дубликатов — `cabinet-duplicates.css/js`, badge **v1.2s**; changelog: [cabinet-duplicates-changelog.md](./cabinet-duplicates-changelog.md) |
 | `unique-words`, `unique` | уникальные слова |
 | `text-analyzer` | анализ текста — badge **vX.Y**; **сравнение с конкурентом** (toggle + URL); публичная ссылка: `POST text-analyzer/public-share`, `GET public/share/text-analyzer/{token}`; **PDF:** эталон v6.9s → [cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md); changelog: [cabinet-text-analyzer-changelog.md](./cabinet-text-analyzer-changelog.md); smoke: `scripts/smoke-text-analyzer.sh` |
 | `html-editor` | HTML-редактор — поиск, пресеты, split, публичная ссылка, badge **v1.5.3s**; `POST html-editor/public-share`; changelog: [cabinet-html-editor-changelog.md](./cabinet-html-editor-changelog.md) |
 | `site-monitoring` | мониторинг сайтов — LTE4, badge **v1.4.0s**; stats modal: PDF + публичная ссылка (`POST site-monitoring-export-pdf`, `POST site-monitoring-public-share`, `GET public/share/site-monitoring/{token}`); PDF эталон: [cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md); админка `/site-monitoring-config`; changelog: [cabinet-site-monitoring-changelog.md](./cabinet-site-monitoring-changelog.md) |
 | `domain-information` | срок регистрации доменов; badge `cabinet-domain-information`; лог/PDF/шаринг как site-monitoring; email только платный тариф |
-| `backlink` | отслеживание ссылок |
-| `keyword-generator` | генератор слов |
+| `backlink` | отслеживание ссылок; UI: `public/css/cabinet-backlink.css`, partials `resources/views/backlink/partials/`; страницы `/backlink`, `/add-backlink`, `/show-backlink/{id}`; оповещения cron `scan-broken-links`: Telegram (`TelegramBot::brokenLinkProjectNotification`, бот в профиле), email — платный тариф (`User::canReceiveBacklinkEmail`); admin-тесты Telegram: `/admin/telegram-proxy` ([cabinet-telegram-proxy.md](./cabinet-telegram-proxy.md)); `TELEGRAM_PROXY` в `.env`; `config/cabinet-backlink.php` → `notifications`; демо API `api/demo/otslezhivanie-ssylok/run` |
+| `keyword-generator` | генератор слов — legacy RequireJS + `cabinet-keyword-generator.css`, badge **v1.6.1**; changelog: [cabinet-keyword-generator-changelog.md](./cabinet-keyword-generator-changelog.md) |
 | `news` | новости; шапка: жёлтый бейдж — новые посты, синий (admin) — новые комментарии → `#comment-{id}`; блокировка комментариев `users.news_comments_blocked_at` (иконка у комментария) |
 | `tariff`, `balance` | тарифы, баланс |
 | `profile/` | профиль |
 | `users`, `manage-access` | админка; `/users` — график активности `UsersActivityDashboard::snapshotCached()` (10 мин), **не** отключается `SKIP_HEAVY_WEB_MIDDLEWARE`; фильтр **тарифа** — по Spatie-роли (`Maximum` / `Optimal` / `Ultimate`), с fallback на `tariff_pays.status=1`; `none` — без платных ролей; легенда **Верифицирован** / **Письмо прочитано**; cron `DeleteUnverifiedUsers`; `/users/{id}/edit`; визиты; `/manage-access` |
 | `main-projects` | модули главной и сайдбара; `/main-projects/statistics/{id}` — KPI, сравнение с прошлым периодом, doughnut/будни, динамика Chart.js, топ со ссылкой на `visit.statistics`, аккордеон (фильтр, развернуть/пик), клики по кнопкам (`ModuleVisitStatisticsReport`, `cabinet-module-statistics.css`) (2026-05) |
 | `tariff-settings` | лимиты тарифов — `public/css/cabinet-tariff-settings.css`, карточки по свойствам; значения — **карандаш**; справочник кодов `App\Support\TariffLimitRegistry` (нет в БД → обычно безлимит в модуле) (2026-05) |
-| `checklist/*` | чеклисты |
 | `ai-generation/*` | AI-генерация |
+| `monitoring-v2/` | мониторинг позиций — список проектов (UI v2, API как `monitoring/`); блок уроков — `descriptions.code=monitoring` (alias в `DescriptionComposer`) |
 
 Полный список — в файле `routes/web.php` (~550 строк).
 

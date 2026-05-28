@@ -3,9 +3,12 @@ const PATH = "/generator_slov/";
 
 const MUST_HAVE = [
   "Генератор ключевых слов",
-  "Режимы генерации",
-  "Пример: аренда самокатов",
-  "Комбинатор простым языком",
+  "Попробовать бесплатно",
+  "Соберите ключевые фразы без регистрации",
+  "Без лимитов",
+  "Получить комбинации",
+  "Комбинатор — и вся платформа под рукой",
+  "Доска идей",
 ];
 
 const MUST_NOT = ["Принцип действия генерации", "Как пользоваться сервисом"];
@@ -22,7 +25,7 @@ async function main() {
   const stale = MUST_NOT.filter((s) => html.includes(s));
 
   if (missing.length === 0 && stale.length === 0) {
-    console.log(`OK ${url} — кастомный лендинг`);
+    console.log(`OK ${url} — v2 + демо`);
     process.exit(0);
   }
   console.error(`FAIL ${url}`);

@@ -37,7 +37,7 @@ export const TARIFF_PLANS: TariffPlan[] = [
       "Удаление дубликатов: без ограничений",
       "Генератор UTM-меток: без ограничений",
       "Калькулятор ROI: без ограничений",
-      "Отслеживание размещенных ссылок на сайтах: 1 проект, 20 ссылок",
+      "Отслеживание размещенных ссылок на сайтах: 1 проект, 20 ссылок (без email-оповещений; Telegram при подключении бота)",
       "Мониторинг позиций сайта: 50 проверок в месяц",
     ],
   },
@@ -137,6 +137,7 @@ export const TARIFF_COMPARE_ROWS = [
   { label: "Отслеживание срока регистрации: оповещения", key: "domainsAlerts" as const },
   { label: "Мета-теги, проектов / страниц", key: "meta" as const },
   { label: "Отслеживание ссылок, проектов / ссылок", key: "links" as const },
+  { label: "Отслеживание ссылок: оповещения", key: "linksAlerts" as const },
 ] as const;
 
 export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
@@ -151,4 +152,5 @@ export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
   domainsAlerts: { Free: "telegram-only", Optimal: "email-telegram", Ultimate: "email-telegram", Maximum: "email-telegram" },
   meta: { Free: "1 / 10", Optimal: "10 / 1 000", Ultimate: "20 / 2 000", Maximum: "50 / 5 000" },
   links: { Free: "1 / 20", Optimal: "10 / 200", Ultimate: "20 / 400", Maximum: "50 / 5 000" },
+  linksAlerts: { Free: "telegram-only", Optimal: "email-telegram", Ultimate: "email-telegram", Maximum: "email-telegram" },
 };

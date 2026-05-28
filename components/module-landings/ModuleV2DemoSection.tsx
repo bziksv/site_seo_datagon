@@ -9,6 +9,12 @@ import { UniqueWordsDemoWidget } from "@/components/demo/UniqueWordsDemoWidget";
 import { TextAnalyzerDemoWidget } from "@/components/demo/TextAnalyzerDemoWidget";
 import { TextLengthDemoWidget } from "@/components/demo/TextLengthDemoWidget";
 import { MetaTagsDemoWidget } from "@/components/demo/MetaTagsDemoWidget";
+import { BacklinkDemoWidget } from "@/components/demo/BacklinkDemoWidget";
+import { HttpHeadersDemoWidget } from "@/components/demo/HttpHeadersDemoWidget";
+import { UtmMarksDemoWidget } from "@/components/demo/UtmMarksDemoWidget";
+import { PasswordGeneratorDemoWidget } from "@/components/demo/PasswordGeneratorDemoWidget";
+import { KeywordGeneratorDemoWidget } from "@/components/demo/KeywordGeneratorDemoWidget";
+import { RoiCalculatorDemoWidget } from "@/components/demo/RoiCalculatorDemoWidget";
 import type { ModuleV2DemoWidget } from "@/lib/content/module-v2/types";
 
 const SECTION_COPY: Record<
@@ -58,6 +64,30 @@ const SECTION_COPY: Record<
   "meta-tags": {
     title: "Проверьте мета-теги без регистрации",
     lead: "Разовая проверка одной страницы. В кабинете — мониторинг до 500 URL, снимки раз в сутки и уведомления в Telegram, если кто-то изменил title, description или canonical.",
+  },
+  backlink: {
+    title: "Проверьте ссылку на странице донора",
+    lead: "Разовая проверка — как в кабинете. После регистрации — проекты и ежедневный мониторинг. Telegram при подключении бота; email — на платных тарифах.",
+  },
+  "http-headers": {
+    title: "Проверьте HTTP-заголовки без регистрации",
+    lead: "Разовая проверка одного URL: редиректы, код ответа, кэш и заголовки безопасности. В кабинете — пакеты до 500 URL и CSV.",
+  },
+  "utm-marks": {
+    title: "Соберите UTM-ссылку без регистрации",
+    lead: "Полный генератор — шаблоны под Яндекс.Директ, Google Ads, VK и myTarget, динамические параметры и Openstat. Без лимитов на этой странице.",
+  },
+  "password-generator": {
+    title: "Сгенерируйте пароль без регистрации",
+    lead: "Цифры, регистр, спецсимволы и длина до 50 — пять вариантов за клик, без лимитов. В кабинете — сохранение с комментариями, остальные модули и доска идей.",
+  },
+  "keyword-generator": {
+    title: "Соберите ключевые фразы без регистрации",
+    lead: "Несколько списков слов, перемножение, операторы «» и [], стоп-слова — без лимитов на этой странице. В кабинете — полный модуль и остальные SEO-инструменты платформы.",
+  },
+  "roi-calculator": {
+    title: "Посчитайте ROI рекламной кампании без регистрации",
+    lead: "ROI, CTR, CPC, CPA и прогноз трафика по бюджету — без лимитов. В кабинете — тот же калькулятор и десятки модулей: семантика, UTM, мониторинг, анализ конкурентов.",
   },
 };
 
@@ -114,6 +144,18 @@ export function ModuleV2DemoSection({ kind }: Props) {
             <DomainInformationDemoWidget />
           ) : kind === "meta-tags" ? (
             <MetaTagsDemoWidget />
+          ) : kind === "backlink" ? (
+            <BacklinkDemoWidget />
+          ) : kind === "http-headers" ? (
+            <HttpHeadersDemoWidget />
+          ) : kind === "utm-marks" ? (
+            <UtmMarksDemoWidget nested />
+          ) : kind === "password-generator" ? (
+            <PasswordGeneratorDemoWidget nested />
+          ) : kind === "keyword-generator" ? (
+            <KeywordGeneratorDemoWidget nested />
+          ) : kind === "roi-calculator" ? (
+            <RoiCalculatorDemoWidget nested />
           ) : (
             <TextLengthDemoWidget />
           )}

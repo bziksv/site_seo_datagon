@@ -58,6 +58,10 @@
 | **Мета-теги — клиент** | `lib/demo/run-meta-tags-demo-client.ts`, `lib/demo/meta-tags-demo.ts` |
 | **Мета-теги — прокси** | `app/api/demo/proverka-meta-tegov-online/run/route.ts` |
 | **Мета-теги — lk** | `MetaTagsDemoController`, `MetaTagsDemoService` |
+| **Отслеживание ссылок — UI** | `BacklinkDemoWidget.tsx` |
+| **Отслеживание ссылок — клиент** | `lib/demo/run-backlink-demo-client.ts`, `lib/demo/backlink-demo.ts` |
+| **Отслеживание ссылок — прокси** | `app/api/demo/otslezhivanie-ssylok/run/route.ts` |
+| **Отслеживание ссылок — lk** | `BacklinkDemoController`, `BacklinkDemoService`, `LinkAnalyser` |
 
 Старый виджет `/demo` (локальный подсчёт): `components/demo/TextLengthTool.tsx` — `/demo` редиректит на `/`.
 

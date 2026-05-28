@@ -17,10 +17,28 @@
 | Сравнение списков | `/list-comparison` | `config/cabinet-list-comparison.php` | [cabinet-list-comparison-changelog.md](./cabinet-list-comparison-changelog.md) | шапка карточки |
 | Уникальные слова | `/unique` | `config/cabinet-unique.php` | [cabinet-unique-changelog.md](./cabinet-unique-changelog.md) | шапка карточки (**v1.1s**) |
 | Подсчёт длины текста | `/counting-text-length` | `config/cabinet-text-length.php` | [cabinet-text-length-changelog.md](./cabinet-text-length-changelog.md) | шапка карточки (**v1.0s**) |
+| Генератор паролей | `/password-generator` | `config/cabinet-password-generator.php` | [cabinet-password-generator-changelog.md](./cabinet-password-generator-changelog.md) | шапка карточки (**v1.0**) |
+| Генератор слов | `/keyword-generator` | `config/cabinet-keyword-generator.php` | [cabinet-keyword-generator-changelog.md](./cabinet-keyword-generator-changelog.md) | шапка карточки (**v1.6.1**) |
 | HTML-редактор | `/html-editor` | `config/cabinet-html-editor.php` | [cabinet-html-editor-changelog.md](./cabinet-html-editor-changelog.md) | шапка карточки (**v1.5.4s**) |
+| Мониторинг позиций (UI v2) | `/monitoring-v2` | `config/cabinet-monitoring.php` | [cabinet-monitoring-changelog.md](./cabinet-monitoring-changelog.md) | шапка (**v2.0-dev**) |
 | Мониторинг сайтов | `/site-monitoring` | `config/cabinet-site-monitoring.php` | [cabinet-site-monitoring-changelog.md](./cabinet-site-monitoring-changelog.md) | шапка карточки (**v1.6.9s**) |
 | Срок регистрации доменов | `/domain-information` | `config/cabinet-domain-information.php` | [cabinet-domain-information-changelog.md](./cabinet-domain-information-changelog.md) | шапка карточки (**v1.0.0s**) |
 | Мониторинг мета-тегов | `/meta-tags` | `config/cabinet-meta-tags.php` | [cabinet-meta-tags-changelog.md](./cabinet-meta-tags-changelog.md) | шапка карточки (**v1.2.17s**) |
+| HTTP-заголовки | `/http-headers` | `config/cabinet-http-headers.php` | [cabinet-http-headers-changelog.md](./cabinet-http-headers-changelog.md) | шапка карточки (**v1.0.0s**) |
+| UTM-метки | `/utm-marks` | `config/cabinet-utm-marks.php` | [cabinet-utm-marks-changelog.md](./cabinet-utm-marks-changelog.md) | шапка карточки (**v1.0.1s**) |
+| Калькулятор ROI | `/roi-calculator` | `config/cabinet-roi-calculator.php` | [cabinet-roi-calculator-changelog.md](./cabinet-roi-calculator-changelog.md) | шапка карточки (**v1.1**) |
+| Управление прокси Telegram (админ) | `/admin/telegram-proxy` | `config/cabinet-telegram-proxy.php` | [cabinet-telegram-proxy-changelog.md](./cabinet-telegram-proxy-changelog.md) | заголовок (**v1.1.2s**) |
+| Пользователи (админ) | `/users` | `config/cabinet-users.php` | [cabinet-users-changelog.md](./cabinet-users-changelog.md) | заголовок (**v1.0.0s**) |
+| Управление меню (админ) | `/main-projects` | `config/cabinet-main-projects.php` | [cabinet-main-projects-changelog.md](./cabinet-main-projects-changelog.md) | заголовок (**v1.0.0s**) |
+| Управление доступами (админ) | `/manage-access` | `config/cabinet-manage-access.php` | [cabinet-manage-access-changelog.md](./cabinet-manage-access-changelog.md) | заголовок (**v1.0.0s**) |
+| Управление политиками (админ) | `/edit-policy-files` | `config/cabinet-policy-files.php` | [cabinet-policy-files-changelog.md](./cabinet-policy-files-changelog.md) | card-title (**v1.0.0s**) |
+| Тарифы и ограничения (админ) | `/tariff-settings` | `config/cabinet-tariff-settings.php` | [cabinet-tariff-settings-changelog.md](./cabinet-tariff-settings-changelog.md) | заголовок (**v1.0.0s**) |
+| Управление XML (админ) | `/admin/xml-providers` | `config/cabinet-xml-providers.php` | [cabinet-xml-providers-changelog.md](./cabinet-xml-providers-changelog.md) | заголовок (**v1.0.0s**) |
+| Управление БД (админ) | `/admin/database` | `config/cabinet-database-admin.php` | [cabinet-database-admin-changelog.md](./cabinet-database-admin-changelog.md) | заголовок (**v1.1.1s**) |
+
+**Не версионируем:** «Шаблон LTE» (`/html/`, демо AdminLTE) — статический каталог, не продуктовая страница кабинета.
+
+Пункты **шестерёнки** (`CabinetAdminMenu`) и прочие `/admin/…` — тот же цикл: `config/cabinet-<slug>.php`, changelog, badge в шапке.
 
 ## Шаблон нового модуля
 

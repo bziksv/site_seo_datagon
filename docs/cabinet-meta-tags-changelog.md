@@ -1,6 +1,11 @@
 # Changelog: Мониторинг мета-тегов
 
-Модуль: `/meta-tags` · config `cabinet-meta-tags.php` · badge **v1.2.17s**
+Модуль: `/meta-tags` · config `cabinet-meta-tags.php` · badge **v1.2.18s**
+
+## 1.2.18s — 2026-05-26
+
+- **Telegram:** плашка «Без Телеграм оповещения не придут» на `/meta-tags` и `/meta-tags/settings`, если бот не подключён.
+- **Проверка:** http://localhost:3002/meta-tags
 
 ## 1.2.17s — 2026-05-26
 

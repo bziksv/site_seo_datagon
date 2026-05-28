@@ -11,7 +11,7 @@ alwaysApply: true
 
 ## Когда поднимать версию (в той же задаче, что и код)
 
-Любое изменение **страницы модуля** кабинета, если меняется хотя бы одно:
+Любое изменение **страницы модуля** кабинета (включая **админку** `/admin/…`), если меняется хотя бы одно:
 
 - Blade / layout / CSS (`public/css/cabinet-*.css`) / JS (`public/js/cabinet-*.js`);
 - поведение формы, таблиц, API-запросов с UI модуля;
@@ -39,6 +39,15 @@ alwaysApply: true
 | `/competitor-analysis` | `competitor-analysis` |
 | `/ideas` | `ideas` |
 | `/support` | `support` |
+| `/admin/telegram-proxy` | `telegram-proxy` |
+| `/users` | `users` |
+| `/main-projects` | `main-projects` |
+| `/manage-access` | `manage-access` |
+| `/edit-policy-files` | `policy-files` |
+| `/tariff-settings` | `tariff-settings` |
+| `/admin/xml-providers` | `xml-providers` (ключ `version` в `cabinet-xml-providers.php`) |
+
+**Без версии:** `/html/` (шаблон LTE, демо).
 
 ## Документация
 

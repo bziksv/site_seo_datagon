@@ -1,7 +1,9 @@
 /node_modules
+.playwright-browsers/
 /.next/
 /out/
 .env*.local
+scripts/topvisor-crawl.local.env
 .DS_Store
 *.pem
 npm-debug.log*

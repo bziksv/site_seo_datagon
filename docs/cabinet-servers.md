@@ -110,8 +110,66 @@ php artisan config:cache
 
 Исторический upstream Laravel: [neeil1990/redbox](https://github.com/neeil1990/redbox) (импорт с lk.redbox.su, не основной remote для Датагон).
 
+## Окружения: где что проверять (БД общая)
+
+**MySQL одна** — `178.250.157.140`, база `lk_redbox_su_db`. Локаль (:3002), **cabinet.datagon.ru** (155.212.171.103) и **lk.redbox.su** (178.250.157.140) видят **одни и те же** таблицы `jobs`, `failed_jobs`, `cluster_queue_array`, пользователей и т.д.
+
+| Окружение | Код / URL | IP | Фоновые процессы (очереди) | Префикс очередей кластера |
+|-----------|-----------|-----|----------------------------|---------------------------|
+| **Прод для пользователей** | https://lk.redbox.su | `178.250.157.140` | **cron + supervisor** (`queue:work`, мониторинг, позиции, …) | нет (`cluster_wait`, `child_cluster`, …) |
+| **Новый кабинет (тест/прод файлы)** | https://cabinet.datagon.ru | `155.212.171.103` | пока только **`schedule:run`** в crontab (раз в минуту) — **нет** постоянных `queue:work` | **production** → те же имена, что на lk |
+| **Локаль на Mac** | http://127.0.0.1:3002 | Mac | `./scripts/dev-local.sh` + **`scripts/dev-cluster-queue.sh`** (4 воркера) | **`local_`** (`local_cluster_wait`, …) при `APP_ENV=local` |
+| **Маркетинг** | datagon.ru :3001 | отдельный VPS | BFF к lk/cabinet, **своей БД нет** | — |
+
+### Что это значит на практике
+
+1. **Админка `/admin/database`, превью `failed_jobs`** — смотреть можно **с любого** окружения, подключённого к `DB_HOST=178.250.157.140` (Mac, cabinet, lk). Данные одни.
+
+2. **Очистка `jobs` / `failed_jobs`**
+   - **`local_*`** (например `local_cluster_wait`) — почти всегда мусор **локальной разработки** на Mac; чистить на Mac после `dev-cluster-queue.sh stop` **относительно безопасно** для прода.
+   - **Без префикса** (`cluster_wait`, `default`, `position_low`, …) — это **прод lk** (supervisor). **Не удалять** с Mac без согласования: заденете живой lk.redbox.su.
+   - На **cabinet.datagon.ru** сейчас **нет** своих воркеров очереди → запуск кластера с этого домена пишет в **общую** таблицу `jobs`, но обрабатывать может только **lk** (supervisor на 178.250.157.140), если имена очередей production.
+
+3. **`cluster_queue_array` (~31k строк)** — общая таблица. `truncate` только если договорились, что это хвосты тестов; иначе влияет на все окружения.
+
+4. **Исправление кода** (кластер, лимит wait-job) — правим в репо `cabinet.datagon.ru`, деплой на **155.212.171.103**; на **lk** — отдельно, пока там основной прод. До cutover на cabinet — не дублировать supervisor на двух VPS на одной БД ([cabinet-deploy.md](./cabinet-deploy.md) § Cron / очереди).
+
+### Cron на cabinet.datagon.ru (155.212.171.103)
+
+Сейчас в crontab (проверено):
+
+```cron
+* * * * * cd /var/www/cabinet_data_usr/data/www/cabinet.datagon.ru && /opt/php74/bin/php artisan schedule:run >> /dev/null 2>&1
+```
+
+Этого **недостаточно** для кластеризатора и Laravel-очередей: нужны постоянные воркеры (`queue:work` / supervisor), как на lk — **после cutover**, не параллельно с lk.
+
+На **lk.redbox.su** — полный набор cron + supervisor (мониторинг, позиции, relevance, …). Список задач: `app/Console/Kernel.php` + конфиги supervisor на `178.250.157.140` (на Mac не копируется автоматически).
+
+### Локаль: кластер
+
+```bash
+cd /Users/stanislav/Documents/projects/cabinet.datagon.ru
+bash scripts/dev-cluster-queue.sh status   # local_main_cluster, local_child_cluster, local_cluster_wait
+```
+
+Без воркеров jobs с префиксом `local_` копятся в общей БД; прод-воркер lk их **не** забирает ([cabinet-cluster-changelog.md](./cabinet-cluster-changelog.md) § 2.17–2.18).
+
+### Чек-лист «где смотреть проблему»
+
+| Вопрос | Где смотреть |
+|--------|-------------|
+| Размер таблиц, сироты, даты | https://cabinet.datagon.ru/admin/database или local :3002/admin/database |
+| Последние ошибки очереди | Превью таблицы `failed_jobs` на той же странице |
+| Завал wait-кластера **локально** | `jobs` WHERE `queue` LIKE 'local_%' |
+| Завал **прод** очереди | SSH **178.250.157.140**, supervisor + `jobs` без `local_` |
+| Работает ли schedule на новом VPS | SSH **155.212.171.103**, crontab, `storage/logs/` |
+
+---
+
 ## Связанные документы
 
 - [architecture.md](./architecture.md) — домены и границы Next / Laravel
 - [api-lk.md](./api-lk.md) — прокси datagon.ru → кабинет
 - [deploy.md](./deploy.md) — деплой только маркетинг-сайта (Next)
+- [cabinet-deploy.md](./cabinet-deploy.md) — деплой cabinet, cron, FastPanel

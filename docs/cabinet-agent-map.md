@@ -32,6 +32,9 @@
 | **Доска идей (голосование)** | [cabinet-reference.md](./cabinet-reference.md) § support + ideas | `FeatureIdeaController`, `resources/views/ideas/`, `feature_ideas` |
 | **PDF-отчёт модуля (mPDF)** | **[cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md)** — эталон v6.9s, не пересобирать layout | `TextAnalyzerPdfService`, `TextAnalyzerPdfBranding`, `resources/views/*/export/pdf-body.blade.php` |
 | **Лендинг модуля (Next)** | `docs/examples/module-landing-relevance.md` | `components/module-landings/`, `app/**/page.tsx` |
+| **Telegram / прокси на prod** | [cabinet-telegram-proxy.md](./cabinet-telegram-proxy.md), [cabinet-telegram-proxy-changelog.md](./cabinet-telegram-proxy-changelog.md) | `/admin/telegram-proxy` (**v1.1.0s**), `telegram_proxies` (БД), `TelegramProxyRegistry`, `TelegramBotService` |
+| **Инвентаризация MySQL (админ)** | [cabinet-database-admin-changelog.md](./cabinet-database-admin-changelog.md) | `/admin/database`, `DatabaseInventoryService`, `config/cabinet-database-admin.php` |
+| **Где локаль / lk / cabinet / общая БД** | [cabinet-servers.md](./cabinet-servers.md) § «Окружения» | `jobs`, `failed_jobs`, cron, supervisor |
 | **Деплой кабинета** | [cabinet-deploy.md](./cabinet-deploy.md) (§ **FastPanel** / Troubleshooting), [cabinet-servers.md](./cabinet-servers.md) | VPS s3: **FastPanel**, PHP **7.4** (`/opt/php74/bin/php`), FPM; PM2 — только если vhost на :3002 |
 | **БД / что на прод, миграции** | **[cabinet-pending-db-and-deploy.md](./cabinet-pending-db-and-deploy.md)** | журнал: local vs prod, `migrate`, удаление behavior, support |
 | **Локальный запуск** | `.cursor/rules/redbox-cabinet-dev.mdc` | `scripts/dev-local.sh` |
@@ -88,8 +91,8 @@ cabinet.datagon.ru/
 | `/users`, `/manage-access` | `UsersController`, Spatie | `users/` |
 | `/main-projects` | `MainProjectsController` | `main-projects/` |
 | `/news` | `NewsController` | `news/` |
-| `/checklist` | `CheckListController` | `checklist/` |
 | `/ai-generation` | AI-контроллеры | `ai-generation/` |
+| `/monitoring-v2` | `MonitoringV2Controller@index` | `monitoring-v2/` (UI v2, API как `/monitoring`) |
 
 Точный handler: `rg "Route::.*'/your-uri" routes/web.php` → имя контроллера.
 

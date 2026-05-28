@@ -1,0 +1,195 @@
+{
+  "crawledAt": "2026-05-27T18:50:39.800Z",
+  "visits": [
+    {
+      "siteId": "4150951",
+      "name": "Agrus.kiev.ua",
+      "group": "—",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-4150951.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-4150951.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 6
+    },
+    {
+      "siteId": "4150951",
+      "name": "Agrus.kiev.ua",
+      "group": "—",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-4150951.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-4150951.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262046",
+      "name": "Будинок Іграшок",
+      "group": "Магазины",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262046.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262046.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 9
+    },
+    {
+      "siteId": "6262046",
+      "name": "Будинок Іграшок",
+      "group": "Магазины",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262046.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262046.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262085",
+      "name": "MOYO",
+      "group": "Магазины",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262085.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262085.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 8
+    },
+    {
+      "siteId": "6262085",
+      "name": "MOYO",
+      "group": "Магазины",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262085.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262085.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262154",
+      "name": "Notino",
+      "group": "Магазины",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262154.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262154.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [],
+      "tables": 2
+    },
+    {
+      "siteId": "6262154",
+      "name": "Notino",
+      "group": "Магазины",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262154.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262154.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262700",
+      "name": "Vogue",
+      "group": "СМИ",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262700.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262700.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 4
+    },
+    {
+      "siteId": "6262700",
+      "name": "Vogue",
+      "group": "СМИ",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262700.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262700.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262727",
+      "name": "BCC",
+      "group": "СМИ",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262727.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262727.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 7
+    },
+    {
+      "siteId": "6262727",
+      "name": "BCC",
+      "group": "СМИ",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262727.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262727.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262802",
+      "name": "Добробут",
+      "group": "Медицина",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262802.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262802.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 7
+    },
+    {
+      "siteId": "6262802",
+      "name": "Добробут",
+      "group": "Медицина",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262802.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262802.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    },
+    {
+      "siteId": "6262826",
+      "name": "Oxford Medical",
+      "group": "Медицина",
+      "page": "overview",
+      "url": "admin.site.overview.site_id-6262826.html?lang=ru#/",
+      "finalUrl": "https://online.seranking.com/admin.site.overview.site_id-6262826.html?lang=ru#/",
+      "hash": "#/",
+      "headings": [
+        "AI Search"
+      ],
+      "tables": 8
+    },
+    {
+      "siteId": "6262826",
+      "name": "Oxford Medical",
+      "group": "Медицина",
+      "page": "rankings",
+      "url": "admin.site.rankings.site_id-6262826.html?lang=ru#/overview",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-6262826.html?lang=ru#/overview?lang=ru",
+      "hash": "#/overview?lang=ru",
+      "headings": [],
+      "tables": 8
+    }
+  ]
+}

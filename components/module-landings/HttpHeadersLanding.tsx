@@ -5,10 +5,12 @@ import { HeroParallaxMedia } from "@/components/module-landings/HeroParallaxMedi
 import { ModuleTechSection } from "@/components/module-landings/ModuleTechSection";
 import { ModuleInsightsSection } from "@/components/module-landings/ModuleInsightsSection";
 import { ModulePlainSection } from "@/components/module-landings/ModulePlainSection";
+import { HttpHeadersDemoWidget } from "@/components/demo/HttpHeadersDemoWidget";
 import { ModuleLeadCta } from "@/components/ModuleLeadCta";
 import { ModuleIcon } from "@/lib/module-icons";
 import {
   HTTP_HEADERS_ADVANTAGES,
+  HTTP_HEADERS_CABINET_BENEFITS,
   HTTP_HEADERS_FAQ,
   HTTP_HEADERS_HERO,
   HTTP_HEADERS_INSIGHTS,
@@ -131,6 +133,44 @@ export function HttpHeadersLanding({ module }: Props) {
               <p className="mt-2 text-sm text-slate-600">{s.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50 py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <HttpHeadersDemoWidget />
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-brand-600">
+            Личный кабинет
+          </p>
+          <h2 className="mt-2 text-center text-2xl font-bold text-slate-900 md:text-3xl">
+            {HTTP_HEADERS_CABINET_BENEFITS.title}
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600">{HTTP_HEADERS_CABINET_BENEFITS.lead}</p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {HTTP_HEADERS_CABINET_BENEFITS.columns.map((col) => (
+              <div
+                key={col.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8"
+              >
+                <h3 className="text-lg font-bold text-slate-900">{col.title}</h3>
+                <ul className="mt-4 space-y-2.5 text-sm text-slate-700">
+                  {col.items.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="text-brand-600" aria-hidden>
+                        •
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -1,0 +1,14 @@
+{
+  "crawledAt": "2026-05-27",
+  "note": "site_id извлечены с дашборда (Развернуть группы); имена — из переключателя проекта в UI, порядок сопоставлен с icon-ссылками positions.",
+  "projects": [
+    { "siteId": "4150951", "name": "Agrus.kiev.ua", "group": "—" },
+    { "siteId": "6262046", "name": "Будинок Іграшок", "group": "Магазины" },
+    { "siteId": "6262085", "name": "MOYO", "group": "Магазины" },
+    { "siteId": "6262154", "name": "Notino", "group": "Магазины" },
+    { "siteId": "6262700", "name": "Vogue", "group": "СМИ" },
+    { "siteId": "6262727", "name": "BCC", "group": "СМИ" },
+    { "siteId": "6262802", "name": "Добробут", "group": "Медицина" },
+    { "siteId": "6262826", "name": "Oxford Medical", "group": "Медицина" }
+  ]
+}

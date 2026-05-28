@@ -7,9 +7,11 @@ import { ModuleInsightsSection } from "@/components/module-landings/ModuleInsigh
 import { ModulePlainSection } from "@/components/module-landings/ModulePlainSection";
 import { ModuleLeadCta } from "@/components/ModuleLeadCta";
 import { ModuleVideoGallery } from "@/components/ModuleVideoGallery";
+import { BacklinkDemoWidget } from "@/components/demo/BacklinkDemoWidget";
 import { ModuleIcon } from "@/lib/module-icons";
 import {
   LINK_TRACK_ADVANTAGES,
+  LINK_TRACK_CABINET_BENEFITS,
   LINK_TRACK_FAQ,
   LINK_TRACK_FEATURES,
   LINK_TRACK_HERO,
@@ -137,6 +139,50 @@ export function OtslezhivanieSsylokLanding({ module }: Props) {
               <p className="mt-2 text-sm text-slate-600">{s.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-slate-50 py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <BacklinkDemoWidget />
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-14 md:py-16">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-center text-sm font-semibold uppercase tracking-widest text-brand-600">
+            Личный кабинет
+          </p>
+          <h2 className="mt-2 text-center text-2xl font-bold text-slate-900 md:text-3xl">
+            {LINK_TRACK_CABINET_BENEFITS.title}
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-slate-600">{LINK_TRACK_CABINET_BENEFITS.lead}</p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {LINK_TRACK_CABINET_BENEFITS.columns.map((col) => (
+              <div
+                key={col.title}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8"
+              >
+                <h3 className="text-lg font-bold text-slate-900">{col.title}</h3>
+                <ul className="mt-4 space-y-3">
+                  {col.items.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm text-slate-700">
+                      <span className="font-bold text-brand-600">→</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <ModuleLeadCta
+              variant="card"
+              idPrefix="link-track-cabinet-benefits"
+              title="Создать проект в кабинете"
+              hint="Укажите email — откроется регистрация с доступом к отслеживанию ссылок и другим модулям."
+            />
+          </div>
         </div>
       </section>
 
@@ -332,9 +378,10 @@ export function OtslezhivanieSsylokLanding({ module }: Props) {
 
           <section className="mt-16 grid gap-8 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-600 to-brand-700 p-8 text-white md:grid-cols-2 md:p-12">
             <div>
-              <h2 className="text-2xl font-bold">Нужен контроль бэклинков?</h2>
+              <h2 className="text-2xl font-bold">Нужен постоянный контроль ссылок?</h2>
               <p className="mt-3 text-brand-100">
-                Зарегистрируйтесь в кабинете — модуль и остальные инструменты платформы в одном месте.
+                Зарегистрируйтесь в кабинете — проекты, автопроверка раз в сутки и оповещения, если ссылку сняли или
+                изменили.
               </p>
             </div>
             <ModuleLeadCta

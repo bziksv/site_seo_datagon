@@ -1,6 +1,11 @@
 # Changelog: Мониторинг сайтов
 
-Модуль: `/site-monitoring` · config `cabinet-site-monitoring.php` · badge **v1.6.9s**
+Модуль: `/site-monitoring` · config `cabinet-site-monitoring.php` · badge **v1.7.0s**
+
+## 1.7.0s — 2026-05-26
+
+- **Telegram:** общий partial `cabinet-telegram-notify-notice` — плашка «Без Телеграм…» вверху списка/создания (если бот не подключён).
+- **Проверка:** http://localhost:3002/site-monitoring без chat_id в профиле.
 
 ## 1.6.9s — 2026-05-26
 

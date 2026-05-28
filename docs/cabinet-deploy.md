@@ -255,6 +255,10 @@ git add -A && git commit -m "…" && git push origin main
 
 ## Cron / очереди
 
+**Схема окружений и общей БД** — [cabinet-servers.md](./cabinet-servers.md) § «Окружения: где что проверять».
+
+Кратко: MySQL на **`178.250.157.140`**; **lk** крутит supervisor + cron; **cabinet.datagon.ru** сейчас только `schedule:run`; **Mac** — `dev-cluster-queue.sh` с очередями `local_*`. Не чистить прод-очереди (`cluster_wait`, `default`, …) с локали без согласования.
+
 Если на **lk.redbox.su** были `crontab` / `supervisor` для Laravel — продублировать на новом VPS только после cutover на **cabinet.datagon.ru**, иначе дублирование задач на одной БД.
 
 На сервере должен крутиться планировщик Laravel (иначе не сработают ночные задачи из `app/Console/Kernel.php`):
@@ -631,6 +635,65 @@ pm2 status
 
 curl -sI http://127.0.0.1:3002/login | head -5
 ```
+
+---
+
+## Telegram: исходящий 443 с VPS (cabinet.datagon.ru / s3)
+
+**Симптом:** в `storage/logs/laravel-*.log` — `Failed to connect to api.telegram.org port 443 ... Timeout`; кнопка «Тест Telegram» на `/backlink` и cron `scan-broken-links` не шлют сообщения. С сервера `curl https://api.telegram.org` — таймаут, при этом `curl https://google.com` может отвечать.
+
+**Причина:** провайдер/VPS блокирует исходящие к Telegram. MTProto-прокси **не** подходит для Bot API (нужен обычный **SOCKS5** или HTTP-прокси).
+
+**Диагностика по шагам** (все команды — **на s3**, подставить HOST/PORT/USER/PASS из панели прокси):
+
+```bash
+# 1) Доходит ли TCP до прокси? (должно: succeeded / Connected — за 1–3 с, не 15 с таймаут)
+nc -vz -w 5 HOST PORT
+# альтернатива:
+timeout 5 bash -c 'echo >/dev/tcp/HOST/PORT' && echo "port open" || echo "port closed/timeout"
+
+# 2) Прокси живой? (ожидается быстрый ответ 407 Proxy Authentication Required)
+curl -sS --max-time 8 -v "http://HOST:PORT" 2>&1 | head -15
+
+# 3) Telegram через SOCKS5 (ожидается 302, не 000)
+curl -sS --max-time 15 -x "socks5://USER:PASS@HOST:PORT" -o /dev/null -w "%{http_code}\n" https://api.telegram.org/
+
+# 4) Напрямую к Telegram с s3 (часто 000 — блокировка VPS)
+curl -sS --max-time 8 -o /dev/null -w "%{http_code}\n" https://api.telegram.org/
+```
+
+**Если шаг 1 или 2 — таймаут 15 с / `000`:** с IP **155.212.171.103** до прокси **нет маршрута** (фаервол хостинга s3, фаервол у поставщика прокси, прокси только для «домашних» IP). Код кабинета тут не поможет — нужен другой прокси или **whitelist IP s3** у поставщика (`155.212.171.103`).
+
+**Если шаг 2 быстрый (407), а шаг 3 — таймаут 15 с:** TCP до прокси есть, но туннель до Telegram не поднимается. На s3 по очереди:
+
+```bash
+curl -sS --max-time 15 -x "socks5h://USER:PASS@HOST:PORT" -o /dev/null -w "socks5h %{http_code}\n" https://api.telegram.org/
+curl -sS --max-time 15 -x "http://USER:PASS@HOST:PORT" -o /dev/null -w "http %{http_code}\n" https://api.telegram.org/
+curl -v --max-time 15 -x "socks5://USER:PASS@HOST:PORT" https://api.telegram.org/ 2>&1 | tail -20
+```
+
+В `.env` при успехе `socks5h` → `TELEGRAM_PROXY=socks5h://...` (не `socks5://`). Порт 8000 с ответом `407` на `http://HOST:PORT` — это **HTTP-прокси**; если сработает только `http://`, задать его в `TELEGRAM_PROXY`.
+
+Если все три варианта — `000`/таймаут: у поставщика прокси **не пускает исходящий трафик к Telegram** с IP VPS `155.212.171.103` (нужен другой тариф/прокси «для серверов» или whitelist IP s3).
+
+**Если с Mac прокси отвечает 302, а с s3 — нет:** типичный случай — прокси не пускает дата-центровые IP; проверка только с s3 (шаги 1–3).
+
+**Один `.env` для local и s3:** везде **`socks5h://`** (Mac и s3 → curl **302**; `http://` с Mac часто таймаут; `https://` к прокси — не использовать).
+
+```bash
+curl -sS --max-time 15 -x "socks5h://USER:PASS@HOST:PORT" -o /dev/null -w "%{http_code}\n" https://api.telegram.org/
+```
+
+```env
+TELEGRAM_BOT_TOKEN=...
+TELEGRAM_PROXY=socks5h://USER:PASS@HOST:PORT
+```
+
+На s3 после копирования `.env`: `APP_URL=https://cabinet.datagon.ru`, `php7.4 artisan config:clear && php7.4 artisan config:cache`.
+
+Код: `TelegramBotService` читает `config('app.telegram_proxy')` → `CURLOPT_PROXY`. Локально переменную можно не задавать.
+
+**Проверка после деплоя:** админ → шестерёнка → **Управление прокси** (`/admin/telegram-proxy`) — статус «Через TELEGRAM_PROXY» OK, тестовое сообщение в Telegram. Чек-лист модулей: [cabinet-telegram-proxy.md](./cabinet-telegram-proxy.md).
 
 ---
 

@@ -6,6 +6,12 @@ import { MODULE_V2_OVERRIDES, type ModuleV2Override } from "@/lib/content/module
 import { MODULE_V2_SECTION_ENRICHMENT } from "@/lib/content/module-v2/sections-enrichment";
 import { MODULE_V2_VIDEOS } from "@/lib/content/module-v2/videos-by-slug";
 import { DOMAIN_REG_POST_REG } from "@/lib/content/otslezhivanie-sroka-registratsii-domenov-page";
+import { LINK_TRACK_POST_REG } from "@/lib/content/otslezhivanie-ssylok-page";
+import { HTTP_HEADERS_POST_REG } from "@/lib/content/http-headers-page";
+import { UTM_POST_REG } from "@/lib/content/utm-metki-page";
+import { PW_GEN_POST_REG } from "@/lib/content/generator-paroley-page";
+import { WORD_GEN_POST_REG } from "@/lib/content/generator-slov-page";
+import { ROI_CALC_POST_REG } from "@/lib/content/kalkulyator-roi-page";
 import type {
   ModuleV2Act,
   ModuleV2DemoWidget,
@@ -35,10 +41,22 @@ const DEMO_WIDGET_BY_BASE: Partial<Record<string, ModuleV2DemoWidget>> = {
   "monitoring-saytov": "site-monitoring",
   "otslezhivanie-sroka-registratsii-domenov": "domain-information",
   "proverka-meta-tegov-online": "meta-tags",
+  "otslezhivanie-ssylok": "backlink",
+  "http-headers": "http-headers",
+  "utm-metki": "utm-marks",
+  "generator-paroley": "password-generator",
+  generator_slov: "keyword-generator",
+  "kalkulyator-roi": "roi-calculator",
 };
 
 const POST_REG_BY_BASE: Partial<Record<string, ModuleV2PostReg>> = {
   "otslezhivanie-sroka-registratsii-domenov": DOMAIN_REG_POST_REG,
+  "otslezhivanie-ssylok": LINK_TRACK_POST_REG,
+  "http-headers": HTTP_HEADERS_POST_REG,
+  "utm-metki": UTM_POST_REG,
+  "generator-paroley": PW_GEN_POST_REG,
+  generator_slov: WORD_GEN_POST_REG,
+  "kalkulyator-roi": ROI_CALC_POST_REG,
 };
 
 const DEFAULT_ORBIT: readonly ModuleV2OrbitNode[] = [

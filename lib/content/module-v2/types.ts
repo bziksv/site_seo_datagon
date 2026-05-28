@@ -75,7 +75,13 @@ export type ModuleV2DemoWidget =
   | "cluster"
   | "site-monitoring"
   | "domain-information"
-  | "meta-tags";
+  | "meta-tags"
+  | "backlink"
+  | "http-headers"
+  | "utm-marks"
+  | "password-generator"
+  | "keyword-generator"
+  | "roi-calculator";
 
 export type ModuleV2PostReg = {
   eyebrow: string;

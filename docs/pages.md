@@ -21,7 +21,7 @@
 | `/analiz-konkurentov/` | ✅ [module-landing-competitors.md](./examples/module-landing-competitors.md) |
 | `/html-redaktor/` | ✅ [module-landing-html-editor.md](./examples/module-landing-html-editor.md) |
 | `/http-headers/` | ✅ [module-landing-http-headers.md](./examples/module-landing-http-headers.md) |
-| `/kalkulyator-roi/` | ✅ [module-landing-roi.md](./examples/module-landing-roi.md) |
+| `/kalkulyator-roi/` | ✅ [module-landing-roi.md](./examples/module-landing-roi.md) — демо `RoiCalculatorDemoWidget`, без лимитов |
 | `/utm-metki/` | ✅ [module-landing-utm.md](./examples/module-landing-utm.md) |
 | `/sravnenie-spiskov-klyuchevykh-fraz/` | ✅ [module-landing-list-compare.md](./examples/module-landing-list-compare.md) |
 | `/generator-paroley/` | ✅ [module-landing-password-gen.md](./examples/module-landing-password-gen.md) |

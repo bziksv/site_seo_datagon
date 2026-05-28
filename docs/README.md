@@ -10,6 +10,7 @@
 | Документ | О чём |
 |----------|--------|
 | **[cabinet-agent-map.md](./cabinet-agent-map.md)** | **Кабинет для агента:** 2 репо, карта кода, куда обновлять docs |
+| [cabinet-module-videos.md](./cabinet-module-videos.md) | **Кабинет:** self-host обучающих роликов (YouTube → `/media/module-videos/`, вне git) |
 | [architecture.md](./architecture.md) | Стек, домены, границы Next vs Laravel |
 | [cabinet-servers.md](./cabinet-servers.md) | **Кабинет:** VPS, пути, БД на старом сервере, миграция lk → cabinet |
 | [cabinet-git.md](./cabinet-git.md) | **Кабинет:** push с VPS → GitHub → clone на Mac |
@@ -18,6 +19,15 @@
 | [cabinet-module-versioning.md](./cabinet-module-versioning.md) | **Кабинет:** версии модулей (config + changelog + badge) |
 | [cabinet-pending-db-and-deploy.md](./cabinet-pending-db-and-deploy.md) | **Кабинет:** что не на проде, миграции БД, журнал между диалогами |
 | [cabinet-performance-audit.md](./cabinet-performance-audit.md) | **Кабинет:** чек-лист страниц, SQL-аудит, страницы вне меню |
+| [seranking-product-map.md](./seranking-product-map.md) | **Бенчмарк:** карта страниц SE Ranking (online.seranking.com), URL и меню |
+| [seranking-pages-visited.md](./seranking-pages-visited.md) | **Бенчмарк:** журнал посещения каждого URL SER в демо (Playwright) |
+| [seranking-demo-projects.json](./seranking-demo-projects.json) | **Бенчмарк:** 8 демо-проектов SER (`site_id`) |
+| [seranking-demo-projects-visits.json](./seranking-demo-projects-visits.json) | Снимок overview/rankings по всем 8 проектам |
+| [cabinet-monitoring-benchmark-seranking.md](./cabinet-monitoring-benchmark-seranking.md) | **Бенчмарк:** SE Ranking Rank Tracker → monitoring v2 |
+| [topvisor-product-map.md](./topvisor-product-map.md) | **Бенчмарк:** карта страниц Topvisor (topvisor.com) |
+| [topvisor-pages-visited.md](./topvisor-pages-visited.md) | **Бенчмарк:** журнал обхода Topvisor (Playwright) |
+| [cabinet-monitoring-benchmark-topvisor.md](./cabinet-monitoring-benchmark-topvisor.md) | **Бенчмарк:** Topvisor «Проекты / позиции» → monitoring v2 |
+| [cabinet-monitoring-benchmark-comparison.md](./cabinet-monitoring-benchmark-comparison.md) | **Сводка:** SER vs Topvisor vs Datagon v2 |
 | [cabinet-pdf-report-template.md](./cabinet-pdf-report-template.md) | **Кабинет:** эталон PDF-отчёта mPDF (v6.9s) — layout, копирование в новые модули |
 | [nginx-cabinet.example.conf](./nginx-cabinet.example.conf) | Nginx: cabinet.datagon.ru → **:3002** |
 | [pages.md](./pages.md) | Маршруты, SEO, редиректы с Битрикса |

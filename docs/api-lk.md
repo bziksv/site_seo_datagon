@@ -251,6 +251,22 @@ UI: `DomainInformationDemoWidget.tsx` на http://localhost:3001/otslezhivanie-s
 
 UI: `MetaTagsDemoWidget.tsx` на http://localhost:3001/proverka-meta-tegov-online/
 
+### Demo API: HTTP-заголовки
+
+Клиент: `lib/demo/run-http-headers-demo-client.ts` — `POST /api/demo/http-headers/run` → кабинет `api/demo/http-headers/run`.
+
+Тело: `{ "url": "https://example.com/" }`. Лимиты (`config/cabinet-http-headers.demo`): 5 проверок/сутки, 1 URL; без сохранения в БД.
+
+UI: `HttpHeadersDemoWidget.tsx` на http://localhost:3001/http-headers/ (публичный v2-лендинг)
+
+### Демо «Отслеживание ссылок»
+
+Клиент: `lib/demo/run-backlink-demo-client.ts` — `POST /api/demo/otslezhivanie-ssylok/run` → кабинет `api/demo/otslezhivanie-ssylok/run`.
+
+Тело: `{ donor, link, anchor, check_nofollow?, check_noindex? }`. Лимит: 5 запусков/сутки (guest cookie).
+
+UI: `BacklinkDemoWidget.tsx` на http://localhost:3001/otslezhivanie-ssylok/
+
 ### Demo API: удаление дубликатов
 
 Клиент: `lib/demo/run-dedup-demo-client.ts` — `POST /api/lk/api/demo/udalenie-dublikatov/run`, fallback `POST /api/demo/udalenie-dublikatov/run`.

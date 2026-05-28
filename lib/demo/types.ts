@@ -435,3 +435,83 @@ export type MetaTagsDemoResponse = {
 export type MetaTagsDemoRunBody = {
   url: string;
 };
+
+export type HttpHeadersDemoHop = {
+  index: number;
+  status: number;
+  status_label: string;
+  headers: { name: string; value: string }[];
+};
+
+export type HttpHeadersDemoSummary = {
+  final_status: number | null;
+  security: {
+    hsts: boolean;
+    csp: boolean;
+    x_frame: boolean;
+    x_content_type: boolean;
+  };
+  hints: string[];
+};
+
+export type HttpHeadersDemoResult = {
+  requested_url: string;
+  final_url: string;
+  hop_count: number;
+  hops: HttpHeadersDemoHop[];
+  summary: HttpHeadersDemoSummary;
+};
+
+export type HttpHeadersDemoResponse = {
+  demo: true;
+  module: "http-headers";
+  remaining: number;
+  limits: {
+    max_runs_per_day: number;
+    max_urls_per_run: number;
+  };
+  result: HttpHeadersDemoResult;
+  upgrade: DemoUpgrade;
+};
+
+export type HttpHeadersDemoRunBody = {
+  url: string;
+};
+
+export type BacklinkDemoCheck = {
+  key: string;
+  label: string;
+  status: "ok" | "issue";
+};
+
+export type BacklinkDemoResult = {
+  donor_url: string;
+  target_link: string;
+  anchor: string;
+  check_nofollow: boolean;
+  check_noindex: boolean;
+  ok: boolean;
+  checks: BacklinkDemoCheck[];
+  issues_count: number;
+  summary: string;
+};
+
+export type BacklinkDemoResponse = {
+  demo: true;
+  module: "otslezhivanie-ssylok";
+  remaining: number;
+  limits: {
+    max_runs_per_day: number;
+    max_links_per_run: number;
+  };
+  result: BacklinkDemoResult;
+  upgrade: DemoUpgrade;
+};
+
+export type BacklinkDemoRunBody = {
+  donor: string;
+  link: string;
+  anchor: string;
+  check_nofollow?: boolean;
+  check_noindex?: boolean;
+};

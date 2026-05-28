@@ -1,0 +1,906 @@
+{
+  "crawledAt": "2026-05-27T19:16:21.384Z",
+  "projectId": "5374998",
+  "projects": [
+    {
+      "id": "5374998",
+      "name": "Ваши проекты",
+      "href": "https://topvisor.com/project/keywords/5374998"
+    }
+  ],
+  "visits": [
+    {
+      "id": 1,
+      "module": "account",
+      "requested": "projects/",
+      "resolved": "projects/",
+      "projectId": "5374998",
+      "title": "Ваши проекты",
+      "finalUrl": "https://topvisor.com/projects/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 2,
+      "module": "account",
+      "requested": "account/",
+      "resolved": "account/",
+      "projectId": "5374998",
+      "title": "Настройки аккаунта",
+      "finalUrl": "https://topvisor.com/account/#tabsView-account=settings",
+      "hash": "#tabsView-account=settings",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 3,
+      "module": "account",
+      "requested": "account/bank/",
+      "resolved": "account/bank/",
+      "projectId": "5374998",
+      "title": "Денежные средства пользователя",
+      "finalUrl": "https://topvisor.com/account/bank/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 4,
+      "module": "account",
+      "requested": "account/multi_action/",
+      "resolved": "account/multi_action/",
+      "projectId": "5374998",
+      "title": "Групповые действия",
+      "finalUrl": "https://topvisor.com/account/multi_action/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 1,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 5,
+      "module": "account",
+      "requested": "account/stats_account/",
+      "resolved": "account/stats_account/",
+      "projectId": "5374998",
+      "title": "",
+      "finalUrl": "https://topvisor.com/account/stats_account/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 6,
+      "module": "account",
+      "requested": "support/projects/archive",
+      "resolved": "support/projects/archive",
+      "projectId": "5374998",
+      "title": "Архив. Куда мог пропасть проект - Справка Топвизор",
+      "finalUrl": "https://topvisor.com/ru/support/projects/archive/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Архив. Куда мог пропасть проект",
+        "Как открыть Архивные проекты",
+        "Как восстановить проект из Архива"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 10,
+      "module": "project",
+      "requested": "project/keywords/{id}/",
+      "resolved": "project/keywords/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Семантическое ядро) #5374998",
+      "finalUrl": "https://topvisor.com/project/keywords/5374998/#&volumeType=6&priceType=P11",
+      "hash": "#&volumeType=6&priceType=P11",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 11,
+      "module": "project",
+      "requested": "project/dynamics/{id}/",
+      "resolved": "project/dynamics/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Динамика запросов проекта) #5374998",
+      "finalUrl": "https://topvisor.com/project/dynamics/5374998/#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionsIndexes=1&competitorsIds=&folderId=0&groupId=0&tags=&dynamic=&minMax=[]&onlyExistsFirstDate=0",
+      "hash": "#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionsIndexes=1&competitorsIds=&folderId=0&groupId=0&tags=&dynamic=&minMax=[]&onlyExistsFirstDate=0",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 5,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 12,
+      "module": "project",
+      "requested": "project/snapshots/{id}/",
+      "resolved": "project/snapshots/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Снимки выдачи) #5374998",
+      "finalUrl": "https://topvisor.com/project/snapshots/5374998/#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionIndex=1&folderId=0&groupId=0",
+      "hash": "#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionIndex=1&folderId=0&groupId=0",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 6,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 13,
+      "module": "project",
+      "requested": "project/competitors/{id}/",
+      "resolved": "project/competitors/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Мои конкуренты) #5374998",
+      "finalUrl": "https://topvisor.com/project/competitors/5374998/#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionIndex=1&folderId=0&groupId=0",
+      "hash": "#templateDateRange=&dates=&date1=2026-05-18&date2=2026-05-27&typeRange=2&typeRangeCompare=7&countDates=31&regionIndex=1&folderId=0&groupId=0",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 6,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 14,
+      "module": "project",
+      "requested": "project/ai-tracker/{id}/",
+      "resolved": "project/ai-tracker/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (AI-трекер) #5374998",
+      "finalUrl": "https://topvisor.com/project/ai-tracker/5374998/#aiTrackerStore={%22historyView%22:1,%22modelsKeys%22:[],%22folderId%22:0,%22groupId%22:0,%22sentiment%22:[],%22templateDateRange%22:%22%22,%22date1%22:%222026-05-18%22,%22date2%22:%222026-05-27%22,%22dates%22:[],%22typeRange%22:2,%22typeRangeCompare%22:7,%22countDates%22:31,%22tagsIds%22:[],%22dataSort%22:{}}",
+      "hash": "#aiTrackerStore={%22historyView%22:1,%22modelsKeys%22:[],%22folderId%22:0,%22groupId%22:0,%22sentiment%22:[],%22templateDateRange%22:%22%22,%22date1%22:%222026-05-18%22,%22date2%22:%222026-05-27%22,%22dates%22:[],%22typeRange%22:2,%22typeRangeCompare%22:7,%22countDates%22:31,%22tagsIds%22:[],%22dataSort%22:{}}",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 15,
+      "module": "project",
+      "requested": "project/analytics/{id}/",
+      "resolved": "project/analytics/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Аналитика проекта) #5374998",
+      "finalUrl": "https://topvisor.com/project/analytics/5374998/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 16,
+      "module": "project",
+      "requested": "project/broker/{id}/",
+      "resolved": "project/broker/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Контекстная реклама) #5374998",
+      "finalUrl": "https://topvisor.com/project/broker/5374998/direct/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 1,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 17,
+      "module": "project",
+      "requested": "project/broker/{id}/direct/",
+      "resolved": "project/broker/5374998/direct/",
+      "projectId": "5374998",
+      "title": "mail.ru (Контекстная реклама) #5374998",
+      "finalUrl": "https://topvisor.com/project/broker/5374998/direct/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 1,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 18,
+      "module": "project",
+      "requested": "project/audit/{id}/audit/",
+      "resolved": "project/audit/5374998/audit/",
+      "projectId": "5374998",
+      "title": "mail.ru (Аудит) #5374998",
+      "finalUrl": "https://topvisor.com/project/audit/5374998/audit/#audit2={%22checkId%22:0,%22viewName%22:%22new%22,%22viewTemplate%22:{%22pages%22:%22summary%22,%22links%22:%22links%22,%22images%22:%22images%22,%22js%22:%22js%22,%22css%22:%22css%22},%22viewSignalType%22:{},%22logHTTPCodesHundreds%22:[],%22summaryCheckState%22:%22all%22,%22summaryCheckType%22:[],%22linksExternal%22:%22%22}",
+      "hash": "#audit2={%22checkId%22:0,%22viewName%22:%22new%22,%22viewTemplate%22:{%22pages%22:%22summary%22,%22links%22:%22links%22,%22images%22:%22images%22,%22js%22:%22js%22,%22css%22:%22css%22},%22viewSignalType%22:{},%22logHTTPCodesHundreds%22:[],%22summaryCheckState%22:%22all%22,%22summaryCheckType%22:[],%22linksExternal%22:%22%22}",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 19,
+      "module": "project",
+      "requested": "project/audit/{id}/indexing/",
+      "resolved": "project/audit/5374998/indexing/",
+      "projectId": "5374998",
+      "title": "mail.ru (Аудит: Индексация) #5374998",
+      "finalUrl": "https://topvisor.com/project/audit/5374998/indexing/#indexing2Store={%22searchersKeys%22:[0],%22templateDateRange%22:%22%22,%22date1%22:%222026-05-18%22,%22date2%22:%222026-05-27%22,%22dates%22:[],%22typeRange%22:2,%22typeRangeCompare%22:7,%22countDates%22:31,%22tagsIds%22:[],%22dataSort%22:{},%22filterByAlert%22:%22%22}",
+      "hash": "#indexing2Store={%22searchersKeys%22:[0],%22templateDateRange%22:%22%22,%22date1%22:%222026-05-18%22,%22date2%22:%222026-05-27%22,%22dates%22:[],%22typeRange%22:2,%22typeRangeCompare%22:7,%22countDates%22:31,%22tagsIds%22:[],%22dataSort%22:{},%22filterByAlert%22:%22%22}",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 20,
+      "module": "project",
+      "requested": "project/audit/{id}/watcher/",
+      "resolved": "project/audit/5374998/watcher/",
+      "projectId": "5374998",
+      "title": "mail.ru (Аудит: Радар) #5374998",
+      "finalUrl": "https://topvisor.com/project/audit/5374998/watcher/#watcher2={%22checkId%22:0,%22viewName%22:%22new%22,%22fulltext%22:false,%22changed%22:%22all%22,%22tagsIds%22:[]}",
+      "hash": "#watcher2={%22checkId%22:0,%22viewName%22:%22new%22,%22fulltext%22:false,%22changed%22:%22all%22,%22tagsIds%22:[]}",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 21,
+      "module": "project",
+      "requested": "project/audit/{id}/sitemap/",
+      "resolved": "project/audit/5374998/sitemap/",
+      "projectId": "5374998",
+      "title": "mail.ru (Аудит: Карта сайта) #5374998",
+      "finalUrl": "https://topvisor.com/project/audit/5374998/sitemap/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 22,
+      "module": "project",
+      "requested": "project/settings/{id}/",
+      "resolved": "project/settings/5374998/",
+      "projectId": "5374998",
+      "title": "mail.ru (Настройки проекта) #5374998",
+      "finalUrl": "https://topvisor.com/project/settings/5374998/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 1,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 23,
+      "module": "project",
+      "requested": "project/settings/{id}/#to_project_interval_positions",
+      "resolved": "project/settings/5374998/#to_project_interval_positions",
+      "projectId": "5374998",
+      "title": "mail.ru (Настройки проекта) #5374998",
+      "finalUrl": "https://topvisor.com/project/settings/5374998/#to_project_interval_positions",
+      "hash": "#to_project_interval_positions",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Поиск",
+        "Реклама",
+        "Аудит"
+      ],
+      "tables": 1,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 30,
+      "module": "tools",
+      "requested": "ru/toolbox/",
+      "resolved": "ru/toolbox/",
+      "projectId": "5374998",
+      "title": "Все SEO-инструменты в 1 клик - Тулбокс Топвизор",
+      "finalUrl": "https://topvisor.com/ru/toolbox/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Тулбокс — все SEO-инструменты в 1 клик",
+        "Проверка частоты",
+        "Подбор слов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 31,
+      "module": "tools",
+      "requested": "ru/toolbox/volume/",
+      "resolved": "ru/toolbox/volume/",
+      "projectId": "5374998",
+      "title": "Проверить частоту запросов в Яндексе и Google — Тулбокс Топвизор",
+      "finalUrl": "https://topvisor.com/ru/toolbox/volume/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Проверка частоты запросов в 1 клик",
+        "Проверьте позиции сайта",
+        "Нужна помощь? Напишите нам ⚡️"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 32,
+      "module": "tools",
+      "requested": "ru/toolbox/keyword-research/",
+      "resolved": "ru/toolbox/keyword-research/",
+      "projectId": "5374998",
+      "title": "Подбор ключевых слов в Яндекс и Google — Тулбокс Топвизор",
+      "finalUrl": "https://topvisor.com/ru/toolbox/keyword-research/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Сбор семантического ядра",
+        "Разгруппируйте запросы в 1 клик",
+        "Нужна помощь? Напишите нам ⚡️"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 33,
+      "module": "tools",
+      "requested": "ru/toolbox/duplicates/",
+      "resolved": "ru/toolbox/duplicates/",
+      "projectId": "5374998",
+      "title": "Удаление неявных дублей запросов онлайн — Тулбокс Топвизор",
+      "finalUrl": "https://topvisor.com/ru/toolbox/duplicates/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Удаление неявных дублей бесплатно",
+        "Выявите дубли на основе популярности запросов",
+        "Нужна помощь? Напишите нам ⚡️"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 34,
+      "module": "tools",
+      "requested": "ru/toolbox/relevance/",
+      "resolved": "ru/toolbox/relevance/",
+      "projectId": "5374998",
+      "title": "Проверка релевантности страницы — Тулбокс Топвизор ",
+      "finalUrl": "https://topvisor.com/ru/toolbox/relevance/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Подбор релевантной страницы (Проверка релевантности)",
+        "Сделайте аудит целевой страницы",
+        "Нужна помощь? Напишите нам ⚡️"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 35,
+      "module": "tools",
+      "requested": "ru/toolbox/tasks/",
+      "resolved": "ru/toolbox/tasks/",
+      "projectId": "5374998",
+      "title": "Список задач - Тулбокс Топвизор",
+      "finalUrl": "https://topvisor.com/ru/toolbox/tasks/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Ваши задачи в Тулбоксе"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 36,
+      "module": "tools",
+      "requested": "ru/clustering/",
+      "resolved": "ru/clustering/",
+      "projectId": "5374998",
+      "title": "Кластеризация поисковых запросов - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/clustering/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Кластеризация запросов по ТОПу выдачи",
+        "Получите максимальный эффект от продвижения",
+        "Шаг 1"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 37,
+      "module": "tools",
+      "requested": "ru/keyword-research/",
+      "resolved": "ru/keyword-research/",
+      "projectId": "5374998",
+      "title": "Подбор слов. Ключевые слова для SEO и PPC - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/keyword-research/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Подбор ключевых слов",
+        "Собирайте семантику из трёх поисковиков сразу",
+        "Расширяйте ядро похожими запросами"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 38,
+      "module": "tools",
+      "requested": "ru/competitor-research/",
+      "resolved": "ru/competitor-research/",
+      "projectId": "5374998",
+      "title": "Анализ конкурентов сайта - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/competitor-research/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Найдите конкурентов и их запросы в поиске и рекламе",
+        "Найдите конкурентов и запросы, по которым они ранжируются",
+        "Расширьте семантику, чтобы получить максимум трафика"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 39,
+      "module": "tools",
+      "requested": "ru/keyword-suggestions/",
+      "resolved": "ru/keyword-suggestions/",
+      "projectId": "5374998",
+      "title": "Сбор поисковых подсказок - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/keyword-suggestions/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Собирайте поисковые подсказки",
+        "4 источника: Яндекс, Google, Bing, YouTube",
+        "Опережайте конкурентов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 40,
+      "module": "tools",
+      "requested": "ru/semantic-core/",
+      "resolved": "ru/semantic-core/",
+      "projectId": "5374998",
+      "title": "Сбор семантического ядра - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/semantic-core/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Сбор семантического ядра онлайн",
+        "Сбор семантического ядра",
+        "Проверка частоты"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 41,
+      "module": "tools",
+      "requested": "tpvsr/",
+      "resolved": "tpvsr/",
+      "projectId": "5374998",
+      "title": "Короткие ссылки: сокращай, делись, отслеживай - Топвизор",
+      "finalUrl": "https://topvisor.com/tpvsr/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 42,
+      "module": "tools",
+      "requested": "ru/updates/",
+      "resolved": "ru/updates/",
+      "projectId": "5374998",
+      "title": "Апдейты Яндекса и Google — Апометр Топвизор",
+      "finalUrl": "https://topvisor.com/ru/updates/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Следите за новичками и аутсайдерами в ТОПе"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 43,
+      "module": "tools",
+      "requested": "ru/bid-manager/",
+      "resolved": "ru/bid-manager/",
+      "projectId": "5374998",
+      "title": "Управление ставками в системе Я.Директ - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/bid-manager/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Бид-менеджер для Яндекс Директа",
+        "Забудьте о ручном мониторинге ставок",
+        "Приводите пользователей на сайт по оптимальной цене"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 44,
+      "module": "tools",
+      "requested": "volume/",
+      "resolved": "volume/",
+      "projectId": "5374998",
+      "title": "Топвизор - Страница не найдена",
+      "finalUrl": "https://topvisor.com/volume/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "404",
+        "Страница не найдена"
+      ],
+      "tables": 0,
+      "is404": true,
+      "isLogin": false,
+      "status": "404"
+    },
+    {
+      "id": 45,
+      "module": "tools",
+      "requested": "indexed/",
+      "resolved": "indexed/",
+      "projectId": "5374998",
+      "title": "Топвизор - Страница не найдена",
+      "finalUrl": "https://topvisor.com/indexed/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "404",
+        "Страница не найдена"
+      ],
+      "tables": 0,
+      "is404": true,
+      "isLogin": false,
+      "status": "404"
+    },
+    {
+      "id": 46,
+      "module": "tools",
+      "requested": "magnet/",
+      "resolved": "magnet/",
+      "projectId": "5374998",
+      "title": "Топвизор - Страница не найдена",
+      "finalUrl": "https://topvisor.com/magnet/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "404",
+        "Страница не найдена"
+      ],
+      "tables": 0,
+      "is404": true,
+      "isLogin": false,
+      "status": "404"
+    },
+    {
+      "id": 47,
+      "module": "tools",
+      "requested": "sitemap/",
+      "resolved": "sitemap/",
+      "projectId": "5374998",
+      "title": "Топвизор - Страница не найдена",
+      "finalUrl": "https://topvisor.com/sitemap/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "404",
+        "Страница не найдена"
+      ],
+      "tables": 0,
+      "is404": true,
+      "isLogin": false,
+      "status": "404"
+    },
+    {
+      "id": 50,
+      "module": "marketing",
+      "requested": "ru/rank-tracker/",
+      "resolved": "ru/rank-tracker/",
+      "projectId": "5374998",
+      "title": "Проверка позиций сайта в поисковиках - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/rank-tracker/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Точная проверка позиций в Яндексе и Google",
+        "7 поисковых систем",
+        "Запускайте проверку в любом регионе на любом языке"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 51,
+      "module": "marketing",
+      "requested": "ru/snapshots/",
+      "resolved": "ru/snapshots/",
+      "projectId": "5374998",
+      "title": "Сбор и анализ ТОПа сайтов - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/snapshots/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Сбор и анализ ТОПа сайтов",
+        "Один Снимок — тысячи возможностей для детальной аналитик",
+        "Оценивайте, насколько устойчивы позиции конкурентов в нише"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 52,
+      "module": "marketing",
+      "requested": "ru/ai-tracker/",
+      "resolved": "ru/ai-tracker/",
+      "projectId": "5374998",
+      "title": "Проверьте упоминания бренда в нейросетях и ИИ-ответах — AI-трекер Топвизор",
+      "finalUrl": "https://topvisor.com/ru/ai-tracker/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Проверьте упоминания сайта и бренда в нейросетях",
+        "Узнайте, участвует ли ваш бренд в новом этапе воронки или остается позади",
+        "SEO‑специалистам и digital‑агентствам"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 53,
+      "module": "marketing",
+      "requested": "website-auditor/",
+      "resolved": "website-auditor/",
+      "projectId": "5374998",
+      "title": "Технический анализ сайта, 80+ сигналов - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/website-auditor/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Подробный технический анализ сайта в один клик",
+        "Сайт — ваш, мощности — наши",
+        "Безлимит на URL для проверки и выгрузку данных"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 54,
+      "module": "marketing",
+      "requested": "watcher/",
+      "resolved": "watcher/",
+      "projectId": "5374998",
+      "title": "Мониторинг изменений на страницах сайта - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/watcher/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Автоматическое отслеживание изменений на сайтах",
+        "Отслеживайте состояние своего сайта",
+        "Реагируйте на изменения мгновенно"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    },
+    {
+      "id": 55,
+      "module": "marketing",
+      "requested": "pricing/",
+      "resolved": "pricing/",
+      "projectId": "5374998",
+      "title": "Инструменты и цены - Топвизор",
+      "finalUrl": "https://topvisor.com/ru/pricing/",
+      "hash": "",
+      "headings": [
+        "Настройка столбцов",
+        "Выбор регионов",
+        "Стоимость инструментов в Топвизоре. Скидки до 30%",
+        "Лучший сервис для измерения позиций",
+        "ТОП‑3 лучших SEO‑сервисов"
+      ],
+      "tables": 0,
+      "is404": false,
+      "isLogin": false,
+      "status": "ok"
+    }
+  ]
+}

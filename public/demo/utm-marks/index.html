@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор UTM — демо</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/demo/utm-marks/style.css">
+  <link rel="stylesheet" href="/demo/utm-marks/cabinet-utm-marks.css">
+  <link rel="stylesheet" href="/demo/utm-marks/demo-embed.css">
+  <style>
+    html, body { margin: 0; padding: 0; background: #fff; }
+    body { padding: 0.75rem 1rem 1.25rem; box-sizing: border-box; }
+    .cabinet-utm-page .urlBuilder_form { max-width: 100%; }
+  </style>
+</head>
+<body>
+<div class="cabinet-utm-page">
+        <div class="urlBuilder">
+            <div class="urlBuilder_form">
+                <div class="row g-3 align-items-start">
+                    <div class="col-md-8">
+                        <div class="urlBuilder_step" data-step="1">Шаг 1. Целевая страница</div>
+                        <div class="urlBuilder_el urlBuilder_el-url">
+                            <div class="urlBuilder_el_label">
+                                Введите адрес страницы:
+                                <span class="urlBuilder_toogleUrls">Несколько URL-адресов</span>
+                            </div>
+                            <div class="urlBuilder_el_input">
+                                <input id="urlBuilderUrl" type="text"></div>
+                            <div class="urlBuilder_el_tip">Пример: https://example.com/landing/</div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_el-urls hide">
+                            <div class="urlBuilder_el_label">
+                                Введите адреса страниц:
+                                <span class="urlBuilder_toogleUrls">Один URL-адрес</span>
+                            </div>
+                            <div class="urlBuilder_el_input">
+                                <textarea id="urlBuilderUrls"></textarea>
+                            </div>
+                            <div class="urlBuilder_el_tip">
+                                Пример: https://prime-ltd.su/nashi-servisyi/
+                                По одному на каждую строку.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="urlBuilder_tpl">
+                            <div class="urlBuilder_tpl_title">Шаблон:</div>
+                            <div class="urlBuilder_tpl_items">
+                                <span class="active click_tracking" data-id="custom" data-click="Вручную">Вручную</span>
+                                <span data-id="direct" class="click_tracking" data-click="Yandex_Direct">Yandex.Direct</span>
+                                <span data-id="adwords" class="click_tracking" data-click="Google AdWords">Google AdWords</span>
+                                <span data-id="vk" class="click_tracking" data-click="VK targeting">VK targeting</span>
+                                <span data-id="mailru" class="click_tracking" data-click="myTarget">myTarget</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="urlBuilder_step" data-step="2">Шаг 2. Основные параметры</div>
+
+                <div class="urlBuilder_el">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="urlBuilder_el_label">
+                                Источник кампании
+                                <i>utm_source</i>
+                                <b class="urlBuilder_el_helpToggle"
+                                   data-toggle-label="Скрыть описание">Показать описание</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_el_input">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <input type="text" id="urlBuilderUtmSource">
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="urlBuilder_el_input_items">
+                                    <span>yandex</span>
+                                    <span>google</span>
+                                    <span>vk</span>
+                                    <span>target-mail</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_help">
+                        <p>
+                            Метка <b
+                                class="urlBuilder_help_term">utm_source</b> указывает на источник рекламной кампании.
+                            <br>
+                            Как правило, используются следующие варианты:
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">yandex</b> — Yandex.Direct
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">google</b> — Google AdWords
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">vk</b> — VK targeting
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">target-mail</b> — myTarget
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="urlBuilder_el">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="urlBuilder_el_label">
+                                Канал кампании
+                                <i>utm_medium</i>
+                                <b class="urlBuilder_el_helpToggle"
+                                   data-toggle-label="Скрыть описание">Показать описание</b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="urlBuilder_el_input">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" id="urlBuilderUtmMedium">
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="urlBuilder_el_input_items">
+                                    <span>cpc</span>
+                                    <span>cpv</span>
+                                    <span>cpm</span>
+                                    <span>email</span>
+                                    <span>banner</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="urlBuilder_help">
+                        <p>
+                            Метка <b
+                                class="urlBuilder_help_term">utm_medium</b> обозначает используемый канал рекламной кампании (маркетинговая среда, канал трафика или взаимодействия с клиентами).
+                            <br>
+                            Как правило, используются следующие варианты:
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">cpc</b> — Реклама с оплатой за клик
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">cpv</b> — Реклама с оплатой за посещение
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">cpm</b> — Реклама с оплатой за просмотр
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">email</b> — Список рассылки
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">banner</b> — Баннер на сайте
+                        </p>
+                    </div>
+                </div>
+
+                <div class="urlBuilder_el">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="urlBuilder_el_label">
+                                Название кампании
+                                <i>utm_campaign</i>
+                                <b class="urlBuilder_el_helpToggle"
+                                   data-toggle-label="Hide description">Показать описание</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_el_input">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" id="urlBuilderUtmCampaign">
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="urlBuilder_el_input_items">
+                                    <span>{campaign_id}</span>
+                                    <span>{campaignid}</span>
+                                    <span>{{campaign_id}}</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_help">
+                        <p>
+                            Метка <b
+                                class="urlBuilder_help_term">utm_campaign</b> обозначает конкретную рекламную кампанию (например, рекламу определенного продукта или специальную рекламную акцию). Вы можете ввести произвольное значение или использовать динамические параметры соответствующей рекламной системы:
+                            <br>
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">{campaign_id}</b>
+                            — Идентификатор рекламной кампании в Яндекс.Директе и таргетинг ВКонтакте
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">{campaignid}</b>
+                            — Идентификатор рекламной кампании в Google Adwords
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">{{campaign_id}}</b>
+                            — Идентификатор рекламной кампании в myTarget
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="urlBuilder_step" data-step="3">Шаг 3. Дополнительные параметры</div>
+
+                <div class="urlBuilder_el">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="urlBuilder_el_label">
+                                Содержание кампании
+                                <i>utm_content</i>
+                                <b class="urlBuilder_el_helpToggle"
+                                   data-toggle-label="Скрыть описание">Показать описание</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_el_input">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <input type="text" id="urlBuilderUtmContent">
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="urlBuilder_el_input_items">
+                                    <span>{ad_id}</span>
+                                    <span>{creative}</span>
+                                    <span>{{banner_id}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="urlBuilder_help">
+                        <p>
+                            Метка <b
+                                class="urlBuilder_help_term">utm_content</b> содержит дополнительную информацию. Может использоваться для A / B тестирования или для таргетированной рекламы. Вы можете ввести произвольное значение или использовать динамические параметры соответствующей рекламной системы:
+                        </p>
+                        <div class="urlBuilder_help_tabs">
+                            <div class="urlBuilder_help_tab active" data-tab="yandex">Yandex.Direct</div>
+                            <div class="urlBuilder_help_tab" data-tab="google">Google AdWords</div>
+                            <div class="urlBuilder_help_tab" data-tab="vk">VK targeting</div>
+                            <div class="urlBuilder_help_tab" data-tab="targetmailru">myTarget</div>
+                        </div>
+                        <div class="urlBuilder_help_tabBody urlBuilder_help_tabBody-yandex">
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ad_id}</b> — Идентификатор объявления
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{addphrases}</b>
+                                — Было ли это впечатление вызвано автоматически добавленными фразами</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{addphrasestext}</b>
+                                — Автоматически добавляемый текст фразы</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{campaign_type}</b>
+                                — Тип кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{campaign_id}</b>
+                                — Идентификатор рекламной кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{device_type}</b>
+                                — Тип устройства, на котором был сделан оттиск</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{gbid}</b>
+                                — Идентификатор группы</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{keyword}</b>
+                                — Ключевая фраза, по которой было показано объявление</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{phrase_id}</b>
+                                — Идентификатор ключевой фразы для текстово-графической рекламы или рекламы в мобильных приложениях</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{retargeting_id}</b>
+                                — Идентификатор условия ретаргетинга</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{adtarget_name}</b>
+                                — Условие таргетинга, при котором было показано динамическое объявление</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{adtarget_id}</b>
+                                — Идентификатор условия динамического таргетинга рекламы</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{position}</b>
+                                — Точное положение объявления в блоке</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{position_type}</b>
+                                — Тип блокировки, если показ произошел на странице с результатами поиска Яндекса
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{source}</b>
+                                — Место показа</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{source_type}</b>
+                                — Тип сайта, на котором было показано объявление</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{region_name}</b>
+                                — Регион, в котором было показано объявление</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{region_id}</b>
+                                — Идентификатор региона, в котором было показано объявление</p>
+                        </div>
+                        <div class="urlBuilder_help_tabBody urlBuilder_help_tabBody-google hide">
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{campaignid}</b>
+                                — Идентификатор кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{adgroupid}</b>
+                                — Идентификатор группы объявлений</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{feeditemid}</b>
+                                — Идентификатор расширения, на которое пользователь нажал</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{targetid}</b>
+                                — Идентификатор ключевого слова (kwd), объявления с динамическим поиском (dsa), целевого списка ремаркетинга (aud) или сегментации продукта (plan), который запускает показ рекламы, по которой пользователь нажал
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{loc_interest_ms}</b>
+                                — Идентификатор местоположения, указанный в поисковом запросе пользователя</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{loc_physical_ms}</b>
+                                — Идентификатор географического местоположения, из которого был получен клик</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{matchtype}</b>
+                                — Соответствующий тип ключевого слова, по которому показывается объявление</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{network}</b>
+                                — Рекламная сеть, из которой был получен клик</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{device}</b>
+                                — Тип устройства, с которого был получен щелчок</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{devicemodel}</b>
+                                — Модель телефона или планшета, с которого был получен щелчок</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ifmobile:mobile}</b>
+                                — Щелчок, полученный с мобильного телефона</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ifnotmobile:notmobile}</b>
+                                — Щелчок, полученный с компьютера или планшета</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ifsearch:search}</b>
+                                — Нажмите в поисковой сети Google</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ifcontent:content}</b>
+                                — Нажмите из контекстно-медийной сети Google</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{creative}</b>
+                                — Уникальный идентификатор объявления</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{keyword}</b>
+                                — Ключевое слово, по которому ваше объявление показывается в поисковой сети, или ближайшее ключевое слово при показе в контекстно-медийной сети
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{placement}</b>
+                                — Сайт, на который кликнули по вашему объявлению</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{target}</b>
+                                — Категория размещения</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{param1}</b>
+                                — Параметр объявления 1</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{param2}</b>
+                                — Параметр объявления 2</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{random}</b>
+                                — Случайное число, сгенерированное сервером Google (64-разрядное целое число без знака)</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{aceid}</b>
+                                — Идентификатор контрольной или экспериментальной группы, используемый в экспериментах AdWords</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{adposition}</b>
+                                — Расположение вашего объявления на странице</p>
+                        </div>
+                        <div class="urlBuilder_help_tabBody urlBuilder_help_tabBody-vk hide">
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{campaign_id}</b>
+                                — Идентификатор рекламной кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{ad_id}</b> — Идентификатор объявления
+                            </p>
+                        </div>
+                        <div class="urlBuilder_help_tabBody urlBuilder_help_tabBody-targetmailru hide">
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{advertiser_id}}</b>
+                                — Идентификатор рекламодателя</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{campaign_id}}</b>
+                                — Идентификатор рекламной кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{campaign_name}}</b>
+                                — Название рекламной кампании</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{banner_id}}</b>
+                                — Идентификатор баннера</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{geo}}</b>
+                                — Идентификатор региона по геотереву моей цели, из которого был выполнен переход
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{gender}}</b>
+                                — Пол пользователя, совершившего переход</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{age}}</b>
+                                — Возраст пользователя, совершившего переход</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{random}}</b>
+                                — Случайное число</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{impression_weekday}}</b>
+                                — Отправляет день недели, в который был показан баннер</p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{impression_hour}}</b>
+                                — Отправляет час, в который состоялось шоу по московскому времени в 24-часовом формате
+                            </p>
+                            <p><b class="urlBuilder_help_term active" data-add-term="1">{{user_timezone}}</b>
+                                — Отправляет часовой пояс пользователя, которому был сделан показ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="urlBuilder_el">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="urlBuilder_el_label">
+                                Ключевое слово кампании
+                                <i>utm_term</i>
+                                <b class="urlBuilder_el_helpToggle"
+                                   data-toggle-label="Скрыть">Показать описание</b>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="urlBuilder_el_input">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" id="urlBuilderUtmTerm">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="urlBuilder_el_input_items">
+                                    <span>{keyword}</span>
+                                    <span>{{geo}}.{{gender}}.{{age}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="urlBuilder_help">
+                        <p>
+                            Метка <b
+                                class="urlBuilder_help_term">utm_term</b> содержит конкретное ключевое слово рекламы или дату рассылки. Вы можете ввести произвольное значение или использовать динамические параметры соответствующей рекламной системы.
+                        </p>
+                        <p>
+                            <b class="urlBuilder_help_term active">{keyword}</b>
+                            — Ключевая фраза, по которой объявление было показано в Яндекс.Директе и Google AdWords
+                        </p>
+                        <p>
+                            В myTarget вы можете использовать несколько параметров, например, для передачи региона, пола и возраста посетителя вы можете использовать пакет
+                            <b class="urlBuilder_help_term active">{{geo}}.{{gender}}.{{age}}</b>.
+                            Все динамические параметры моей цели перечислены ниже:
+                        </p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{advertiser_id}}</b>
+                            — Идентификатор рекламодателя</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{campaign_id}}</b>
+                            — Идентификатор рекламной кампании</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{campaign_name}}</b>
+                            — Название рекламной кампании</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{banner_id}}</b>
+                            — Идентификатор баннера</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{geo}}</b>
+                            — Идентификатор региона по геотереву моей цели, из которого был выполнен переход</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{gender}}</b>
+                            — Пол пользователя, совершившего переход</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{age}}</b>
+                            — Возраст пользователя, совершившего переход</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{random}}</b>
+                            — Случайное число</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{impression_weekday}}</b>
+                            — Отправляет день недели, в который был показан баннер</p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{impression_hour}}</b>
+                            — Отправляет час, в который состоялось шоу по московскому времени в 24-часовом формате
+                        </p>
+                        <p><b class="urlBuilder_help_term active" data-add-term="1">{{user_timezone}}</b>
+                            — Отправляет часовой пояс пользователя, которому был сделан показ</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+
+                        <div class="urlBuilder_el">
+                            <span class="urlBuilder_el_check click_tracking" data-click="add openstat" id="urlBuilderOpenstat">
+                                <i class="fa fa-square-o"></i>
+                                <i class="fa fa-square"></i>
+                                Добавить ярлык Openstat
+                            </span>
+                            <b class="urlBuilder_el_helpToggle"
+                               data-toggle-label="Скрыть подсказку">Что это такое?</b>
+                            <div class="urlBuilder_help">
+                                <p>
+                                    Метка <b
+                                        class="urlBuilder_help_term">_openstat</b> представляет собой закодированную строку, содержащую значение меток
+                                    <b class="urlBuilder_help_term">utm_source</b>,
+                                    <b class="urlBuilder_help_term">utm_campaign</b>
+                                    и
+                                    <b class="urlBuilder_help_term">utm_content</b>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_el-paramsDirect">
+                            <span class="urlBuilder_el_check click_tracking" data-click="Add dynamic parameters YandexDirect" id="urlBuilderParamsDirect">
+                                <i class="fa fa-square-o"></i>
+                                <i class="fa fa-square"></i>
+                                Добавить динамические параметры Яндекс.Директа
+                            </span>
+                            <div class="urlBuilder_el_params hide">
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_ad_id"
+                                          data-param-value="{ad_id}">
+                                        <i class="fa fa-square-o"></i>
+                                        <i class="fa fa-square"></i>
+                                        <b>{ad_id}</b><p>Идентификатор объявления</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_addphrases"
+                                          data-param-value="{addphrases}">
+                                        <i class="fa fa-square-o"></i>
+                                        <i class="fa fa-square"></i>
+                                        <b>{addphrases}</b>
+                                        <p>Было ли это впечатление вызвано автоматически добавленными фразами</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_addphrasestext"
+                                          data-param-value="{addphrasestext}">
+                                        <i class="fa fa-square-o"></i>
+                                        <i class="fa fa-square"></i>
+                                        <b>{addphrasestext}</b>
+                                        <p>Автоматически добавляемый текст фразы</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_campaign_type"
+                                          data-param-value="{campaign_type}"><i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i>
+                                        <b>{campaign_type}</b><p>Тип кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_campaign_id"
+                                          data-param-value="{campaign_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{campaign_id}</b>
+                                        <p>Идентификатор рекламной кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_device_type"
+                                          data-param-value="{device_type}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{device_type}</b>
+                                        <p>Тип устройства, на котором был сделан оттиск</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_gbid"
+                                          data-param-value="{gbid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{gbid}</b>
+                                        <p>Идентификатор группы</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_keyword"
+                                          data-param-value="{keyword}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{keyword}</b>
+                                        <p>Ключевая фраза, по которой было показано объявление</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_phrase_id"
+                                          data-param-value="{phrase_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{phrase_id}</b>
+                                        <p>Идентификатор ключевой фразы для текстово-графической рекламы или рекламы в мобильных приложениях</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_retargeting_id"
+                                          data-param-value="{retargeting_id}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{retargeting_id}</b>
+                                        <p>Идентификатор условия ретаргетинга</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_adtarget_name"
+                                          data-param-value="{adtarget_name}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{adtarget_name}</b>
+                                        <p>Условие таргетинга, при котором было показано динамическое объявление</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_adtarget_id"
+                                          data-param-value="{adtarget_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{adtarget_id}</b>
+                                        <p>Идентификатор условия динамического таргетинга рекламы</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_position"
+                                          data-param-value="{position}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{position}</b>
+                                        <p>Точное положение объявления в блоке</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_position_type"
+                                          data-param-value="{position_type}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{position_type}</b>
+                                        <p>Тип блокировки, если показ произошел на странице с результатами поиска Яндекса</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_source"
+                                          data-param-value="{source}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{source}</b>
+                                        <p>Место показа</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_source_type"
+                                          data-param-value="{source_type}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{source_type}</b>
+                                        <p>Тип сайта, на котором было показано объявление</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_region_name"
+                                          data-param-value="{region_name}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{region_name}</b>
+                                        <p>Регион, в котором было показано объявление</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="yd_region_id"
+                                          data-param-value="{region_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{region_id}</b>
+                                        <p>Идентификатор региона, в котором было показано объявление</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_el-paramsAdwords">
+                            <span class="urlBuilder_el_check click_tracking" data-click="Add dynamic Google AdWords parameters" id="urlBuilderParamsAdwords">
+                                <i class="fa fa-square-o"></i>
+                                <i class="fa fa-square"></i>
+                                Добавление динамических параметров Google AdWords
+                            </span>
+                            <div class="urlBuilder_el_params hide">
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_campaignid"
+                                          data-param-value="{campaignid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{campaignid}</b>
+                                        <p>Идентификатор кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_adgroupid"
+                                          data-param-value="{adgroupid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{adgroupid}</b>
+                                        <p>Идентификатор группы объявлений</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_feeditemid"
+                                          data-param-value="{feeditemid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{feeditemid}</b>
+                                        <p>Идентификатор расширения, на которое пользователь нажал</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_targetid"
+                                          data-param-value="{targetid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{targetid}</b>
+                                        <p>Идентификатор ключевого слова (kwd), объявления с динамическим поиском (dsa), целевого списка ремаркетинга (aud) или сегментации продукта (plan), который запускает показ рекламы, по которой пользователь нажал</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_loc_interest_ms"
+                                          data-param-value="{loc_interest_ms}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{loc_interest_ms}</b>
+                                        <p>Идентификатор местоположения, указанный в поисковом запросе пользователя</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_loc_physical_ms"
+                                          data-param-value="{loc_physical_ms}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{loc_physical_ms}</b>
+                                        <p>Идентификатор географического местоположения, из которого был получен клик</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_matchtype"
+                                          data-param-value="{matchtype}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{matchtype}</b>
+                                        <p>Соответствующий тип ключевого слова, по которому показывается объявление</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_network"
+                                          data-param-value="{network}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{network}</b>
+                                        <p>Рекламная сеть, из которой был получен клик</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_device"
+                                          data-param-value="{device}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{device}</b>
+                                        <p>Тип устройства, с которого был получен щелчок</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_devicemodel"
+                                          data-param-value="{devicemodel}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{devicemodel}</b>
+                                        <p>Модель телефона или планшета, с которого был получен щелчок</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_ifmobile:mobile"
+                                          data-param-value="{ifmobile:mobile}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{ifmobile:mobile}</b>
+                                        <p>Щелчок, полученный с мобильного телефона</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_ifnotmobile:notmobile"
+                                          data-param-value="{ifnotmobile:notmobile}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{ifnotmobile:notmobile}</b>
+                                        <p>Щелчок, полученный с компьютера или планшета</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_ifsearch:search"
+                                          data-param-value="{ifsearch:search}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{ifsearch:search}</b>
+                                        <p>Нажмите в поисковой сети Google</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_ifcontent:content"
+                                          data-param-value="{ifcontent:content}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{ifcontent:content}</b>
+                                        <p>Нажмите из контекстно-медийной сети Google</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_creative"
+                                          data-param-value="{creative}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{creative}</b>
+                                        <p>Уникальный идентификатор объявления</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_keyword"
+                                          data-param-value="{keyword}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{keyword}</b>
+                                        <p>Ключевое слово, по которому ваше объявление показывается в поисковой сети, или ближайшее ключевое слово при показе в контекстно-медийной сети</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_placement"
+                                          data-param-value="{placement}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{placement}</b>
+                                        <p>Сайт, на который кликнули по вашему объявлению</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_target"
+                                          data-param-value="{target}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{target}</b>
+                                        <p>Категория размещения</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_param1"
+                                          data-param-value="{param1}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{param1}</b>
+                                        <p>Параметр объявления 1</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_param2"
+                                          data-param-value="{param2}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{param2}</b>
+                                        <p>Параметр объявления 2</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_random"
+                                          data-param-value="{random}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{random}</b>
+                                        <p>Случайное число, сгенерированное сервером Google (64-разрядное целое число без знака)</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_aceid"
+                                          data-param-value="{aceid}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{aceid}</b>
+                                        <p>Идентификатор контрольной или экспериментальной группы, используемый в экспериментах AdWords</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="ga_adposition"
+                                          data-param-value="{adposition}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{adposition}</b>
+                                        <p>Расположение вашего объявления на странице</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_el-paramsVK click_tracking" data-click="Add dynamic targeting options to VKontakte">
+                            <span class="urlBuilder_el_check" id="urlBuilderParamsVK">
+                                <i class="fa fa-square-o"></i>
+                                <i class="fa fa-square"></i>
+                                Добавить параметры динамического таргетинга на ВКонтакте
+                            </span>
+                            <div class="urlBuilder_el_params hide">
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="vk_campaign_id"
+                                          data-param-value="{campaign_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{campaign_id}</b>
+                                        <p>Идентификатор рекламной кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="vk_ad_id"
+                                          data-param-value="{ad_id}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{ad_id}</b>
+                                        <p>Идентификатор объявления</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_el-paramsMailru click_tracking" data-click="Add dynamic parameters to myTarget">
+                            <span class="urlBuilder_el_check" id="urlBuilderParamsMailru">
+                                <i class="fa fa-square-o"></i>
+                                <i class="fa fa-square"></i>
+                                Добавьте динамические параметры в myTarget
+                            </span>
+                            <div class="urlBuilder_el_params hide">
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_advertiser_id"
+                                          data-param-value="{{advertiser_id}}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{{advertiser_id}}</b>
+                                        <p>Идентификатор рекламодателя</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_campaign_id"
+                                          data-param-value="{{campaign_id}}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{{campaign_id}}</b>
+                                        <p>Идентификатор рекламной кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_campaign_name"
+                                          data-param-value="{{campaign_name}}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{{campaign_name}}</b>
+                                        <p>Название рекламной кампании</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_banner_id"
+                                          data-param-value="{{banner_id}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{banner_id}}</b>
+                                        <p>Идентификатор баннера</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_geo"
+                                          data-param-value="{{geo}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{geo}}</b>
+                                        <p>Идентификатор региона по геотереву моей цели, из которого был выполнен переход</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_gender"
+                                          data-param-value="{{gender}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{gender}}</b>
+                                        <p>Пол пользователя, совершившего переход</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_age"
+                                          data-param-value="{{age}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{age}}</b>
+                                        <p>Возраст пользователя, совершившего переход</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_random"
+                                          data-param-value="{{random}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{random}}</b>
+                                        <p>Случайное число</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_impression_weekday"
+                                          data-param-value="{{impression_weekday}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{impression_weekday}}</b>
+                                        <p>Отправляет день недели, в который был показан баннер</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param"><span class="urlBuilder_el_check"
+                                                                       data-param-key="mt_impression_hour"
+                                                                       data-param-value="{{impression_hour}}">
+                                        <i class="fa fa-square-o"></i><i class="fa fa-square"></i> <b>{{impression_hour}}</b>
+                                        <p>Отправляет час, в который состоялось шоу по московскому времени в 24-часовом формате</p>
+                                    </span>
+                                </div>
+                                <div class="urlBuilder_el_param">
+                                    <span class="urlBuilder_el_check" data-param-key="mt_user_timezone"
+                                          data-param-value="{{user_timezone}}">
+                                        <i class="fa fa-square-o"></i><i
+                                            class="fa fa-square"></i> <b>{{user_timezone}}</b>
+                                        <p>Отправляет часовой пояс пользователя, которому был сделан показ</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="urlBuilder_el urlBuilder_actions">
+                            <button type="button" class="btn btn-primary urlBuilder_go">
+                                <i class="bi bi-link-45deg me-1" aria-hidden="true"></i>
+                                Создать URL-адрес
+                            </button>
+                            <div class="urlBuilder_error" role="alert"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hide">
+                    <div class="urlBuilder_result">
+                        <div class="urlBuilder_result_title">Готово! Можно использовать:</div>
+                        <div class="urlBuilder_result_body">
+                            <input type="text" readonly="true">
+                            <textarea readonly="true" wrap="off"></textarea>
+                        </div>
+                        <div class="urlBuilder_result_buttons">
+                            <button type="button" class="btn btn-primary swpmodal-close">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+    </div>
+<script src="/demo/utm-marks/jquery.min.js"></script>
+<script src="/demo/utm-marks/url-builder.min.js"></script>
+</body>
+</html>

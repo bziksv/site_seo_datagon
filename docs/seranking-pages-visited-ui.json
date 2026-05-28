@@ -1,0 +1,303 @@
+{
+  "crawledAt": "2026-05-27T18:19:12.095Z",
+  "count": 26,
+  "results": [
+    {
+      "pass": "audit-menu",
+      "action": "menu: Обзор",
+      "requested": "admin.audit.site_id-4150951.html#/",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "audit-menu",
+      "action": "menu: Отчет об ошибках",
+      "requested": "admin.audit.site_id-4150951.html#/report",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "audit-menu",
+      "action": "menu: Просканированные страницы",
+      "requested": "admin.audit.site_id-4150951.html#/pages",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "audit-menu",
+      "action": "menu: Найденные ресурсы",
+      "requested": "admin.audit.site_id-4150951.html#/resources",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "audit-menu",
+      "action": "menu: Найденные ссылки",
+      "requested": "admin.audit.site_id-4150951.html#/links",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "audit-menu",
+      "action": "menu: Сравнение отчетов",
+      "requested": "admin.audit.site_id-4150951.html#/compare-crawls",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.audit.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: Бэклинки",
+      "requested": "admin.backlink.site_id-4150951.html/",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: Домены",
+      "requested": "admin.backlink.site_id-4150951.html/domains",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: Анкоры",
+      "requested": "admin.backlink.site_id-4150951.html/anchors",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: Страницы",
+      "requested": "admin.backlink.site_id-4150951.html/pages",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: IP-адреса",
+      "requested": "admin.backlink.site_id-4150951.html/ips",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "backlink-tabs",
+      "action": "tab: Disavow",
+      "requested": "admin.backlink.site_id-4150951.html/disavow",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink.site_id-4150951.html/",
+      "hash": "",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "analytics-menu",
+      "action": "menu: Трафик",
+      "requested": "admin.analytics.site_id-4150951.html#/traffic/channels",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.analytics.site_id-4150951.html#/start",
+      "hash": "#/start",
+      "headings": [
+        "Сервисы статистики и аналитики"
+      ],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "analytics-menu",
+      "action": "menu: Сниппеты",
+      "requested": "admin.analytics.site_id-4150951.html#/snippets",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.analytics.site_id-4150951.html#/snippets?engine=1900819&keyword_se_id=291042817",
+      "hash": "#/snippets?engine=1900819&keyword_se_id=291042817",
+      "headings": [
+        "Сниппеты"
+      ],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "analytics-menu",
+      "action": "menu: Данные Google Search Console",
+      "requested": "admin.analytics.site_id-4150951.html#/gsc",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.analytics.site_id-4150951.html#/gsc?engine=1900819",
+      "hash": "#/gsc?engine=1900819",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "analytics-menu",
+      "action": "menu: SEO-потенциал",
+      "requested": "admin.analytics.site_id-4150951.html#/seo-potential",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.analytics.site_id-4150951.html#/seo-potential",
+      "hash": "#/seo-potential",
+      "headings": [
+        "SEO-потенциал"
+      ],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "rankings-menu",
+      "action": "menu: Обзор",
+      "requested": "admin.site.rankings.site_id-4150951.html#/overview",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-4150951.html#/overview",
+      "hash": "#/overview",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "rankings-menu",
+      "action": "menu: Подробный вид",
+      "requested": "admin.site.rankings.site_id-4150951.html#/detailed",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-4150951.html#/detailed?",
+      "hash": "#/detailed?",
+      "headings": [
+        "Google Ukraine Киев, город Киев, Украина"
+      ],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "rankings-menu",
+      "action": "menu: Исторические данные",
+      "requested": "admin.site.rankings.site_id-4150951.html#/history",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.site.rankings.site_id-4150951.html#/history?columns_group_mode=day&page=1",
+      "hash": "#/history?columns_group_mode=day&page=1",
+      "headings": [
+        "Google Ukraine Киев, город Киев, Украина",
+        "Варианты отображения данных"
+      ],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "llm-menu",
+      "action": "menu: Rankings",
+      "requested": "admin.llm_rankings.site_id-4150951.html#/rankings",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.llm_rankings.site_id-4150951.html?lang=ru#/rankings",
+      "hash": "#/rankings",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "llm-menu",
+      "action": "menu: Competitors",
+      "requested": "admin.llm_rankings.site_id-4150951.html#/competitors",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.llm_rankings.site_id-4150951.html?lang=ru#/rankings",
+      "hash": "#/rankings",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "llm-menu",
+      "action": "menu: Источники",
+      "requested": "admin.llm_rankings.site_id-4150951.html#/sources",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.llm_rankings.site_id-4150951.html?lang=ru#/rankings",
+      "hash": "#/rankings",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "insights-menu",
+      "action": "menu: SERP",
+      "requested": "admin.insights.site_id-4150951.html#/serp",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.insights.site_id-4150951.html#/",
+      "hash": "#/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "bl-checker",
+      "action": "tab: overview",
+      "requested": "admin.backlink_checker_project.site_id-4150951.html#/overview/",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink_checker_project.site_id-4150951.html?lang=ru#/overview/",
+      "hash": "#/overview/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "bl-checker",
+      "action": "tab: backlinks",
+      "requested": "admin.backlink_checker_project.site_id-4150951.html#/backlinks/",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink_checker_project.site_id-4150951.html?lang=ru#/overview/",
+      "hash": "#/overview/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    },
+    {
+      "pass": "bl-checker",
+      "action": "tab: domains",
+      "requested": "admin.backlink_checker_project.site_id-4150951.html#/domains/",
+      "title": "SE Ranking",
+      "finalUrl": "https://online.seranking.com/admin.backlink_checker_project.site_id-4150951.html?lang=ru#/overview/",
+      "hash": "#/overview/",
+      "headings": [],
+      "activeTabs": [],
+      "is404": false
+    }
+  ]
+}
