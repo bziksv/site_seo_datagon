@@ -5,12 +5,12 @@ import { COMPANY_TIMELINE } from "@/lib/content/about";
 
 export const metadata: Metadata = {
   title: "История компании",
-  description: "История развития Датагон с 2015 года.",
+  description: "История развития Титло с 2015 года.",
 };
 
 export default function CompanyHistoryPage() {
   return (
-    <PageShell title="История компании" lead="Ключевые этапы развития Датагон и команды.">
+    <PageShell title="История компании" lead="Ключевые этапы развития Титло и команды.">
       <ol className="space-y-6">
         {COMPANY_TIMELINE.map((item) => (
           <li key={item.href} className="rounded-xl border border-slate-200 bg-white p-6">

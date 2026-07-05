@@ -293,7 +293,7 @@ export const HTTP_HEADERS_ADVANTAGES = [
   },
   {
     src: "/modules/assets/6092cc028cacc0c4.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом мониторинг сайтов, мета-теги и ссылки — полный тех- и SEO-стек.",
   },
 ] as const;

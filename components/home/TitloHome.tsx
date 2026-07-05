@@ -204,7 +204,7 @@ function HeroDashboard({ reduceMotion, mouse }: { reduceMotion: boolean; mouse: 
     >
       <div className="home-hero-scan pointer-events-none absolute inset-0 z-10 opacity-30" aria-hidden />
       <div className="relative z-20 border-b border-white/10 px-4 py-3 font-mono text-xs text-slate-400">
-        <span className="text-emerald-400">●</span> datagon · панель проекта
+        <span className="text-emerald-400">●</span> titlo · панель проекта
       </div>
       <div className="relative z-20 space-y-3 p-4">
         <div className="flex flex-wrap gap-2">
@@ -253,7 +253,7 @@ function HeroDashboard({ reduceMotion, mouse }: { reduceMotion: boolean; mouse: 
   );
 }
 
-export function DatagonHome({ heroTitle, aboutTitle, aboutLead, ctaTitle, ctaLead, news }: Props) {
+export function TitloHome({ heroTitle, aboutTitle, aboutLead, ctaTitle, ctaLead, news }: Props) {
   const reduceMotion = usePrefersReducedMotion();
   const [rotIdx, setRotIdx] = useState(0);
   const [mouse, setMouse] = useState({ x: 0, y: 0 });

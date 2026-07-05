@@ -8,7 +8,7 @@ export const HTML_EDITOR_FULL_MAX_TEXTS = 30;
 export const CKEDITOR_CDN_URL =
   "https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.20.1/ckeditor.js";
 
-export const HTML_EDITOR_DEMO_LAYOUT_KEY = "datagon-he-demo-layout";
+export const HTML_EDITOR_DEMO_LAYOUT_KEY = "titlo-he-demo-layout";
 
 export function buildHtmlEditorRegisterUrl(): string {
   const u = new URL(`${LK_URL}/register`);

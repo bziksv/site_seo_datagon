@@ -255,7 +255,7 @@ export const DOMAIN_REG_POST_REG = {
       text: "Telegram на Free при подключённом боте; email при изменениях — на платных тарифах.",
     },
     {
-      title: "В платформе Датагон",
+      title: "В платформе Титло",
       text: "Рядом мониторинг доступности сайта, ссылок и HTTP-заголовков — один вход для SEO-команды.",
     },
   ],
@@ -274,7 +274,7 @@ export const DOMAIN_REG_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом мониторинг сайтов, ссылок и HTTP-заголовков.",
   },
 ] as const;

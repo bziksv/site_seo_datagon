@@ -232,7 +232,7 @@ export const TEXT_LENGTH_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом анализ текста, мета-теги и релевантность.",
   },
 ] as const;
@@ -270,7 +270,7 @@ export const TEXT_LENGTH_OPTIONS = [
 export const TEXT_LENGTH_VIDEOS = [
   {
     id: "ouSX5Xsdk4M",
-    title: "Подсчёт длины текста в Датагон",
+    title: "Подсчёт длины текста в Титло",
     description: "Как вставить текст и прочитать статистику.",
   },
 ] as const;

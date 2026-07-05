@@ -14,7 +14,9 @@
 | [architecture.md](./architecture.md) | Стек, домены, границы Next vs Laravel |
 | [cabinet-servers.md](./cabinet-servers.md) | **Кабинет:** VPS, пути, БД на старом сервере, миграция lk → cabinet |
 | [cabinet-git.md](./cabinet-git.md) | **Кабинет:** push с VPS → GitHub → clone на Mac |
-| [cabinet-deploy.md](./cabinet-deploy.md) | **Кабинет:** деплой на VPS `155.212.171.103` (git + composer + PM2 :3002) |
+| **[cabinet-titlo-deploy.md](./cabinet-titlo-deploy.md)** | **cabinet.titlo.ru** на VPS, PM2 `cabinet-titlo`, порт **3004** |
+| [nginx-cabinet-titlo.example.conf](./nginx-cabinet-titlo.example.conf) | Nginx: cabinet.titlo.ru → **:3004** |
+| [cabinet-deploy.md](./cabinet-deploy.md) | **Кабинет legacy:** деплой cabinet.datagon.ru (:3002) |
 | [cabinet-reference.md](./cabinet-reference.md) | **Кабинет:** роуты, middleware, логи, troubleshooting |
 | [cabinet-module-versioning.md](./cabinet-module-versioning.md) | **Кабинет:** версии модулей (config + changelog + badge) |
 | [cabinet-pending-db-and-deploy.md](./cabinet-pending-db-and-deploy.md) | **Кабинет:** что не на проде, миграции БД, журнал между диалогами |

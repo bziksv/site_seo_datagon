@@ -6,12 +6,12 @@ import { NEWS_ITEMS } from "@/lib/content/news";
 
 export const metadata: Metadata = {
   title: "Новости",
-  description: "Новости и обновления сервиса Датагон.",
+  description: "Новости и обновления сервиса Титло.",
 };
 
 export default function NewsListPage() {
   return (
-    <PageShell title="Новости и обновления" lead="Актуальные события и изменения в модулях Датагон.">
+    <PageShell title="Новости и обновления" lead="Актуальные события и изменения в модулях Титло.">
       <ul className="space-y-4">
         {NEWS_ITEMS.map((item) => (
           <NewsCard key={item.slug} item={item} />

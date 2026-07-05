@@ -4,7 +4,7 @@ export const META_TAGS_DEMO_MODULE = "proverka-meta-tegov-online" as const;
 
 export const META_TAGS_DEMO_MAX_RUNS = 5;
 
-export const META_TAGS_SAMPLE_URL = "https://datagon.ru/";
+export const META_TAGS_SAMPLE_URL = "https://titlo.ru/";
 
 export function buildMetaTagsRegisterUrl(): string {
   const u = new URL(`${LK_URL}/register`);

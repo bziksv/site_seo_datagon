@@ -19,4 +19,4 @@ export const SITE_MONITORING_CABINET_FEATURES = [
   "Uptime и история в кабинете",
 ] as const;
 
-export const SITE_MONITORING_SAMPLE_URL = "https://datagon.ru/";
+export const SITE_MONITORING_SAMPLE_URL = "https://titlo.ru/";

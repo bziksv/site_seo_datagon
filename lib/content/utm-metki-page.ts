@@ -234,7 +234,7 @@ export const UTM_ADVANTAGES = [
   },
   {
     src: "/modules/assets/7a8fee0f56d8d28c.jpg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом ROI, мониторинг и SEO — один кабинет для маркетинга.",
   },
 ] as const;
@@ -272,7 +272,7 @@ export const UTM_OPTIONS = [
 /** Блок «после демо» на публичном v2-лендинге */
 export const UTM_POST_REG = {
   eyebrow: "Личный кабинет",
-  title: "Зачем регистрироваться в Датагоне",
+  title: "Зачем регистрироваться в Титло",
   lead: "Генератор UTM на этой странице — полный, без ограничений. Регистрация открывает кабинет с десятками модулей для SEO, рекламы и контроля сайтов.",
   items: [
     {
@@ -305,7 +305,7 @@ export const UTM_POST_REG = {
 export const UTM_VIDEOS = [
   {
     id: "dpScfE_Jqfg",
-    title: "Генератор UTM в Датагон",
+    title: "Генератор UTM в Титло",
     description: "Как собрать ссылку с метками за несколько шагов.",
   },
 ] as const;

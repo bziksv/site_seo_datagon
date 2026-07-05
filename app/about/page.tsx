@@ -6,9 +6,9 @@ import { getSitePage } from "@/lib/content/site-pages.generated";
 import { publicCopy } from "@/lib/public-copy";
 
 export const metadata: Metadata = {
-  title: "О сервисе Датагон — история развития",
+  title: "О сервисе Титло — история развития",
   description:
-    "О компании Датагон: инструменты для SEO, история с 2015 года, команда в Воронеже.",
+    "О компании Титло: инструменты для SEO, история с 2015 года, команда в Воронеже.",
 };
 
 type TimelineItem = {

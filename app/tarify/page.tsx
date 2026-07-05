@@ -7,7 +7,7 @@ import { TARIFF_DISCOUNT_NOTE, TARIFF_PLANS } from "@/lib/content/tariffs";
 
 export const metadata: Metadata = {
   title: "Тарифы",
-  description: "Тарифные планы Датагон: Бесплатный, Оптимальный, Ультимат, Максимум — сравнение лимитов.",
+  description: "Тарифные планы Титло: Бесплатный, Оптимальный, Ультимат, Максимум — сравнение лимитов.",
 };
 
 export default function TarifyPage() {

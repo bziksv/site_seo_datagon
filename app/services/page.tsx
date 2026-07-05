@@ -8,7 +8,7 @@ import { LK_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Продукты и услуги",
-  description: "Бесплатные и платные SEO-сервисы Датагон в одном месте.",
+  description: "Бесплатные и платные SEO-сервисы Титло в одном месте.",
 };
 
 export default function ServicesPage() {

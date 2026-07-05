@@ -66,12 +66,15 @@ CONTACT_TO=info@titlo.ru,sv6@list.ru
 ```bash
 npm ci
 npm run build
-pm2 start npm --name titlo-site -- start
+pm2 start ecosystem.config.cjs
 pm2 save
 
 curl -s http://127.0.0.1:3003/api/health/
 curl -sI http://127.0.0.1:3003/ | head -5
 ```
+
+**Важно:** PM2 **не читает** `.env.local`. Порт 3003 задаётся в `ecosystem.config.cjs` / `npm run start:titlo`.  
+Не используйте `pm2 start npm -- start` — поднимется на **3001** и упадёт с `EADDRINUSE`.
 
 Nginx: [nginx-titlo.example.conf](./nginx-titlo.example.conf) → `server_name titlo.ru`, upstream **3003**. SSL через Let's Encrypt / панель хостинга.
 

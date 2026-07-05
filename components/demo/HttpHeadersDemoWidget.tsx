@@ -185,7 +185,7 @@ export function HttpHeadersDemoWidget() {
               className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50"
               onClick={() => setUrl(HTTP_HEADERS_SAMPLE_URL)}
             >
-              Пример: datagon.ru
+              Пример: titlo.ru
             </button>
           </div>
 

@@ -167,7 +167,7 @@ export const TEXT_ANAL_INSIGHTS_OUTCOMES = [
   {
     label: "Агентство",
     icon: "✓",
-    text: "Модуль в платформе Датагон рядом с релевантностью и уникальными словами.",
+    text: "Модуль в платформе Титло рядом с релевантностью и уникальными словами.",
   },
 ] as const;
 
@@ -244,7 +244,7 @@ export const TEXT_ANAL_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом релевантность, уникальные слова и генератор ключей.",
   },
 ] as const;
@@ -282,7 +282,7 @@ export const TEXT_ANAL_OPTIONS = [
 export const TEXT_ANAL_VIDEOS = [
   {
     id: "H_wcnUFxHRw",
-    title: "Анализ текста в Датагон",
+    title: "Анализ текста в Титло",
     description: "Как запустить проверку и читать таблицу результата.",
   },
 ] as const;

@@ -4,7 +4,7 @@ export const HTTP_HEADERS_DEMO_MODULE = "http-headers" as const;
 
 export const HTTP_HEADERS_DEMO_MAX_RUNS = 5;
 
-export const HTTP_HEADERS_SAMPLE_URL = "https://datagon.ru/";
+export const HTTP_HEADERS_SAMPLE_URL = "https://titlo.ru/";
 
 export function buildHttpHeadersRegisterUrl(): string {
   const u = new URL(`${LK_URL}/register`);

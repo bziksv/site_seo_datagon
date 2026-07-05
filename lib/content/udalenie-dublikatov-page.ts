@@ -238,7 +238,7 @@ export const DEDUP_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом сравнение списков, подсчёт текста и анализ семантики.",
   },
 ] as const;

@@ -235,7 +235,7 @@ export const PW_GEN_ADVANTAGES = [
   },
   {
     src: "/modules/assets/a02422b314d1741d.png",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом SEO и маркетинг — один кабинет для команды и агентства.",
   },
 ] as const;

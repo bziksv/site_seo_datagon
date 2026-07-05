@@ -88,7 +88,7 @@ export function HomeEcosystemOrbit() {
 
             <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-brand-500 bg-white px-6 py-4 text-center shadow-lg">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-600">Хаб</span>
-              <p className="mt-1 font-bold text-slate-900">Датагон</p>
+              <p className="mt-1 font-bold text-slate-900">Титло</p>
             </div>
           </div>
 

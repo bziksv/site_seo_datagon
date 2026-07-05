@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 
 /**
- * Публичный текст: старый бренд Red Box / RedBox → Датагон,
+ * Публичный текст: старый бренд Red Box / RedBox → Титло,
  * убираем служебные формулировки из скрапа.
  */
 export function publicCopy(text: string): string {

@@ -87,7 +87,7 @@ export function DomainInformationDemoWidget() {
               className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50"
               onClick={() => setDomain(DOMAIN_INFORMATION_SAMPLE_DOMAIN)}
             >
-              Пример: datagon.ru
+              Пример: titlo.ru
             </button>
           </div>
 

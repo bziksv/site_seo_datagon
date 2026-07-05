@@ -198,7 +198,7 @@ export function buildModuleV2Config(
       "Повторные проверки — вручную, без истории",
       "Сложно показать результат клиенту или команде",
     ],
-    gainTitle: "В Датагоне",
+    gainTitle: "В Титло",
     gains: [
       "Один проект — данные модуля в кабинете",
       "Повторные запуски с датами и выгрузкой",
@@ -283,7 +283,7 @@ export function buildModuleV2Config(
       title: o.orbitSection?.title ?? `${hub} — узел, не остров`,
       lead:
         o.orbitSection?.lead ??
-        "Связанные модули Датагона — переход без смены платформы и повторного входа.",
+        "Связанные модули Титло — переход без смены платформы и повторного входа.",
     },
     options: source.options ?? module.features ?? [],
     optionsSection: mergeSection(optionsBase, o.optionsSection),

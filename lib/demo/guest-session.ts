@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 
-const GUEST_COOKIE = "datagon_demo_guest";
-const RUNS_COOKIE = "datagon_demo_runs";
+const GUEST_COOKIE = "titlo_demo_guest";
+const RUNS_COOKIE = "titlo_demo_runs";
 
 export type GuestRunState = Record<string, { count: number; day: string }>;
 

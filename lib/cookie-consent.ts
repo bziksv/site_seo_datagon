@@ -1,6 +1,6 @@
-export const COOKIE_CONSENT_KEY = "datagon-cookie-consent";
+export const COOKIE_CONSENT_KEY = "titlo-cookie-consent";
 
-export const COOKIE_CONSENT_EVENT = "datagon-cookie-consent";
+export const COOKIE_CONSENT_EVENT = "titlo-cookie-consent";
 
 export function hasCookieConsent(): boolean {
   if (typeof window === "undefined") return false;

@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { analyzeText } from "@/lib/demo/text-stats";
 import { LK_URL } from "@/lib/site";
 
-const PLACEHOLDER = `Вставьте текст для анализа — как в модуле «Подсчёт длины текста» в кабинете Датагон.`;
+const PLACEHOLDER = `Вставьте текст для анализа — как в модуле «Подсчёт длины текста» в кабинете Титло.`;
 
 export function TextLengthTool() {
   const [text, setText] = useState("");

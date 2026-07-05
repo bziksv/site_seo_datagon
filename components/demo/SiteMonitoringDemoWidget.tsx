@@ -86,7 +86,7 @@ export function SiteMonitoringDemoWidget() {
               className="rounded-lg border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50"
               onClick={() => setUrl(SITE_MONITORING_SAMPLE_URL)}
             >
-              Пример: datagon.ru
+              Пример: titlo.ru
             </button>
           </div>
 

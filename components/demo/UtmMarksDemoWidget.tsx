@@ -33,7 +33,7 @@ export function UtmMarksDemoWidget({ nested }: Props) {
           remaining={1}
           maxRuns={1}
           fullMaxChars={0}
-          moduleTitle="платформы Датагон"
+          moduleTitle="платформы Титло"
           showRemaining={false}
           upgradeHint="Зарегистрируйтесь бесплатно — сохраните доступ к генератору в кабинете и подключите мониторинг, SEO и аналитику в одном месте."
           details={UTM_MARKS_CABINET_FEATURES}

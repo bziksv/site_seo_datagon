@@ -74,7 +74,7 @@ export const CLUSTER_TECH_LAYERS = [
     title: "Экспорт",
     short: "CSV · XLS",
     text: "Сохранение в «Мои проекты» или скачивание таблицы.",
-    detail: "Передача ядра в ТЗ, контент-план или другие модули Датагон.",
+    detail: "Передача ядра в ТЗ, контент-план или другие модули Титло.",
   },
 ] as const;
 
@@ -244,7 +244,7 @@ export const CLUSTER_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом релевантность, анализ текста и генератор слов.",
   },
 ] as const;
@@ -282,7 +282,7 @@ export const CLUSTER_OPTIONS = [
 export const CLUSTER_VIDEOS = [
   {
     id: "MMLNuPH2ymA",
-    title: "Кластеризатор в Датагон",
+    title: "Кластеризатор в Титло",
     description: "Как запустить кластеризацию и работать с результатом.",
   },
 ] as const;

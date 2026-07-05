@@ -1,4 +1,4 @@
-import { DatagonHome } from "@/components/home/DatagonHome";
+import { TitloHome } from "@/components/home/TitloHome";
 import { getSitePage } from "@/lib/content/site-pages.generated";
 import { NEWS_ITEMS } from "@/lib/content/news";
 
@@ -8,7 +8,7 @@ export default function HomePage() {
   const ctaBlock = home?.sections.find((s) => s.title.includes("регистрации"));
 
   return (
-    <DatagonHome
+    <TitloHome
       heroTitle={
         home?.h1 ?? "Инструменты для SEO, маркетинга и роста сайта"
       }

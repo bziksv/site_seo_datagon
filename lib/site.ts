@@ -1,12 +1,12 @@
 export const LK_URL = process.env.NEXT_PUBLIC_LK_URL ?? "https://cabinet.titlo.ru";
 
-/** Бренд после ребрендинга RedBox → Датагон */
+/** Бренд: Титло (titlo.ru) */
 export const SITE = {
-  name: "Датагон",
-  nameLatin: "Datagon",
-  title: "Инструменты для SEO специалиста | Датагон",
+  name: "Титло",
+  nameLatin: "Titlo",
+  title: "Инструменты для SEO специалиста | Титло",
   description:
-    "Платформа Датагон для анализа и отслеживания сайта. Мониторинг, релевантность, позиции и другие инструменты для SEO и маркетинга.",
+    "Платформа Титло для анализа и отслеживания сайта. Мониторинг, релевантность, позиции и другие инструменты для SEO и маркетинга.",
   phone: "+7-960-134-03-03",
   email: "info@titlo.ru",
   supportHours: "Пн–Пт, 9:30–19:00",
@@ -15,7 +15,7 @@ export const SITE = {
   copyrightSince: 2023,
 } as const;
 
-/** © 2023 – 2026 Датагон (конечный год — из текущей даты) */
+/** © 2023 – 2026 Титло (конечный год — из текущей даты) */
 export function getCopyrightText(name: string = SITE.name): string {
   const year = new Date().getFullYear();
   const since = SITE.copyrightSince;

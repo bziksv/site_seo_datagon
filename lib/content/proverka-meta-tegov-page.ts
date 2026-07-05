@@ -122,7 +122,7 @@ export const META_MON_INSIGHTS = {
   title: "Что покажет проверка",
   lead: "Таблица по URL — не абстрактный «сайт в порядке», а конкретные title и description для правок.",
   intro:
-    "Дополняет Search Console и Метрику: базовая техническая SEO-разметка в одном месте платформы Датагон.",
+    "Дополняет Search Console и Метрику: базовая техническая SEO-разметка в одном месте платформы Титло.",
 } as const;
 
 export const META_MON_INSIGHTS_GRID = [
@@ -236,7 +236,7 @@ export const META_MON_ADVANTAGES = [
   },
   {
     src: "/modules/assets/a02422b314d1741d.png",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом анализ текста, релевантность и HTTP-заголовки.",
   },
 ] as const;
@@ -252,7 +252,7 @@ export const META_MON_FAQ = [
   },
   {
     q: "Зачем мониторинг, если есть Вебмастер?",
-    a: "Свой снимок по вашему списку URL, история в кабинете Датагон и связка с другими SEO-модулями.",
+    a: "Свой снимок по вашему списку URL, история в кабинете Титло и связка с другими SEO-модулями.",
   },
   {
     q: "Нужно ли забивать keywords?",
@@ -274,7 +274,7 @@ export const META_MON_OPTIONS = [
 export const META_MON_VIDEOS = [
   {
     id: "VzRp5vZ26Fc",
-    title: "Мониторинг мета-тегов в Датагон",
+    title: "Мониторинг мета-тегов в Титло",
     description: "Как отправить URL и прочитать отчёт.",
   },
 ] as const;

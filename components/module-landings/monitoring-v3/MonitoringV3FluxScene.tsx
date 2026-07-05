@@ -52,7 +52,7 @@ export function MonitoringV3FluxScene({ flux }: { flux: Flux }) {
             />
           </div>
           <span className={`shrink-0 font-mono text-xs ${orderOpacity > 0.5 ? "text-brand-300" : "text-slate-600"}`}>
-            в Датагоне
+            в Титло
           </span>
         </div>
       </div>

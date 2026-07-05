@@ -57,7 +57,7 @@ function cleanHtml($, root) {
   html = html
     .replace(/\s+/g, " ")
     .replace(/>\s+</g, "><")
-    .replace(/RedBox/g, "Датагон");
+    .replace(/RedBox/g, "Титло");
   return normalizeLegalHtml(html);
 }
 

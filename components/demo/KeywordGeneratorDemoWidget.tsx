@@ -347,7 +347,7 @@ export function KeywordGeneratorDemoWidget({ nested }: Props) {
           remaining={1}
           maxRuns={1}
           fullMaxChars={0}
-          moduleTitle="платформы Датагон"
+          moduleTitle="платформы Титло"
           showRemaining={false}
           upgradeHint={KEYWORD_GEN_UPGRADE_HINT}
           details={KEYWORD_GEN_CABINET_FEATURES}

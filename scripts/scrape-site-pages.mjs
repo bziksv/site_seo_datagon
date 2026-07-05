@@ -114,4 +114,4 @@ lines.push("];", "", "export function getSitePage(id: string): SitePageContent |
 fs.writeFileSync(OUT, lines.join("\n"));
 console.log("written", OUT);
 
-// FAQ — вручную в lib/content/faq.ts (про Датагон, не Kraken)
+// FAQ — вручную в lib/content/faq.ts (про Титло, не Kraken)

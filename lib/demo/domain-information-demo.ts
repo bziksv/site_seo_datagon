@@ -4,7 +4,7 @@ export const DOMAIN_INFORMATION_DEMO_MODULE = "otslezhivanie-sroka-registratsii-
 
 export const DOMAIN_INFORMATION_DEMO_MAX_RUNS = 5;
 
-export const DOMAIN_INFORMATION_SAMPLE_DOMAIN = "datagon.ru";
+export const DOMAIN_INFORMATION_SAMPLE_DOMAIN = "titlo.ru";
 
 export function buildDomainInformationRegisterUrl(): string {
   const u = new URL(`${LK_URL}/register`);

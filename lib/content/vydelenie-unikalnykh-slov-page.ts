@@ -168,7 +168,7 @@ export const UNIQUE_WORDS_INSIGHTS_OUTCOMES = [
   {
     label: "Агентство",
     icon: "✓",
-    text: "Быстрый отчёт по списку фраз заказчика — в кабинете Датагон.",
+    text: "Быстрый отчёт по списку фраз заказчика — в кабинете Титло.",
   },
 ] as const;
 
@@ -243,7 +243,7 @@ export const UNIQUE_WORDS_ADVANTAGES = [
   },
   {
     src: "/modules/assets/97129e0982b15b0e.svg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом сравнение списков, dedupe и анализ релевантности.",
   },
 ] as const;
@@ -281,7 +281,7 @@ export const UNIQUE_WORDS_OPTIONS = [
 export const UNIQUE_WORDS_VIDEOS = [
   {
     id: "IX9I6RajsEk",
-    title: "Выделение уникальных слов в Датагон",
+    title: "Выделение уникальных слов в Титло",
     description: "Как вставить фразы и прочитать таблицу результата.",
   },
 ] as const;

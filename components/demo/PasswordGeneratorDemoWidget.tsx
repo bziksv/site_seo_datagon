@@ -220,7 +220,7 @@ export function PasswordGeneratorDemoWidget({ nested }: Props) {
           remaining={1}
           maxRuns={1}
           fullMaxChars={0}
-          moduleTitle="платформы Датагон"
+          moduleTitle="платформы Титло"
           showRemaining={false}
           upgradeHint={PASSWORD_GEN_UPGRADE_HINT}
           details={PASSWORD_GEN_CABINET_FEATURES}

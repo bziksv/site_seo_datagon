@@ -5,12 +5,12 @@ import { FAQ_ITEMS } from "@/lib/content/faq";
 
 export const metadata: Metadata = {
   title: "Вопрос-ответ",
-  description: "Частые вопросы о сервисе Датагон и личном кабинете.",
+  description: "Частые вопросы о сервисе Титло и личном кабинете.",
 };
 
 export default function FaqPage() {
   return (
-    <PageShell title="Вопрос-ответ" lead="Ответы на частые вопросы о платформе Датагон.">
+    <PageShell title="Вопрос-ответ" lead="Ответы на частые вопросы о платформе Титло.">
       <FaqAccordion items={FAQ_ITEMS} />
     </PageShell>
   );

@@ -74,7 +74,7 @@ export function UtmMarksDemoEmbed() {
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
           </div>
           <p className="min-w-0 flex-1 truncate rounded-md border border-slate-200/80 bg-white px-3 py-1 font-mono text-[11px] text-slate-500 sm:text-xs">
-            datagon.ru · генератор UTM-меток
+            titlo.ru · генератор UTM-меток
           </p>
           <span className="rounded-full border border-brand-200 bg-brand-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-brand-800">
             Live

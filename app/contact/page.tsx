@@ -6,7 +6,7 @@ import { BANK, CONTACT_LEAD, OFFICES, REQUISITES, SUPPORT } from "@/lib/content/
 
 export const metadata: Metadata = {
   title: "Контакты",
-  description: "Контакты Датагон: офис в Воронеже, поддержка, реквизиты.",
+  description: "Контакты Титло: офис в Воронеже, поддержка, реквизиты.",
 };
 
 export default function ContactPage() {

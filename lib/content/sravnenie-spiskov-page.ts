@@ -236,7 +236,7 @@ export const LIST_COMPARE_ADVANTAGES = [
   },
   {
     src: "/modules/assets/731a44965037e4dc.jpg",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом кластеризатор, удаление дубликатов и анализ релевантности.",
   },
 ] as const;
@@ -274,7 +274,7 @@ export const LIST_COMPARE_OPTIONS = [
 export const LIST_COMPARE_VIDEOS = [
   {
     id: "aOHz0-25UAI",
-    title: "Сравнение списков в Датагон",
+    title: "Сравнение списков в Титло",
     description: "Как заполнить столбцы и получить пересечение фраз.",
   },
 ] as const;

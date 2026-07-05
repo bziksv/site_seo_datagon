@@ -235,7 +235,7 @@ export const ROI_CALC_ADVANTAGES = [
   },
   {
     src: "/modules/assets/f8c015668e678567.png",
-    title: "В платформе Датагон",
+    title: "В платформе Титло",
     text: "Рядом UTM-метки, мониторинг и аналитика — один кабинет для маркетинга.",
   },
 ] as const;
@@ -298,7 +298,7 @@ export const ROI_CALC_POST_REG = {
 export const ROI_CALC_VIDEOS = [
   {
     id: "TVkoCRDaYJA",
-    title: "Калькулятор ROI в Датагон",
+    title: "Калькулятор ROI в Титло",
     description: "Как заполнить поля и получить метрики кампании.",
   },
 ] as const;

@@ -367,7 +367,7 @@ export function RoiCalculatorDemoWidget({ nested }: Props) {
           remaining={1}
           maxRuns={1}
           fullMaxChars={0}
-          moduleTitle="платформы Датагон"
+          moduleTitle="платформы Титло"
           showRemaining={false}
           upgradeHint={ROI_CALC_UPGRADE_HINT}
           details={ROI_CALC_CABINET_FEATURES}
