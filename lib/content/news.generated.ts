@@ -17,6 +17,36 @@ export type NewsItem = {
 
 export const NEWS_ITEMS: NewsItem[] = [
   {
+    slug: "novyy-modul-proverka-indeksacii-stranits-yandeks-i-google",
+    title: "Новый модуль: проверка индексации страниц (Яндекс и Google)",
+    date: "8 июля 2026",
+    excerpt:
+      "Массовая проверка до 500 URL в Яндексе и Google, CSV, лимиты по тарифу и демо на titlo.ru.",
+    blocks: [
+      {
+        type: "p",
+        text: "Запустили модуль «Проверка индексации страницы (Яндекс и Google)» — массовая проверка URL через выдачу site:.",
+      },
+      {
+        type: "p",
+        text: "Пакет до 500 адресов в одном запуске; Яндекс и Google — отдельно или вместе; 1 URL в одной ПС = 1 лимит в месяц (Free: 3, Optimal: 600, Ultimate: 1500, Maximum: 2400).",
+      },
+      {
+        type: "p",
+        text: "Дубликаты в списке подсвечиваются, в проверку идут только уникальные URL. Есть CSV-выгрузка, выбор домена Google и опция объединения www/http/https.",
+      },
+      {
+        type: "p",
+        text: "Кабинет: cabinet.titlo.ru/index-check · описание и демо: titlo.ru/proverka-indeksacii/ · версия модуля 1.0.3s.",
+      },
+    ],
+    body: [
+      "Запустили модуль «Проверка индексации страницы (Яндекс и Google)» — массовая проверка URL через выдачу site:.",
+      "Пакет до 500 адресов; Яндекс и Google; 1 URL × 1 ПС = 1 лимит. CSV, дедуп строк, демо на titlo.ru.",
+      "cabinet.titlo.ru/index-check · titlo.ru/proverka-indeksacii/",
+    ],
+  },
+  {
     slug: "analizator-relevantnosti-stranitsy-dobavlena-vozmozhno-skachivat-spisok-tlps",
     title: "Анализатор релевантности страницы: добавлена возможно скачивать список (TLPs)",
     date: "26 мая 2022",

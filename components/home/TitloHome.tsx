@@ -34,7 +34,7 @@ const MARQUEE = [
 ] as const;
 
 const STATS = [
-  { value: 18, suffix: "", label: "модулей в платформе" },
+  { value: 19, suffix: "", label: "модулей в платформе" },
   { value: 24, suffix: "/7", label: "мониторинг и алерты" },
   { value: 100, suffix: "+", label: "параметров в отчётах" },
   { value: 0, suffix: "₽", label: "старт после регистрации" },
@@ -130,7 +130,7 @@ const PAIN_GAIN = {
   ],
   gainTitle: `С ${SITE.name}`,
   gains: [
-    "18 модулей в одном кабинете — от ядра до мониторинга",
+    "19 модулей в одном кабинете — от ядра до мониторинга",
     "История проверок, экспорт и алерты без ручного пинга",
     "Связка модулей: релевантность → конкуренты → позиции",
   ],
@@ -328,7 +328,7 @@ export function TitloHome({ heroTitle, aboutTitle, aboutLead, ctaTitle, ctaLead,
                 href="/services/"
                 className="rounded-2xl border border-white/25 bg-white/[0.06] px-8 py-4 font-semibold backdrop-blur-md transition hover:border-brand-400/50 hover:bg-white/10"
               >
-                Все 18 модулей
+                Все 19 модулей
               </Link>
             </div>
 

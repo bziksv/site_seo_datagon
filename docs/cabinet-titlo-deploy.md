@@ -87,6 +87,14 @@ Cron (в панели или crontab пользователя сайта):
 
 ## Обновление после `git push`
 
+С Mac (из репо кабинета):
+
+```bash
+./scripts/deploy-titlo.sh
+```
+
+Или вручную на сервере:
+
 ```bash
 APP=/var/www/cabinet_titl_usr/data/www/cabinet.titlo.ru
 PHP=/opt/php74/bin/php
@@ -107,6 +115,16 @@ sudo -u $USER $PHP artisan config:cache
 sudo -u $USER $PHP artisan route:clear
 sudo -u $USER $PHP artisan view:cache
 
+# ОБЯЗАТЕЛЬНО: queue workers держат старый PHP-код в памяти
+sudo -u $USER $PHP artisan queue:restart
+for group in cabinet-titlo-default cabinet-titlo-cluster-child cabinet-titlo-cluster-main \
+  cabinet-titlo-cluster-wait cabinet-titlo-position cabinet-titlo-relevance \
+  cabinet-titlo-monitoring-helper cabinet-titlo-monitoring-change-dates \
+  cabinet-titlo-monitoring-wait cabinet-titlo-monitoring-competitors-stat \
+  cabinet-titlo-competitor-analyse cabinet-titlo-ai-generation; do
+  supervisorctl restart "${group}:"* 2>/dev/null || true
+done
+
 curl -sI https://cabinet.titlo.ru/login | head -3
 ```
 
@@ -123,6 +141,7 @@ curl -sI https://cabinet.titlo.ru/login | head -3
 | PM2 `cabinet-titlo` | **Удалить** — на FastPanel не нужен |
 | `route:cache` → Closure | Использовать **`route:clear`**, не `route:cache` |
 | `storage/` missing | `rsync` с cabinet.datagon или `mkdir -p storage/framework/...` |
+| Частотность / очередь не работает после деплоя | **Не перезапустили supervisor** — `queue:restart` + `supervisorctl restart cabinet-titlo-*` |
 
 ---
 

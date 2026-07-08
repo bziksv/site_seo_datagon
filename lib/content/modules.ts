@@ -181,6 +181,16 @@ export const BASE_MODULE_PAGES: ModulePage[] = [
     features: ["Пакетная проверка URL", "Выгрузка в CSV"],
   },
   {
+    slug: "proverka-indeksacii",
+    path: "/proverka-indeksacii/",
+    title: "Проверка индексации страницы (Яндекс и Google)",
+    h1: "Проверка индексации страницы (Яндекс и Google)",
+    description: "Массовая проверка индексации URL в Яндексе и Google через site:.",
+    lead:
+      "Загрузите список страниц — сервис покажет, проиндексированы ли они в выбранных поисковых системах. Удобно для SEO-аудита и контроля после релизов.",
+    features: ["Яндекс и Google", "Пакет до 500 URL", "CSV-выгрузка", "Лимиты по тарифу"],
+  },
+  {
     slug: "html-redaktor",
     path: "/html-redaktor/",
     title: "HTML-редактор",

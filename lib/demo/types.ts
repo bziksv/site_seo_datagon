@@ -478,6 +478,40 @@ export type HttpHeadersDemoRunBody = {
   url: string;
 };
 
+export type IndexCheckEngineResult = {
+  indexed: boolean;
+  results_count?: number;
+  matched_url?: string | null;
+  error?: string | null;
+};
+
+export type IndexCheckDemoResult = {
+  url: string;
+  yandex: IndexCheckEngineResult | null;
+  google: IndexCheckEngineResult | null;
+};
+
+export type IndexCheckDemoResponse = {
+  demo: true;
+  module: "proverka-indeksacii";
+  remaining: number;
+  limits: {
+    max_runs_per_day: number;
+    max_urls_per_run: number;
+    cost_per_engine?: number;
+  };
+  result: IndexCheckDemoResult;
+  upgrade: DemoUpgrade;
+};
+
+export type IndexCheckDemoRunBody = {
+  url: string;
+  yandex?: boolean;
+  google?: boolean;
+  unify_www?: boolean;
+  google_domain?: string;
+};
+
 export type BacklinkDemoCheck = {
   key: string;
   label: string;

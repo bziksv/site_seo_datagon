@@ -5,6 +5,7 @@ import { ModuleLandingShell } from "@/components/module-landings/ModuleLandingSh
 import { AnalizRelevantnostiLanding } from "@/components/module-landings/AnalizRelevantnostiLanding";
 import { AnalizKonkurentovLanding } from "@/components/module-landings/AnalizKonkurentovLanding";
 import { HttpHeadersLanding } from "@/components/module-landings/HttpHeadersLanding";
+import { ProverkaIndeksaciiLanding } from "@/components/module-landings/ProverkaIndeksaciiLanding";
 import { KalkulyatorRoiLanding } from "@/components/module-landings/KalkulyatorRoiLanding";
 import { UtmMetkiLanding } from "@/components/module-landings/UtmMetkiLanding";
 import { SravnenieSpiskovLanding } from "@/components/module-landings/SravnenieSpiskovLanding";
@@ -41,6 +42,8 @@ export function renderModuleLanding(baseSlug: string, module: ModulePage) {
       return wrapClassic(<HtmlRedaktorLanding module={module} />);
     case "http-headers":
       return wrapClassic(<HttpHeadersLanding module={module} />);
+    case "proverka-indeksacii":
+      return wrapClassic(<ProverkaIndeksaciiLanding module={module} />);
     case "kalkulyator-roi":
       return wrapClassic(<KalkulyatorRoiLanding module={module} />);
     case "utm-metki":
