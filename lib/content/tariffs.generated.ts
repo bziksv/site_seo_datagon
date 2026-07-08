@@ -22,7 +22,6 @@ export const TARIFF_PLANS: TariffPlan[] = [
     name: "Бесплатный",
     price: "0 ₽",
     pricePerDay: 0,
-    priceNote: "навсегда бесплатно",
     tagline: "Попробовать платформу и утилиты",
     highlighted: false,
     features: [

@@ -26,7 +26,7 @@ export default function TarifyPage() {
         Сравните планы — от бесплатного старта до максимальных лимитов
       </p>
 
-      <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid items-stretch gap-6 md:grid-cols-2 xl:grid-cols-4 xl:items-start">
         {TARIFF_PLANS.map((plan) => (
           <TariffCard key={plan.name} plan={plan} highlighted={plan.highlighted} />
         ))}
