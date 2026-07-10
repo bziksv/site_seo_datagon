@@ -1,15 +1,11 @@
-import { appendLkSetCookies } from "@/lib/lk-api";
+import { appendLkSetCookies, getLkApiBase } from "@/lib/lk-api";
 
 /** Серверный прокси на кабинет для demo API (анализ текста — только Laravel). */
 export async function proxyCabinetDemoPost(
   cabinetPath: string,
   incoming: Request
 ): Promise<Response> {
-  const base = (
-    process.env.CABINET_DEMO_API_URL ??
-    process.env.LK_API_BASE_URL ??
-    "http://127.0.0.1:3002"
-  ).replace(/\/$/, "");
+  const base = (process.env.CABINET_DEMO_API_URL ?? getLkApiBase()).replace(/\/$/, "");
 
   const url = `${base}/${cabinetPath.replace(/^\/+/, "")}`;
   const headers = new Headers();
