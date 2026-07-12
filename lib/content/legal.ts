@@ -61,7 +61,7 @@ export function getLegalBySlug(slug: string): LegalDoc | undefined {
   return { ...doc, bodyHtml };
 }
 
-/** В футере — оферта и три документа из Word/ODT (legal-pdf.generated). Старые /legal/privacy и /legal/personal-data — только для форм. */
+/** В футере — договор-оферта и три документа из Word/ODT. */
 export const LEGAL_NAV = [
   {
     href: "/legal/offer/",

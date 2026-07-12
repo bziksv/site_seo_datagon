@@ -6,6 +6,7 @@ import { PageShell } from "@/components/PageShell";
 import {
   getAllLegalPdfSlugs,
   getLegalPdfBySlug,
+  LEGAL_PDF_NAV,
   LEGAL_PDF_SCOPE_NOTE,
 } from "@/lib/content/legal-pdfs";
 
@@ -45,6 +46,11 @@ export default async function LegalPdfPage({ params }: Props) {
           <Link href="/legal/offer/" className="text-brand-600 hover:text-brand-700">
             Договор-оферта
           </Link>
+          {LEGAL_PDF_NAV.filter((link) => !link.href.endsWith(`/${slug}/`)).map((link) => (
+            <Link key={link.href} href={link.href} className="text-brand-600 hover:text-brand-700">
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         <LegalHtml html={doc.bodyHtml} />
