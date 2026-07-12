@@ -45,12 +45,6 @@ export default async function LegalPdfPage({ params }: Props) {
           <Link href="/legal/offer/" className="text-brand-600 hover:text-brand-700">
             Договор-оферта
           </Link>
-          <Link href="/legal/privacy/" className="text-brand-600 hover:text-brand-700">
-            Политика конфиденциальности
-          </Link>
-          <Link href="/legal/personal-data/" className="text-brand-600 hover:text-brand-700">
-            Согласие на обработку ПДн
-          </Link>
         </div>
 
         <LegalHtml html={doc.bodyHtml} />

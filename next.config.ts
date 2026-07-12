@@ -45,6 +45,16 @@ const nextConfig: NextConfig = {
         destination: "/legal/doc/cookies-policy/",
         permanent: true,
       },
+      {
+        source: "/legal/privacy",
+        destination: "/legal/doc/privacy-policy/",
+        permanent: true,
+      },
+      {
+        source: "/legal/privacy/",
+        destination: "/legal/doc/privacy-policy/",
+        permanent: true,
+      },
     ];
   },
 };
