@@ -132,8 +132,8 @@ export function ContactForm() {
         <input name="agree" type="checkbox" required defaultChecked className="mt-1" />
         <span>
           Согласен с{" "}
-          <Link href="/legal/personal-data/" className="text-brand-600 hover:text-brand-700">
-            обработкой персональных данных
+          <Link href="/legal/doc/privacy-policy/" className="text-brand-600 hover:text-brand-700">
+            политикой обработки персональных данных
           </Link>
         </span>
       </label>

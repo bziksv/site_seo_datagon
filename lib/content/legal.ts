@@ -47,8 +47,9 @@ function appendOfferRetentionClause(html: string): string {
   return html + OFFER_FREE_TARIFF_RETENTION_CLAUSE;
 }
 
+/** Старые /legal/personal-data и /legal/privacy редиректят на privacy-policy (next.config). */
 export function getAllLegalSlugs(): string[] {
-  return LEGAL_DOCS.map((d) => d.slug);
+  return ["offer"];
 }
 
 export function getLegalBySlug(slug: string): LegalDoc | undefined {
