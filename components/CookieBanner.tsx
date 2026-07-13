@@ -25,14 +25,10 @@ export function CookieBanner() {
           соглашаетесь с{" "}
           <Link href="/legal/doc/cookies-policy/" className="text-brand-600 hover:text-brand-700">
             политикой cookie-файлов
-          </Link>
-          ,{" "}
-          <Link href="/legal/doc/privacy-policy/" className="text-brand-600 hover:text-brand-700">
-            политикой обработки персональных данных
           </Link>{" "}
           и{" "}
-          <Link href="/legal/personal-data/" className="text-brand-600 hover:text-brand-700">
-            согласием на обработку персональных данных
+          <Link href="/legal/doc/privacy-policy/" className="text-brand-600 hover:text-brand-700">
+            политикой обработки персональных данных
           </Link>
           .
         </p>
