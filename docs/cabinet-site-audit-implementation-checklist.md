@@ -516,7 +516,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 Чеклист не «одна строка», а подпроекты:
 
 ### 11.1. Link graph
-- [ ] Спека хранения links (не взрывать БД) — сейчас `out_links_json` (cap 150 URL) на page
+- [x] Спека хранения links (не взрывать БД) — `out_links_json` (cap 150 URL) + `img_srcs_json`/`asset_srcs_json` на page; полный graph table — не нужен на MVP
 - [x] Extract on parse (lite)
 - [x] Broken link checker lite (crawl status + sample HEAD, budget)
 - [x] Отчёты lite: битые (`page_has_broken_links` / `broken_internal_link`), orphans; depth — `click_depth` / `deep_pages`
@@ -527,7 +527,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 - [x] Page-level agg: alt + broken + heavy (без 100k rows)
 - [x] Optional sample asset HEAD (`broken_image_head_max`)
 - [x] UI через findings-отчёты (не гигантская таблица всех img)
-- [ ] Полный каталог изображений / CDN-отчёт — позже
+- [x] Полный каталог изображений / CDN-отчёт — ⏸ не на Волне 5 (page-level достаточно)
 
 ### 11.3. PSI / performance
 - [x] Provider: Google PageSpeed Insights API v5 (`SiteAuditPsiProbe`)
@@ -576,7 +576,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 | Комментарии/статус «исправлено» на finding | C | [x] | [x] | [x] | `site_audit_finding_notes`; fixed скрывается из counts |
 | Игнор finding / false positive | B | [x] | [x] | [x] | project-level `site_audit_ignores`; URL или весь код |
 | Мультидомен / поддомены в одном project | C | [x] | [x] | [x] | `extra_hosts` в settings + seed/internal; batch доменов = отдельные projects |
-| White-label отчёт | D | [x] | [x] | [x] | публичный share без Titlo; brand_name/url; paid only; логотип-файл позже |
+| White-label отчёт | D | [x] | [x] | [x] | публичный share без Titlo; brand_name/url/logo; paid only |
 
 ---
 
@@ -712,4 +712,6 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **Trigram spam + bucket fix** | `text_trigram_spam`; UI-корзины без double-count virtual; v0.3.10 |
 | 2026-07-22 | **Heading hierarchy** | `heading_hierarchy` (до H1 / skip уровня h1–h6); v0.3.11 |
 | 2026-07-22 | **Incremental content_hash** | `content_unchanged`; skip HEAD img/assets + copy findings; v0.3.12 |
+| 2026-07-22 | **White-label logo** | upload логотипа в share; публичный header; v0.3.13 |
+| 2026-07-22 | **Beta banner** | баннер на UI: поддержка + CRM для замечаний |
 | 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · обкатка prod |
