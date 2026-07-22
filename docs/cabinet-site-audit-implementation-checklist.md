@@ -493,7 +493,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 | DESCRIPTION = H1 | B | [x] | [x] | [x] | [x] | [x] | `description_equals_h1` |
 | H1 = H2 (и иерархия) | B | [x] | [x] | [x] | [x] | [x] | `h1_equals_h2` (равенство; полная иерархия позже) |
 | Переспам в META / H1 | B | [x] | [x] | [x] | [x] | [x] | `meta_spam` / `h1_spam` |
-| Переспам в тексте / биграммы / триграммы | B | [x] | [x] | [x] | [x] | [x] | `text_bigram_spam` (триграммы позже) |
+| Переспам в тексте / биграммы / триграммы | B | [x] | [x] | [x] | [x] | [x] | `text_bigram_spam` + `text_trigram_spam` |
 | Много strong / спам заголовками | B | [x] | [x] | [x] | [x] | [x] | `too_many_strong` (порог `strong_max`) |
 | Повторы слова в предложении | C | [x] | [x] | [x] | [x] | [x] | `word_repeat_in_sentence` |
 | Внутренние ссылки на посадочные | C | [x] | [x] | [x] | [x] | [x] | `landing_no_inbound_internal` (0 inbound из краула) |
@@ -709,4 +709,5 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **proxy2 freeze** | волны 3–4 / HTML.gz — заморожены; только cabinet + наблюдение |
 | 2026-07-22 | **Commercial factors lite** | virtual `commercial_factors` + price/CTA/delivery/payment/stock/reviews; v0.3.8 |
 | 2026-07-22 | **Tree C/D + competitors link** | дерево A–D (раньше C/D скрывались); `site_competitors` → `/competitor-analysis`; v0.3.9 |
-| 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · polish UX tips · обкатка prod |
+| 2026-07-22 | **Trigram spam + bucket fix** | `text_trigram_spam`; UI-корзины без double-count virtual; v0.3.10 |
+| 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · обкатка prod |
