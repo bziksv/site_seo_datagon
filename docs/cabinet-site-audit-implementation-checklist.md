@@ -491,7 +491,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 | TITLE = DESCRIPTION | B | [x] | [x] | [x] | [x] | [x] | `title_equals_description` |
 | TITLE = H1 | B | [x] | [x] | [x] | [x] | [x] | `title_equals_h1` |
 | DESCRIPTION = H1 | B | [x] | [x] | [x] | [x] | [x] | `description_equals_h1` |
-| H1 = H2 (и иерархия) | B | [x] | [x] | [x] | [x] | [x] | `h1_equals_h2` (равенство; полная иерархия позже) |
+| H1 = H2 (и иерархия) | B | [x] | [x] | [x] | [x] | [x] | `h1_equals_h2` + `heading_hierarchy` (до H1 / skip уровня) |
 | Переспам в META / H1 | B | [x] | [x] | [x] | [x] | [x] | `meta_spam` / `h1_spam` |
 | Переспам в тексте / биграммы / триграммы | B | [x] | [x] | [x] | [x] | [x] | `text_bigram_spam` + `text_trigram_spam` |
 | Много strong / спам заголовками | B | [x] | [x] | [x] | [x] | [x] | `too_many_strong` (порог `strong_max`) |
@@ -584,7 +584,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 
 | Модуль | Что встроить в аудит | Статус |
 |--------|----------------------|--------|
-| Index check (title+snippet) | сниппеты, каннибализация | [~] | title-каннибализация = `duplicate_title`; `siteIndexCount` для индекса; сниппеты SERP — нет |
+| Index check (title+snippet) | сниппеты, каннибализация | [~] | title-каннибализация = `duplicate_title`; индекс = `index_count_mismatch`; SERP-сниппеты = `serp_snippets` (gate) |
 | HTTP Headers | сигналы headers / security | [x] | pack: HSTS/XFO/XCTO/CSP/RP/PP/COOP/COEP/CORP + virtual `security_headers` |
 | Meta tags monitoring | SEO META ошибки | [x] | virtual `seo_meta_errors` по данным краула (не вызов модуля) |
 | Мониторинг / ядро | потерянные посадочные, URL changes | [x] | `landing_not_*` + `landing_url_changed` |
@@ -710,4 +710,5 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **Commercial factors lite** | virtual `commercial_factors` + price/CTA/delivery/payment/stock/reviews; v0.3.8 |
 | 2026-07-22 | **Tree C/D + competitors link** | дерево A–D (раньше C/D скрывались); `site_competitors` → `/competitor-analysis`; v0.3.9 |
 | 2026-07-22 | **Trigram spam + bucket fix** | `text_trigram_spam`; UI-корзины без double-count virtual; v0.3.10 |
+| 2026-07-22 | **Heading hierarchy** | `heading_hierarchy` (до H1 / skip уровня h1–h6); v0.3.11 |
 | 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · обкатка prod |
