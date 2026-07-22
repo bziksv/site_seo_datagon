@@ -109,7 +109,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 | UX parity (share, schedule, xlsx, …) | 14 | cabinet | 🟡 почти ✅; HTML-мониторинг ⏸ (нужен html.gz/proxy2) |
 | Тяжёлое C (links, PSI, plagiarism…) | 11 | cabinet→позже proxy2 | 🟡 11.1–11.4 + 11.6 ✅; 11.5 headless ⏸ (решение: не MVP) |
 | Маркетинг / демо | 13 | titlo.ru + demo | 🟡 rich landing + tariff + demo seed ✅ |
-| Склейка модулей Titlo | 15 | cabinet | 🟡 lite уже; конкуренты ✅ deep-link; полный Есенин — нет; AI ✅ |
+| Склейка модулей Titlo | 15 | cabinet | 🟡 конкуренты ✅ · индекс ✅ deep-link; Есенин lite [~]; AI ✅ |
 
 ```
 Волна1 spec ──► Волна2 код+A на cabinet ──► Волна3 готовим proxy2
@@ -584,11 +584,11 @@ Cabinet = UI + dispatch + чтение отчётов.
 
 | Модуль | Что встроить в аудит | Статус |
 |--------|----------------------|--------|
-| Index check (title+snippet) | сниппеты, каннибализация | [~] | title-каннибализация = `duplicate_title`; индекс = `index_count_mismatch`; SERP-сниппеты = `serp_snippets` (gate) |
+| Index check (title+snippet) | сниппеты, каннибализация | [x] | lite в аудите + deep-link `site_index_check` → `/index-check`; SERP gate |
 | HTTP Headers | сигналы headers / security | [x] | pack: HSTS/XFO/XCTO/CSP/RP/PP/COOP/COEP/CORP + virtual `security_headers` |
 | Meta tags monitoring | SEO META ошибки | [x] | virtual `seo_meta_errors` по данным краула (не вызов модуля) |
 | Мониторинг / ядро | потерянные посадочные, URL changes | [x] | `landing_not_*` + `landing_url_changed` |
-| Есенин / text tools | тошнота, тощие, переспам | [~] | lite: `SiteAuditTextMetrics` (`text_nausea` / thin / spam); полный Есенин не подключали |
+| Есенин / text tools | тошнота, тощие, переспам | [~] | lite: `SiteAuditTextMetrics` (`text_nausea` / thin / spam / n-grams); полный Есенин — позже |
 | Анализ конкурентов | ветка «Конкуренты сайта» | [x] | deep-link `site_competitors` + баннер на SEO-сводке → `/competitor-analysis` |
 | AI generation | задачи из findings (D) | [x] | план работ + optional DeepSeek резюме (`SITE_AUDIT_ACTION_PLAN_AI`) |
 
@@ -714,4 +714,5 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **Incremental content_hash** | `content_unchanged`; skip HEAD img/assets + copy findings; v0.3.12 |
 | 2026-07-22 | **White-label logo** | upload логотипа в share; публичный header; v0.3.13 |
 | 2026-07-22 | **Beta banner** | баннер на UI: поддержка + CRM для замечаний |
+| 2026-07-22 | **Index-check deep-link + unchanged UI** | `site_index_check` → `/index-check`; «без изменений N стр.»; v0.3.14 |
 | 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · обкатка prod |
