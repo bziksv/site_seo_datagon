@@ -491,12 +491,17 @@ a {
 }
 
 .legal-content p {
-  @apply my-3;
+  @apply my-2;
+}
+
+/* Скрейп с Битрикса оставлял <br> между абзацами — margin у p уже даёт шаг. */
+.legal-content > br {
+  display: none;
 }
 
 .legal-content ul,
 .legal-content ol {
-  @apply my-4 space-y-1 pl-6;
+  @apply my-3 space-y-1 pl-6;
 }
 
 .legal-content ul {
