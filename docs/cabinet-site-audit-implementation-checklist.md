@@ -531,10 +531,10 @@ Cabinet = UI + dispatch + чтение отчётов.
 
 ### 11.3. PSI / performance
 - [x] Provider: Google PageSpeed Insights API v5 (`SiteAuditPsiProbe`)
-- [x] Sample strategy: посадочные → home → crawl (cap `psi_max_urls`)
+- [x] Sample strategy: посадочные → home → crawl (cap `psi_max_urls`, default 20)
 - [x] Mobile + Desktop reports (`psi_mobile` / `psi_desktop`)
 - [x] Budget: gate `SITE_AUDIT_PSI` + optional API key; timeout/max URLs
-- [ ] CrUX field data / полный audit pack — позже
+- [ ] CrUX field data / полный audit pack — позже (не делаем; lab PSI sample достаточно)
 
 ### 11.4. Content risk
 - [x] Plagiarism pipeline (посадочные) — lite internal + вкладка внешнего (Titlo TextUniqueness, выборочный запуск); сторонний Text.ru API — не нужен
@@ -719,4 +719,5 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **External plagiarism tab** | вкладка «Антиплагиат»: выборочные URL → TextUniqueness SERP; finding `landing_plagiarism_external`; v0.3.16 |
 | 2026-07-22 | **SERP snippet cannibalization** | `serp_snippet_cannibalization`: ≥2 своих URL в ТОП по запросу мониторинга; v0.3.17 |
 | 2026-07-22 | **Commercial vs TOP** | решение: не делаем; lite `commercial_factors` по своим страницам достаточно |
+| 2026-07-22 | **PSI sample 20** | default `SITE_AUDIT_PSI_MAX_URLS=20` (было 3); v0.3.18 |
 | 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · склейка релевантности с посадочными · обкатка prod |
