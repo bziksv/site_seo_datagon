@@ -118,6 +118,6 @@ export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
     Ultimate: "email-telegram",
     Maximum: "email-telegram",
   },
-  siteAudit: { Free: "500", Optimal: "5 000", Ultimate: "20 000", Maximum: "50 000" },
+  siteAudit: { Free: "100", Optimal: "1 000", Ultimate: "5 000", Maximum: "10 000" },
   siteAuditCrawls: { Free: "1", Optimal: "4", Ultimate: "8", Maximum: "12" },
 };

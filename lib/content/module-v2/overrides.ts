@@ -1384,7 +1384,7 @@ export const MODULE_V2_OVERRIDES: Record<string, ModuleV2Override> = {
         "Укажите домен и сколько страниц обойти по тарифу. Sitemap и robots подхватываются сами.",
         SITE_AUDIT_SCREENSHOTS[0]?.src ?? S0,
         SITE_AUDIT_SCREENSHOTS[0]?.caption ?? "Сводка",
-        ["Sitemap и robots", "До 50 000 страниц", "Очередь проверок"]
+        ["Sitemap и robots", "До 10 000 страниц", "Очередь проверок"]
       ),
       act(
         "02",
@@ -1404,7 +1404,7 @@ export const MODULE_V2_OVERRIDES: Record<string, ModuleV2Override> = {
       ),
     ],
     metrics: [
-      m("50", "тыс.", "страниц за проверку на Максимуме"),
+      m("10", "тыс.", "страниц за проверку на Максимуме"),
       m("5", "уровней", "от грубых ошибок до инфо"),
       m("100+", "проверок", "техника и SEO"),
       m("1", "ссылка", "отчёт клиенту без входа"),
