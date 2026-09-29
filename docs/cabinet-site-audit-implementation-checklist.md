@@ -652,6 +652,7 @@ Cabinet = UI + dispatch + чтение отчётов.
 
 | Дата | Что | Комментарий |
 |------|-----|-------------|
+| 2026-09-29 | **SiteAuditProjects = проверки в памяти** | не домены: `projectsUsed`=count crawls; `pruneUserToLimit`; Free 1 / Optimal 10 / Ultimate 20 / Maximum 30; маркетинг `tariffs.generated.ts`; домены без слотов |
 | 2026-08-13 | **test.titlo.ru deep_pages** | с `/map/` убраны прямые ссылки на `/seo/deep/2…5/` — иначе глубина < 4 |
 | 2026-08-13 | **test.titlo.ru orphan** | убран `<a href=/seo/orphan/>` с `/map/` — иначе граф не сирота |
 | 2026-08-13 | **robots_blocked при skip** | Disallow-URL не качаем, но finding пишем на discover/link; фикс потери `robots_skipped`; не дублировать в `sitemap_not_crawled` |
@@ -757,4 +758,6 @@ Cabinet = UI + dispatch + чтение отчётов.
 | 2026-07-22 | **Global cap=1** | `queued_wait` + FIFO promote; `SITE_AUDIT_GLOBAL_MAX_ACTIVE`; v0.3.20 |
 | 2026-07-22 | **Relevance bridge** | вкладка «Релевантность»: lookup history + prefill `/analyze-relevance`; v0.3.21 |
 | 2026-07-22 | **Next (Волна 5)** | HTML-мониторинг ⏸ (html.gz/proxy2) · обкатка prod |
+| 2026-09-26 | **HTML checker libxml/HTML5** | UI после virtual robots; `html_checker` в settings; Nu vnu HTTP (`SITE_AUDIT_VNU_URL`); fallback libxml; docs `cabinet.titlo.ru/docs/site-audit-vnu.md`; v0.3.153 |
+| 2026-09-26 | **Parallel vnu + aggregate queue** | `validateMany` в волне; `SITE_AUDIT_VNU_CONCURRENCY`; `site_audit_aggregate` + supervisor `cabinet-titlo-site-audit-aggregate`×2; fetch не ждёт Aggregate #228 |
 | 2026-08-12 | **Drop landing_plagiarism_suspect** | дубль `similar_pages`/`duplicate_content` только по посадочным — убран; внутренние дубли → similar_pages; v0.3.111 |

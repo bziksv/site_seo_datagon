@@ -83,7 +83,7 @@ export const TARIFF_COMPARE_ROWS = [
   { label: "Аудит сайта — страниц за проверку", short: "Аудит: страницы", key: "siteAudit" as const },
   { label: "Аудит сайта — проверок в месяц", short: "Аудит: проверки", key: "siteAuditCrawls" as const },
   { label: "Аудит сайта — потоки", short: "Аудит: потоки", key: "siteAuditConcurrency" as const },
-  { label: "Аудит сайта — проектов в памяти", short: "Аудит: проекты", key: "siteAuditProjects" as const },
+  { label: "Аудит сайта — проверок в памяти", short: "Аудит: в памяти", key: "siteAuditProjects" as const },
   { label: "Аудит сайта — авторасписаний", short: "Аудит: расписание", key: "siteAuditSchedules" as const },
 ] as const;
 
@@ -124,6 +124,6 @@ export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
   siteAudit: { Free: "100", Optimal: "1 000", Ultimate: "5 000", Maximum: "10 000" },
   siteAuditCrawls: { Free: "2", Optimal: "20", Ultimate: "50", Maximum: "100" },
   siteAuditConcurrency: { Free: "1", Optimal: "2", Ultimate: "4", Maximum: "8" },
-  siteAuditProjects: { Free: "1", Optimal: "20", Ultimate: "50", Maximum: "100" },
+  siteAuditProjects: { Free: "1", Optimal: "10", Ultimate: "20", Maximum: "30" },
   siteAuditSchedules: { Free: "—", Optimal: "20", Ultimate: "50", Maximum: "100" },
 };
