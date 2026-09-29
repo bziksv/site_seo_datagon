@@ -80,8 +80,11 @@ export const TARIFF_COMPARE_ROWS = [
   { label: "Мониторинг Мета-Тегов (проекты / страницы)", short: "Мета-теги", key: "meta" as const },
   { label: "Отслеживание размещенных ссылок на сайтах (проекты / ссылки)", short: "Ссылки", key: "links" as const },
   { label: "Отслеживание ссылок: оповещения", short: "Ссылки: алерты", key: "linksAlerts" as const },
-  { label: "Аудит сайта (страниц/краул)", short: "Аудит: страницы", key: "siteAudit" as const },
-  { label: "Аудит сайта (краулов/мес)", short: "Аудит: краулы", key: "siteAuditCrawls" as const },
+  { label: "Аудит сайта — страниц за проверку", short: "Аудит: страницы", key: "siteAudit" as const },
+  { label: "Аудит сайта — проверок в месяц", short: "Аудит: проверки", key: "siteAuditCrawls" as const },
+  { label: "Аудит сайта — потоки", short: "Аудит: потоки", key: "siteAuditConcurrency" as const },
+  { label: "Аудит сайта — проектов в памяти", short: "Аудит: проекты", key: "siteAuditProjects" as const },
+  { label: "Аудит сайта — авторасписаний", short: "Аудит: расписание", key: "siteAuditSchedules" as const },
 ] as const;
 
 export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
@@ -119,5 +122,8 @@ export const TARIFF_COMPARE: Record<string, Record<string, string>> = {
     Maximum: "email-telegram",
   },
   siteAudit: { Free: "100", Optimal: "1 000", Ultimate: "5 000", Maximum: "10 000" },
-  siteAuditCrawls: { Free: "1", Optimal: "4", Ultimate: "8", Maximum: "12" },
+  siteAuditCrawls: { Free: "2", Optimal: "20", Ultimate: "50", Maximum: "100" },
+  siteAuditConcurrency: { Free: "1", Optimal: "2", Ultimate: "4", Maximum: "8" },
+  siteAuditProjects: { Free: "1", Optimal: "20", Ultimate: "50", Maximum: "100" },
+  siteAuditSchedules: { Free: "—", Optimal: "20", Ultimate: "50", Maximum: "100" },
 };

@@ -64,6 +64,14 @@ function renderCompareCell(rowKey: string, planId: string, raw: string) {
     return renderTariffAlertsCell(planId);
   }
 
+  if (raw === "—" || raw === "0" || raw === "✗") {
+    return (
+      <span className="text-rose-500" aria-label="недоступно">
+        ✕
+      </span>
+    );
+  }
+
   return <span className="tabular-nums">{raw}</span>;
 }
 
